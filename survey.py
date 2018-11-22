@@ -10,8 +10,7 @@ def create_app(test_config=None):
     # )
 
     @app.route('/')
-	def index():
-		return 'Hola Javi!!'
+	def index(): return 'Hola Javi!!'
 
 
  #    if test_config is None:
