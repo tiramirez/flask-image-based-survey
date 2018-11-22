@@ -1,0 +1,21 @@
+<!doctype html>
+<title>{% block title %}{% endblock %} - Flaskr</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+<nav>
+  <h1>Encuesta Tomas</h1>
+  <ul>
+    {% if g.user %}
+      <li><span>{{ g.user['username'] }}</span>
+      <li><a href="{{ url_for('register') }}">Log Out</a>
+    {% else %}
+      <li><a href="{{ url_for('register') }}">Register</a>
+      <li><a href="{{ url_for('auth.home') }}">Log In</a>
+    {% endif %}
+  </ul>
+</nav>
+<section class="content">
+  <header>
+    {% block header %}{% endblock %}
+  </header>
+    {% block content %}{% endblock %}
+</section>
