@@ -22,9 +22,9 @@ def create_app(test_config=None):
     except OSError:
         pass
 
-    @app.route('/hello')
-    def hello():
-        return 'Hello, World!'
+    # @app.route('/hello')
+    # def hello():
+    #     return 'Hello, World!'
 
  #    # intialize database
  #    from . import db
@@ -43,5 +43,5 @@ def create_app(test_config=None):
 # def index():
 # 	return 'Hola Javi!!'
 
-if __name__ == "__main__":
-	app.run()
+# if __name__ == "__main__":
+# 	app.run()
