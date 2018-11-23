@@ -17,7 +17,7 @@ def register():
         sex = request.form['gender']
         age = request.form['age']
         country = request.form['country']
-        db = get_db()
+        # db = get_db()
         error = None
 
         # if not username:
