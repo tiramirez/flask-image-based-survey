@@ -4,8 +4,8 @@ from flask import (
 )
 # from werkzeug.security import check_password_hash, generate_password_hash
 # from survey.db import get_db
-# from .data import ACTORS
-# import random
+from .data import ACTORS
+import random
 
 
 bp = Blueprint('auth', __name__)
@@ -40,23 +40,23 @@ def register():
     return render_template('register.html')
 
 ## select from data 2 random images
-# def get_photos(source):
-#     p1 = random.choice(source)
-#     p2 = random.choice(source)
-#     print(p2["photo"])
-#     return p1["photo"], p2["photo"], p1["id"], p2["id"]
+def get_photos(source):
+    p1 = random.choice(source)
+    p2 = random.choice(source)
+    print(p2["photo"])
+    return p1["photo"], p2["photo"], p1["id"], p2["id"]
 
 # @bp.route('/hello', methods=('GET', 'POST'))
 # def hello():
 # 	return "Hello world!"
 
-# @bp.route('/home', methods=('GET', 'POST'))
-# def home():
-#     # global id_1, id_2
-#     if request.method == 'GET':
-#         url_1, url_2, id_1, id_2= get_photos(ACTORS)
-#         url_1 = "{}".format(url_1)
-#         url_2 = "{}".format(url_2)
+@bp.route('/home', methods=('GET', 'POST'))
+def home():
+    # global id_1, id_2
+    if request.method == 'GET':
+        url_1, url_2, id_1, id_2= get_photos(ACTORS)
+        url_1 = "{}".format(url_1)
+        url_2 = "{}".format(url_2)
 
 #     elif request.method == 'POST':
 #         a = request.values
@@ -91,7 +91,7 @@ def register():
 
 #         # flash(error)
 #     # url_1, url_2, id_1, id_2= get_photos(ACTORS)
-#     return render_template('home.html', photo1 = url_1, photo2 = url_2, name1 = id_1, name2 = id_2)
+    return render_template('home.html', photo1 = url_1, photo2 = url_2, name1 = id_1, name2 = id_2)
 
 # @bp.before_app_request
 # def load_logged_in_user():

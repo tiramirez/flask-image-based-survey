@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}Encuesta{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+<form method="post">
+    <label for="category">¿Cual de estos lugares le parece...</label>
+    
+    <select name="category">
+            <option value="1">un mejor lugar para caminar?</option>
+            <option value="2">un mejor lugar para vivir?</option>
+            <option value="3">un lugar más aburrido?</option>
+            <option value="4">un lugar más bonito/agradable a la vista?</option>
+    </select>
+
+    <div class="" style="width: 100%; padding-bottom: 300">
+      <div style="float: left; width: 48%; margin: 1%">
+          <img src="{{ photo1 }}" name="image_1" value="{{ name1 }}"  alt="Photo: {{ name }}" class="space-above blocker" width="100%" height="auto">
+      </div>
+      <div style="float: left; width: 48%; margin: 1%">
+          <img src="{{ photo2 }}" name="image_2" value="{{ name2 }}" alt="Photo: {{ name }}" class="space-above blocker" width="100%" height="auto">
+      </div>
+    </div>
+
+    <input type="hidden" name="image_1" value="{{ name1 }}" />
+    <input type="hidden" name="image_2" value="{{ name2 }}" />
+
+  <input type="submit" id="submit" name="submit" value="image_1">
+  <input type="submit" id="submit" name="submit" value="image_2">
+  <input type="submit" id="submit" name="submit" value="equal">
+</form>
+ 
+{% endblock %}
