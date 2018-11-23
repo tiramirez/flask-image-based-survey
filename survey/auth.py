@@ -66,14 +66,14 @@ def home():
         url_1 = "{}".format(url_1)
         url_2 = "{}".format(url_2)
 
-#     elif request.method == 'POST':
-#         a = request.values
-#         print(a)
-#         author = 1 ## Aqui deberia rgeistrar el ID del usuario guardado en las coockies
-#         category = request.form.get('category')
-#         choice = request.form.get('submit')
-#         id_1 = request.form.get('image_1')
-#         id_2 = request.form.get('image_2')
+    elif request.method == 'POST':
+        # a = request.values
+        # print(a)
+        author = session['userid'] ## Aqui deberia rgeistrar el ID del usuario guardado en las coockies
+        category = request.form.get('category')
+        choice = request.form.get('submit')
+        id_1 = request.form.get('image_1')
+        id_2 = request.form.get('image_2')
 
 #         # print(a)
 
@@ -92,7 +92,7 @@ def home():
 #         #     (author, category, id_1, id_2, choice)
 #         #     )
 #         # db.commit()
-#         return redirect(url_for('auth.home'))
+        return redirect(url_for('auth.home'))
 #     # if error is None:
 #     # session.clear()
 #     # session['user_id'] = user['id']
