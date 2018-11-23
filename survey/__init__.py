@@ -43,5 +43,5 @@ def create_app(test_config=None):
 # def index():
 # 	return 'Hola Javi!!'
 
-# if __name__ == "__main__":
-# 	app.run()
+if __name__ == "__main__":
+	app.run()
