@@ -18,7 +18,7 @@ def register():
         age = request.form['age']
         country = request.form['country']
         # db = get_db()
-        # error = None
+        error = None
 
         # if not username:
         #     error = 'Username is required.'
@@ -27,13 +27,13 @@ def register():
         # elif not age:
         #     error = 'Information is required.'
 
-        # if error is None:
-        #     db.execute(
-        #         'INSERT INTO user (sex, age, country) VALUES (?, ?, ?)',
-        #         (sex, age, country)
-        #     )
-        #     db.commit()
-        #     return redirect(url_for('auth.home'))
+        if error is None:
+            # db.execute(
+            #     'INSERT INTO user (sex, age, country) VALUES (?, ?, ?)',
+            #     (sex, age, country)
+            # )
+            # db.commit()
+            return redirect(url_for('auth.home'))
 
         flash(error)
 
