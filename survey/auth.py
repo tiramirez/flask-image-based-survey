@@ -3,7 +3,7 @@ from flask import (
     Blueprint, flash, g, redirect, render_template, request, session, url_for
 )
 # from werkzeug.security import check_password_hash, generate_password_hash
-# from survey.db import get_db
+from .db import get_db
 from .data import ACTORS
 import random
 
@@ -25,7 +25,7 @@ def register():
         age = request.form['age']
         country = request.form['country']
         session['userid'] = country
-        # db = get_db()
+        db = get_db()
         error = None
 
         # if not username:
@@ -36,11 +36,11 @@ def register():
         #     error = 'Information is required.'
 
         if error is None:
-            # db.execute(
-            #     'INSERT INTO user (sex, age, country) VALUES (?, ?, ?)',
-            #     (sex, age, country)
-            # )
-            # db.commit()
+            db.execute(
+                'INSERT INTO user (sex, age, country) VALUES (?, ?, ?)',
+                (sex, age, country)
+            )
+            db.commit()
             return redirect(url_for('auth.home'))
 
         flash(error)
@@ -74,10 +74,7 @@ def home():
         choice = request.form.get('submit')
         id_1 = request.form.get('image_1')
         id_2 = request.form.get('image_2')
-
-#         # print(a)
-
-#         # db = get_db()
+        db = get_db()
 
 #         # error = None
 #         if choice == 'image_1':
@@ -87,11 +84,11 @@ def home():
 #             choice = 2
 #         else:
 #             choice = 3
-#         # db.execute(
-#         #     'INSERT INTO ans (author_id, category, id_image_1, id_image_2, choice) VALUES (?, ?, ?, ?, ?)',
-#         #     (author, category, id_1, id_2, choice)
-#         #     )
-#         # db.commit()
+        db.execute(
+            'INSERT INTO ans (author_id, category, id_image_1, id_image_2, choice) VALUES (?, ?, ?, ?, ?)',
+            (author, category, id_1, id_2, choice)
+            )
+        db.commit()
         return redirect(url_for('auth.home'))
 #     # if error is None:
 #     # session.clear()

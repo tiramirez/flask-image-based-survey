@@ -5,10 +5,9 @@ from flask import Flask
     # create and configure the app
 app = Flask(__name__, instance_relative_config=True)
 app.secret_key = b'_5#y2L"F4Q8z\n\xec]/'
-# app.config.from_mapping(
-#     SECRET_KEY='dev',
-#     # DATABASE=os.path.join(app.instance_path, 'survey.sqlite'),
-# )
+app.config.from_mapping(
+    DATABASE=os.path.join(app.instance_path, 'survey.sqlite'),
+)
 
 # if test_config is None:
 #     # load the instance config, if it exists, when not testing
@@ -27,9 +26,9 @@ app.secret_key = b'_5#y2L"F4Q8z\n\xec]/'
 # def hello():
 #     return 'Hello, World!'
 
-#    # intialize database
-#    from . import db
-#    db.init_app(app)
+# intialize database
+from . import db
+db.init_app(app)
 
 # Import and register the blueprint
 from . import auth
