@@ -6,9 +6,9 @@
   <ul>
     {% if g.user %}
       <li><span>{{ g.user['username'] }}</span>
-      <li><a href="{{ url_for('register') }}">Log Out</a>
+      <li><a href="{{ url_for('auth.register') }}">Log Out</a>
     {% else %}
-      <li><a href="{{ url_for('register') }}">Register</a>
+      <li><a href="{{ url_for('auth.register') }}">Register</a>
       <li><a href="{{ url_for('auth.home') }}">Register</a>
     {% endif %}
   </ul>

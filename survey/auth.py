@@ -10,13 +10,21 @@ import random
 
 bp = Blueprint('auth', __name__)
 
-@bp.route('/', methods=('GET', 'POST'))
+@bp.route('/')
+def index():
+    if 'userid' in session:
+        print(session['userid'])
+        return redirect(url_for('auth.home'))
+    return redirect(url_for('auth.register'))
+
+
+@bp.route('/register', methods=('GET', 'POST'))
 def register():
     if request.method == 'POST':
-        # username = request.form['username']
         sex = request.form['gender']
         age = request.form['age']
         country = request.form['country']
+        session['userid'] = country
         # db = get_db()
         error = None
 
