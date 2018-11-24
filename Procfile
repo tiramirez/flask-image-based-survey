@@ -1,1 +1,1 @@
-web: gunicorn	survey:app
+web: gunicorn	survey:app	release: python manage.py db upgrade
