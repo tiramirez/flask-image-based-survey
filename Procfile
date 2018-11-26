@@ -1,1 +1,1 @@
-web: gunicorn	survey:survey
+web: gunicorn	survey: python run.py
