@@ -1,1 +1,1 @@
-web: gunicorn	survey:app
+web: gunicorn	run:app
