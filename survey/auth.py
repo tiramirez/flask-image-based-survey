@@ -56,7 +56,7 @@ def home():
         id_1 = request.form.get('image_1')
         id_2 = request.form.get('image_2')
 
-        answer = Answer(user_id=author, img_1=id_1, img_2=id_2, choice=choice)
+        answer = Answer(user_id=author, img_1=id_1, img_2=id_2, choice=choice, question=category)
         db.session.add(answer)
         db.session.commit()
 
