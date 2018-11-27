@@ -3,9 +3,9 @@ from flask import (
     Blueprint, flash, g, redirect, render_template, request, session, url_for
 )
 from survey import app, db
+from sqlalchemy import func
 from survey.models import User, Answer
-# from werkzeug.security import check_password_hash, generate_password_hash
-from survey.data import ACTORS
+from survey.data import IMAGES
 import random
 
 
@@ -25,15 +25,12 @@ def register():
         gender = request.form['gender']
         age = request.form['age']
         country = request.form['country']
-        session['userid'] = country
-        error = None
-        if error is None:
+        session['userid'] = db.session.query(func.count(User.id)).all()[0][0] + 1
+        user = User(gender=gender, age=age, country=country)
+        db.session.add(user)
+        db.session.commit()
 
-            user = User(gender=gender, age=age, country=country)
-            db.session.add(user)
-            db.session.commit()
-
-            return redirect(url_for('auth.home'))
+        return redirect(url_for('auth.home'))
 
         flash(error)
 
@@ -45,14 +42,10 @@ def get_photos(source):
     p2 = random.choice(source)
     return p1["id"], p2["id"]
 
-# @bp.route('/hello', methods=('GET', 'POST'))
-# def hello():
-# 	return "Hello world!"
-
 @bp.route('/home', methods=('GET', 'POST'))
 def home():
     if request.method == 'GET':
-        url_1, url_2= get_photos(ACTORS)
+        url_1, url_2= get_photos(IMAGES)
         url_1 = "{}".format(url_1)
         url_2 = "{}".format(url_2)
 
@@ -68,10 +61,4 @@ def home():
         db.session.commit()
 
         return redirect(url_for('auth.home'))
-#     # if error is None:
-#     # session.clear()
-#     # session['user_id'] = user['id']
-
-#         # flash(error)
-#     # url_1, url_2, id_1, id_2= get_photos(ACTORS)
     return render_template('home.html', photo1 = url_1, photo2 = url_2)

@@ -1,4 +1,4 @@
-ACTORS = [
+IMAGES = [
 {"id":"50e5f7d4d7c3df413b00056e"},
 {"id":"50e5faecd7c3df413b00075f"},
 {"id":"50e748e4d7c3df413b0013c2"},
