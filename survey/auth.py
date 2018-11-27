@@ -43,8 +43,7 @@ def register():
 def get_photos(source):
     p1 = random.choice(source)
     p2 = random.choice(source)
-    print(p2["photo"])
-    return p1["photo"], p2["photo"], p1["id"], p2["id"]
+    return p1["id"], p2["id"]
 
 # @bp.route('/hello', methods=('GET', 'POST'))
 # def hello():
@@ -52,15 +51,12 @@ def get_photos(source):
 
 @bp.route('/home', methods=('GET', 'POST'))
 def home():
-    # global id_1, id_2
     if request.method == 'GET':
-        url_1, url_2, id_1, id_2= get_photos(ACTORS)
+        url_1, url_2= get_photos(ACTORS)
         url_1 = "{}".format(url_1)
         url_2 = "{}".format(url_2)
 
     elif request.method == 'POST':
-        # a = request.values
-        # print(a)
         author = session['userid'] ## Aqui deberia rgeistrar el ID del usuario guardado en las coockies
         category = request.form.get('category')
         choice = request.form.get('submit')
@@ -78,4 +74,4 @@ def home():
 
 #         # flash(error)
 #     # url_1, url_2, id_1, id_2= get_photos(ACTORS)
-    return render_template('home.html', photo1 = url_1, photo2 = url_2, name1 = id_1, name2 = id_2)
+    return render_template('home.html', photo1 = url_1, photo2 = url_2)
