@@ -22,8 +22,7 @@ class Answer(db.Model):
     __tablename__ = 'Answers'
 
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
-    user_id = db.Column(db.Integer, db.ForeignKey('Users.id'), nullable=False) 
-    # user_id = db.Column(db.String(10), nullable=False)
+    user_id = db.Column(db.Integer, db.ForeignKey('Users.id'), nullable=False)
     img_1 = db.Column(db.String(50), nullable=True)
     img_2 = db.Column(db.String(50), nullable=True)
     choice = db.Column(db.String(20), nullable=True)
