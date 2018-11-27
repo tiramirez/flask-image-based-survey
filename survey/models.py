@@ -26,6 +26,7 @@ class Answer(db.Model):
     img_1 = db.Column(db.String(50), nullable=True)
     img_2 = db.Column(db.String(50), nullable=True)
     choice = db.Column(db.String(20), nullable=True)
+    question = db.Column(db.Integer, nullable=False)
     create_at = db.Column(db.DateTime, default = datetime.utcnow, nullable=False)
 
     def __repr__(self):

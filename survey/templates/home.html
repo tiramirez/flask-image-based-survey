@@ -1,18 +1,15 @@
 {% extends 'base.html' %}
 
 {% block header %}
-  <h1>{% block title %}Encuesta{% endblock %}</h1>
+  <h1>{% block title %}¿Cual de estos le parece...{% endblock %}</h1>
 {% endblock %}
-
 {% block content %}
 <form method="post">
-    <label for="category">¿Cual de estos lugares le parece...</label>
-    
     <select name="category">
-            <option value="1">un mejor lugar para caminar?</option>
-            <option value="2">un mejor lugar para vivir?</option>
-            <option value="3">un lugar más aburrido?</option>
-            <option value="4">un lugar más bonito/agradable a la vista?</option>
+            <option value="1">un mejor lugar <b>para caminar</b>?</option>
+            <option value="2">un mejor lugar <b>para vivir?</b></option>
+            <option value="3">un lugar <b>más aburrido?</b></option>
+            <option value="4">un lugar <b>más bonito/agradable a la vista?</b></option>
     </select>
 
     <div class="" style="width: 100%; padding-bottom: 300">

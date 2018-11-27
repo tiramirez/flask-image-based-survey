@@ -26,6 +26,7 @@ def register():
         age = request.form['age']
         country = request.form['country']
         session['userid'] = db.session.query(func.count(User.id)).all()[0][0] + 1
+        
         user = User(gender=gender, age=age, country=country)
         db.session.add(user)
         db.session.commit()

@@ -1,8 +1,8 @@
 <!doctype html>
-<title>{% block title %}{% endblock %} - Flaskr</title>
+<title>{% block title %}PlacePulse UC{% endblock %}</title>
 <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 <nav>
-  <h1>Encuesta Tomas</h1>
+  <h1>PlacePulse UC</h1>
   <ul>
     {% if session['userid'] != NULL %}
       <li><a href="{{ url_for('auth.register') }}">Log Out</a>
