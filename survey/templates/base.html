@@ -1,20 +1,33 @@
-<!doctype html>
-<title>{% block title %}PlacePulse UC{% endblock %}</title>
-<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-<nav>
-  <h1>PlacePulse UC</h1>
-  <ul>
-    {% if session['userid'] != NULL %}
-      <li><a href="{{ url_for('auth.register') }}">Log Out</a>
-      <li><a href="{{ url_for('auth.home') }}">Encuesta</a>
-    {% else %}
-      <li><a href="{{ url_for('auth.register') }}">Register</a>
-    {% endif %}
-  </ul>
-</nav>
-<section class="content">
+<!DOCTYPE html>
+<html>
+<head>
+  <title>{% block title %}PlacePulse UC{% endblock %}</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <meta name="viewport" content="width=device-widthm initial-scale=1.0">
+</head>
+<body>
+<div id="container">
   <header>
     {% block header %}{% endblock %}
   </header>
+  <nav>
+    <h1>PlacePulse UC</h1>
+    <ul>
+      {% if session['userid'] != NULL %}
+        <li><a href="{{ url_for('auth.register') }}">Log Out</a>
+        <li><a href="{{ url_for('auth.home') }}">Encuesta</a>
+      {% else %}
+        <li><a href="{{ url_for('auth.register') }}">Register</a>
+      {% endif %}
+    </ul>
+  </nav>
+
+<section class="content">
     {% block content %}{% endblock %}
 </section>
+  <aside>
+    Aqui van preguntas extra
+  </aside>
+</div>
+</body>
+</html>

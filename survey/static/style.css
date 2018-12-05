@@ -25,3 +25,21 @@ nav ul li a, nav ul li span, header .action { display: block; padding: 0.5rem; }
 input.danger { color: #cc2f2e; }
 input[type=submit] { align-self: start; min-width: 10em; }
 select { border: none; font-family: sans-serif; font-size: 1.5em; text-align: center;color: #000000; }
+
+#grid{
+	width: 100%;
+}
+.img_choice{
+	float: left;
+	width: 48%;
+	margin: 1%
+}
+
+@media screen and (max-width: 640px){
+	#grid{
+	width: 100%;
+	}
+	.img_choice{
+		width: 100%;
+	}
+}
