@@ -7,9 +7,6 @@
 </head>
 <body>
 <div id="container">
-  <header>
-    {% block header %}{% endblock %}
-  </header>
   <nav>
     <h1>PlacePulse UC</h1>
     <ul>
@@ -21,13 +18,12 @@
       {% endif %}
     </ul>
   </nav>
-
-<section class="content">
-    {% block content %}{% endblock %}
-</section>
-  <aside>
-    Aqui van preguntas extra
-  </aside>
+  <header>
+    {% block header %}{% endblock %}
+  </header>
+  <section class="content">
+      {% block content %}{% endblock %}
+  </section>
 </div>
 </body>
 </html>
