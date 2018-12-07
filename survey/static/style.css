@@ -40,6 +40,12 @@ select { border: none; font-family: sans-serif; font-size: 1.5em; text-align: ce
 	margin: 1%;
 }
 
+.B{
+	float: left;
+	width: 100%;
+}
+
+
 .round {
     float: left;
     border: 2px solid #000;
@@ -63,8 +69,8 @@ select { border: none; font-family: sans-serif; font-size: 1.5em; text-align: ce
 	h1,h2{
 		font-size: 20px;
 	}
-	#button_2{
-		float: right;
+	.B{
+		width: 30%;
 	}
 	select{
 		font-size: 20px;
