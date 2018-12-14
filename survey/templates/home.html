@@ -3,6 +3,8 @@
 {% block header %}
   <h1>{% block title %}¿Cual de estos le parece...{% endblock %}</h1>
 {% endblock %}
+
+
 {% block content %}
 <form method="post">
     <select name="category">
@@ -12,16 +14,17 @@
             <option value="4">un lugar <b>más bonito/agradable a la vista?</b></option>
     </select>
 
-    <div id="grid" style="width: 100%; padding-bottom: 300">
-      <div class="img_choice">
-        <input type="image" src="/static/img/{{ photo1 }}.jpg" name="submit" value="image_1" width="100%" height="auto">
+    <div id="grid">
+      <div class="img_choice" style="float: left">
+        <input type="image" id = "image" src="/static/img/{{ photo1 }}.jpg" name="submit" value="image_1" width="100%" height="auto">
       </div>
-      <div class="buttons" width="25px">
-        <div class="B"><input type="image" class="round" id="button_1" src="/static/left_arrow.svg" name="submit" value="image_1" width="30px"></div>
-        <div class="B"><input type="image" class="round" id="button_E" src="/static/equal.svg" name="submit" value="equal" width="30px"></div>
-        <div class="B"><input type="image" class="round" id="button_2" src="/static/right_arrow.svg" name="submit" value="image_2" width="30px"></div>
+      <div class="buttons" style="float: left">
+        <input type="image" class="round" id="button_left" name="submit" value="image_1" src="/static/button-left.svg">
+        <input type="image" class="round" id="button_E" name="submit" value="equal" src="/static/button-equal.svg">
+        <input type="image" class="round" id="button_right" name="submit" value="image_2" src="/static/button-right.svg">
+
       </div>
-      <div class="img_choice">
+      <div class="img_choice" style="float: right">
         <input type="image" src="/static/img/{{ photo2 }}.jpg" name="submit" value="image_2" width="100%" height="auto">
       </div>
     </div>
