@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}¿Cual de estos le parece...{% endblock %}</h1>
+{% endblock %}
+
+
+{% block content %}
+<form method="post">
+    <div id="grid">
+      <div class="img_choice" style="float: left">
+        <img id = "image" src="/static/img/{{ photo1 }}.jpg" name="submit" value="image_1" width="100%" height="100%">
+      </div>
+      <div class="buttons" style="float: left">
+        <input type="submit" name="submit" value="Street" >
+        <input type="submit" name="submit" value="Sidewalk" >
+        <input type="submit" name="submit" value="No_image" >
+      </div>
+    </div>
+
+    <input type="hidden" name="image_1" value="{{ photo1 }}" />
+</form>
+ 
+{% endblock %}

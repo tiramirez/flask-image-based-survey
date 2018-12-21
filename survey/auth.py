@@ -4,7 +4,7 @@ from flask import (
 )
 from survey import app, db
 from sqlalchemy import func
-from survey.models import User, Answer
+from survey.models import User, Answer, Images
 from survey.data import IMAGES
 import random
 
@@ -51,7 +51,7 @@ def home():
         url_2 = "{}".format(url_2)
 
     elif request.method == 'POST':
-        author = session['userid'] ## Aqui deberia rgeistrar el ID del usuario guardado en las coockies
+        author = session['userid'] ## Aqui deberia registrar el ID del usuario guardado en las coockies
         category = request.form.get('category')
         choice = request.form.get('submit')
         id_1 = request.form.get('image_1')
@@ -63,3 +63,24 @@ def home():
 
         return redirect(url_for('auth.home'))
     return render_template('home.html', photo1 = url_1, photo2 = url_2)
+
+def get_one():
+    p1 = db.session.query(Images.img_id).filter(Images.category == None).first()
+    return p1[0]
+
+@bp.route('/clasificador', methods=('GET', 'POST'))
+def clasificador():
+    if request.method == 'GET':
+        url_1 = get_one()
+        
+    elif request.method == 'POST':
+        img_id = request.form.get('image_1')
+        choice = request.form.get('submit')
+        Images.query.filter(Images.img_id == img_id).update({"category": choice})
+        db.session.commit()
+
+        return redirect(url_for('auth.clasificador'))
+
+        flash(error)
+
+    return render_template('clasificador.html', photo1 = url_1)
