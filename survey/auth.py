@@ -13,7 +13,7 @@ bp = Blueprint('auth', __name__)
 
 @bp.route('/')
 def index():
-    username = request.cookies.get('username')
+    username = request.cookies.get('userid')
     # print(username)
     counter  = db.session.query(func.count()).filter(User.id == username).all()[0][0]
     if username and counter > 0:
@@ -37,7 +37,7 @@ def register():
         db.session.commit()
 
         resp = make_response(redirect('/'))
-        resp.set_cookie('username', str(userid), max_age=60*60*24*365)
+        resp.set_cookie('userid', str(userid), max_age=60*60*24*365)
 
         return resp
 
@@ -57,7 +57,7 @@ def home():
         url_2 = "{}".format(url_2)
 
     elif request.method == 'POST':
-        author = session['userid'] ## Aqui deberia registrar el ID del usuario guardado en las coockies
+        author = request.cookies.get('userid')
         category = request.form.get('category')
         choice = request.form.get('submit')
         id_1 = request.form.get('image_1')
@@ -67,7 +67,7 @@ def home():
         db.session.add(answer)
         db.session.commit()
 
-        return redirect(url_for('auth.home'))
+        return redirect(url_for('auth.index'))
     return render_template('home.html', photo1 = url_1, photo2 = url_2)
 
 def get_one():
