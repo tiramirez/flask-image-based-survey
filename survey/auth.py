@@ -34,7 +34,7 @@ def register():
         db.session.commit()
 
         resp = make_response(redirect('/'))
-        resp.set_cookie('username', 'Tomas')
+        resp.set_cookie('username', 'Tomas', max_age=60*60*24*365)
 
         return resp
 
