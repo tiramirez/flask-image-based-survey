@@ -1,10 +1,10 @@
 import functools
 from flask import (
-    Blueprint, flash, g, redirect, render_template, request, session, url_for
+    Blueprint, flash, g, redirect, render_template, request, session, url_for, make_response
 )
 from survey import app, db
 from sqlalchemy import func
-from survey.models import User, Answer
+from survey.models import User, Answer, Images
 from survey.data import IMAGES
 import random
 
@@ -13,9 +13,11 @@ bp = Blueprint('auth', __name__)
 
 @bp.route('/')
 def index():
-    if 'userid' in session:
-        print(session['userid'])
+    username = request.cookies.get('username')
+    if username:
+        print("Hay cookies")
         return redirect(url_for('auth.home'))
+    print("No hay cookies")
     return redirect(url_for('auth.register'))
 
 
@@ -31,9 +33,10 @@ def register():
         db.session.add(user)
         db.session.commit()
 
-        return redirect(url_for('auth.home'))
+        resp = make_response(redirect('/'))
+        resp.set_cookie('username', 'Tomas')
 
-        flash(error)
+        return resp
 
     return render_template('register.html')
 
@@ -51,7 +54,7 @@ def home():
         url_2 = "{}".format(url_2)
 
     elif request.method == 'POST':
-        author = session['userid'] ## Aqui deberia rgeistrar el ID del usuario guardado en las coockies
+        author = session['userid'] ## Aqui deberia registrar el ID del usuario guardado en las coockies
         category = request.form.get('category')
         choice = request.form.get('submit')
         id_1 = request.form.get('image_1')
@@ -63,3 +66,24 @@ def home():
 
         return redirect(url_for('auth.home'))
     return render_template('home.html', photo1 = url_1, photo2 = url_2)
+
+def get_one():
+    p1 = db.session.query(Images.img_id).filter(Images.category == None).first()
+    return p1[0]
+
+@bp.route('/clasificador', methods=('GET', 'POST'))
+def clasificador():
+    if request.method == 'GET':
+        url_1 = get_one()
+        
+    elif request.method == 'POST':
+        img_id = request.form.get('image_1')
+        choice = request.form.get('submit')
+        Images.query.filter(Images.img_id == img_id).update({"category": choice})
+        db.session.commit()
+
+        return redirect(url_for('auth.clasificador'))
+
+        flash(error)
+
+    return render_template('clasificador.html', photo1 = url_1)

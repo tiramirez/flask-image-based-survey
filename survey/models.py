@@ -31,3 +31,15 @@ class Answer(db.Model):
 
     def __repr__(self):
         return f"Answer:('{self.id}','{self.user_id}','{self.img_1}','{self.img_2}','{self.choice}', '{self.create_at}')"
+
+class Images(db.Model):
+
+    __tablename__ = 'Images'
+
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    img_id = db.Column(db.String(50), nullable=True)
+    category = db.Column(db.String(20), nullable=True)
+    create_at = db.Column(db.DateTime, default = datetime.utcnow, nullable=False)
+
+    def __repr__(self):
+        return f"Answer:('{self.id}','{self.img_id}','{self.category}','{self.create_at}')"
