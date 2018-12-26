@@ -14,10 +14,12 @@ bp = Blueprint('auth', __name__)
 @bp.route('/')
 def index():
     username = request.cookies.get('username')
-    if username:
-        print("Hay cookies")
+    # print(username)
+    counter  = db.session.query(func.count()).filter(User.id == username).all()[0][0]
+    if username and counter > 0:
+        # print("Hay cookies")
         return redirect(url_for('auth.home'))
-    print("No hay cookies")
+    # print("No hay cookies")
     return redirect(url_for('auth.register'))
 
 
@@ -27,14 +29,15 @@ def register():
         gender = request.form['gender']
         age = request.form['age']
         country = request.form['country']
-        session['userid'] = db.session.query(func.count(User.id)).all()[0][0] + 1
+        userid = db.session.query(func.count(User.id)).all()[0][0] + 1
+        session['userid'] = userid
         
         user = User(gender=gender, age=age, country=country)
         db.session.add(user)
         db.session.commit()
 
         resp = make_response(redirect('/'))
-        resp.set_cookie('username', 'Tomas', max_age=60*60*24*365)
+        resp.set_cookie('username', str(userid), max_age=60*60*24*365)
 
         return resp
 
