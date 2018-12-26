@@ -1,19 +1,21 @@
 {% extends 'base.html' %}
 
 {% block header %}
-  <h1>{% block title %}About you{% endblock %}</h1>
+  <h1>{% block title %}Identificación{% endblock %}</h1>
 {% endblock %}
 
 {% block content %}
   <form method="post">
-    <label for="gender">Gender</label>
+    <label for="gender">Sexo</label>
     <div>
       <input type="radio" name="gender" id="male" value="M" required>
       <label for="male">M</label>
       <input type="radio" name="gender" id="female" value="F" required>
       <label for="male">F</label>
+      <input type="radio" name="gender" id="female" value="O" required>
+      <label for="male">Otro</label>
     </div>
-    <label for="age">Age</label>
+    <label for="age">Edad</label>
     <div>
       <input type="radio" name="age" id="1-10" value="1-10" required>
       <label for="1-10">0 - 10</label>
@@ -24,7 +26,7 @@
       <input type="radio" name="age" id="31-50" value="31-50" required>
       <label for="21-50">31-50</label>
     </div>
-    <label for="country">Country</label>
+    <label for="country">País</label>
     <input type="country" name="country" id="country" required>
     <input type="submit" value="Register">
   </form>
