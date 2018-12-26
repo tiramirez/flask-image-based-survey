@@ -10,12 +10,8 @@
   <nav>
     <h1>PlacePulse UC</h1>
     <ul>
-      {% if session['userid'] != NULL %}
-        <li><a href="{{ url_for('auth.register') }}">Log Out</a>
-        <li><a href="{{ url_for('auth.home') }}">Encuesta</a>
-      {% else %}
-        <li><a href="{{ url_for('auth.register') }}">Register</a>
-      {% endif %}
+        <li><a href="{{ url_for('auth.home') }}">Español</a>
+        <li><a href="{{ url_for('auth.home') }}">English</a>
     </ul>
   </nav>
   <header>
