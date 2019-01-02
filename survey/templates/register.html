@@ -5,6 +5,7 @@
 {% endblock %}
 
 {% block content %}
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <form method="post">
     <label for="gender">Sexo</label>
     <div>
@@ -16,18 +17,144 @@
       <label for="male">Otro</label>
     </div>
     <label for="age">Edad</label>
-    <div>
-      <input type="radio" name="age" id="1-10" value="1-10" required>
-      <label for="1-10">0 - 10</label>
-      <input type="radio" name="age" id="11-20" value="11-20" required>
-      <label for="11-20">11-20</label>
-      <input type="radio" name="age" id="21-30" value="21-30" required>
-      <label for="21-30">21-30</label>
-      <input type="radio" name="age" id="31-50" value="31-50" required>
-      <label for="21-50">31-50</label>
-    </div>
+    <input type="text" name="age" id="age" required>
     <label for="country">País</label>
-    <input type="country" name="country" id="country" required>
+    <input type="text" name="country" id="country" required>
+    <label for="region">Region</label>
+    <select id="regiones" name="region"></select>
+    <label for="comuna">Comuna</label>
+    <select id="comunas" name="comuna"></select>
+    <label for="study">Nivel Educacional</label>
+    <select name="trasportation">
+            <option value="1">Ninguna</option>
+            <option value="2">Básica</option>
+            <option value="3">Media</option>
+            <option value="4">Tecnico Profesional</option>
+            <option value="5">Universitario</option>
+            <option value="6">Postgrado</option>
+    </select>
+    <label for="trasportation">Principal medio de transporte</label>
+    <select name="trasportation">
+            <option value="1">Caminata</option>
+            <option value="2">Bicicleta</option>
+            <option value="3">Transporte Público (metro o bus)</option>
+            <option value="4">Automóvil</option>
+            <option value="5">Otro</option>
+    </select>
+    
     <input type="submit" value="Register">
   </form>
+
+  <script>var RegionesYcomunas = {
+
+    "regiones": [{
+      "NombreRegion": "Arica y Parinacota",
+      "comunas": ["Arica", "Camarones", "Putre", "General Lagos"] },
+
+    {
+      "NombreRegion": "Tarapacá",
+      "comunas": ["Iquique", "Alto Hospicio", "Pozo Almonte", "Camiña", "Colchane", "Huara", "Pica"] },
+
+    {
+      "NombreRegion": "Antofagasta",
+      "comunas": ["Antofagasta", "Mejillones", "Sierra Gorda", "Taltal", "Calama", "Ollagüe", "San Pedro de Atacama", "Tocopilla", "María Elena"] },
+
+    {
+      "NombreRegion": "Atacama",
+      "comunas": ["Copiapó", "Caldera", "Tierra Amarilla", "Chañaral", "Diego de Almagro", "Vallenar", "Alto del Carmen", "Freirina", "Huasco"] },
+
+    {
+      "NombreRegion": "Coquimbo",
+      "comunas": ["La Serena", "Coquimbo", "Andacollo", "La Higuera", "Paiguano", "Vicuña", "Illapel", "Canela", "Los Vilos", "Salamanca", "Ovalle", "Combarbalá", "Monte Patria", "Punitaqui", "Río Hurtado"] },
+
+    {
+      "NombreRegion": "Valparaíso",
+      "comunas": ["Valparaíso", "Casablanca", "Concón", "Juan Fernández", "Puchuncaví", "Quintero", "Viña del Mar", "Isla de Pascua", "Los Andes", "Calle Larga", "Rinconada", "San Esteban", "La Ligua", "Cabildo", "Papudo", "Petorca", "Zapallar", "Quillota", "Calera", "Hijuelas", "La Cruz", "Nogales", "San Antonio", "Algarrobo", "Cartagena", "El Quisco", "El Tabo", "Santo Domingo", "San Felipe", "Catemu", "Llaillay", "Panquehue", "Putaendo", "Santa María", "Quilpué", "Limache", "Olmué", "Villa Alemana"] },
+
+    {
+      "NombreRegion": "Región del Libertador Gral. Bernardo O’Higgins",
+      "comunas": ["Rancagua", "Codegua", "Coinco", "Coltauco", "Doñihue", "Graneros", "Las Cabras", "Machalí", "Malloa", "Mostazal", "Olivar", "Peumo", "Pichidegua", "Quinta de Tilcoco", "Rengo", "Requínoa", "San Vicente", "Pichilemu", "La Estrella", "Litueche", "Marchihue", "Navidad", "Paredones", "San Fernando", "Chépica", "Chimbarongo", "Lolol", "Nancagua", "Palmilla", "Peralillo", "Placilla", "Pumanque", "Santa Cruz"] },
+
+    {
+      "NombreRegion": "Región del Maule",
+      "comunas": ["Talca", "ConsVtución", "Curepto", "Empedrado", "Maule", "Pelarco", "Pencahue", "Río Claro", "San Clemente", "San Rafael", "Cauquenes", "Chanco", "Pelluhue", "Curicó", "Hualañé", "Licantén", "Molina", "Rauco", "Romeral", "Sagrada Familia", "Teno", "Vichuquén", "Linares", "Colbún", "Longaví", "Parral", "ReVro", "San Javier", "Villa Alegre", "Yerbas Buenas"] },
+
+    {
+      "NombreRegion": "Región del Biobío",
+      "comunas": ["Concepción", "Coronel", "Chiguayante", "Florida", "Hualqui", "Lota", "Penco", "San Pedro de la Paz", "Santa Juana", "Talcahuano", "Tomé", "Hualpén", "Lebu", "Arauco", "Cañete", "Contulmo", "Curanilahue", "Los Álamos", "Tirúa", "Los Ángeles", "Antuco", "Cabrero", "Laja", "Mulchén", "Nacimiento", "Negrete", "Quilaco", "Quilleco", "San Rosendo", "Santa Bárbara", "Tucapel", "Yumbel", "Alto Biobío", "Chillán", "Bulnes", "Cobquecura", "Coelemu", "Coihueco", "Chillán Viejo", "El Carmen", "Ninhue", "Ñiquén", "Pemuco", "Pinto", "Portezuelo", "Quillón", "Quirihue", "Ránquil", "San Carlos", "San Fabián", "San Ignacio", "San Nicolás", "Treguaco", "Yungay"] },
+
+    {
+      "NombreRegion": "Región de la Araucanía",
+      "comunas": ["Temuco", "Carahue", "Cunco", "Curarrehue", "Freire", "Galvarino", "Gorbea", "Lautaro", "Loncoche", "Melipeuco", "Nueva Imperial", "Padre las Casas", "Perquenco", "Pitrufquén", "Pucón", "Saavedra", "Teodoro Schmidt", "Toltén", "Vilcún", "Villarrica", "Cholchol", "Angol", "Collipulli", "Curacautín", "Ercilla", "Lonquimay", "Los Sauces", "Lumaco", "Purén", "Renaico", "Traiguén", "Victoria"] },
+
+    {
+      "NombreRegion": "Región de Los Ríos",
+      "comunas": ["Valdivia", "Corral", "Lanco", "Los Lagos", "Máfil", "Mariquina", "Paillaco", "Panguipulli", "La Unión", "Futrono", "Lago Ranco", "Río Bueno"] },
+
+    {
+      "NombreRegion": "Región de Los Lagos",
+      "comunas": ["Puerto Montt", "Calbuco", "Cochamó", "Fresia", "FruVllar", "Los Muermos", "Llanquihue", "Maullín", "Puerto Varas", "Castro", "Ancud", "Chonchi", "Curaco de Vélez", "Dalcahue", "Puqueldón", "Queilén", "Quellón", "Quemchi", "Quinchao", "Osorno", "Puerto Octay", "Purranque", "Puyehue", "Río Negro", "San Juan de la Costa", "San Pablo", "Chaitén", "Futaleufú", "Hualaihué", "Palena"] },
+
+    {
+      "NombreRegion": "Región Aisén del Gral. Carlos Ibáñez del Campo",
+      "comunas": ["Coihaique", "Lago Verde", "Aisén", "Cisnes", "Guaitecas", "Cochrane", "O’Higgins", "Tortel", "Chile Chico", "Río Ibáñez"] },
+
+    {
+      "NombreRegion": "Región de Magallanes y de la AntárVca Chilena",
+      "comunas": ["Punta Arenas", "Laguna Blanca", "Río Verde", "San Gregorio", "Cabo de Hornos (Ex Navarino)", "AntárVca", "Porvenir", "Primavera", "Timaukel", "Natales", "Torres del Paine"] },
+
+    {
+      "NombreRegion": "Región Metropolitana de Santiago",
+      "comunas": ["Cerrillos", "Cerro Navia", "Conchalí", "El Bosque", "Estación Central", "Huechuraba", "Independencia", "La Cisterna", "La Florida", "La Granja", "La Pintana", "La Reina", "Las Condes", "Lo Barnechea", "Lo Espejo", "Lo Prado", "Macul", "Maipú", "Ñuñoa", "Pedro Aguirre Cerda", "Peñalolén", "Providencia", "Pudahuel", "Quilicura", "Quinta Normal", "Recoleta", "Renca", "San Joaquín", "San Miguel", "San Ramón", "Vitacura", "Puente Alto", "Pirque", "San José de Maipo", "Colina", "Lampa", "TilVl", "San Bernardo", "Buin", "Calera de Tango", "Paine", "Melipilla", "Alhué", "Curacaví", "María Pinto", "San Pedro", "Talagante", "El Monte", "Isla de Maipo", "Padre Hurtado", "Peñaflor"] }] };
+
+
+
+
+  jQuery(document).ready(function () {
+
+    var iRegion = 0;
+    var htmlRegion = '<option value="sin-region">Seleccione región</option><option value="sin-region">--</option>';
+    var htmlComunas = '<option value="sin-region">Seleccione comuna</option><option value="sin-region">--</option>';
+
+    jQuery.each(RegionesYcomunas.regiones, function () {
+      htmlRegion = htmlRegion + '<option value="' + RegionesYcomunas.regiones[iRegion].NombreRegion + '">' + RegionesYcomunas.regiones[iRegion].NombreRegion + '</option>';
+      iRegion++;
+    });
+
+    jQuery('#regiones').html(htmlRegion);
+    jQuery('#comunas').html(htmlComunas);
+
+    jQuery('#regiones').change(function () {
+      var iRegiones = 0;
+      var valorRegion = jQuery(this).val();
+      var htmlComuna = '<option value="sin-comuna">Seleccione comuna</option><option value="sin-comuna">--</option>';
+      jQuery.each(RegionesYcomunas.regiones, function () {
+        if (RegionesYcomunas.regiones[iRegiones].NombreRegion == valorRegion) {
+          var iComunas = 0;
+          jQuery.each(RegionesYcomunas.regiones[iRegiones].comunas, function () {
+            htmlComuna = htmlComuna + '<option value="' + RegionesYcomunas.regiones[iRegiones].comunas[iComunas] + '">' + RegionesYcomunas.regiones[iRegiones].comunas[iComunas] + '</option>';
+            iComunas++;
+          });
+        }
+        iRegiones++;
+      });
+      jQuery('#comunas').html(htmlComuna);
+    });
+    jQuery('#comunas').change(function () {
+      if (jQuery(this).val() == 'sin-region') {
+        alert('selecciones Región');
+      } else if (jQuery(this).val() == 'sin-comuna') {
+        alert('selecciones Comuna');
+      }
+    });
+    jQuery('#regiones').change(function () {
+      if (jQuery(this).val() == 'sin-region') {
+        alert('selecciones Región');
+      }
+    });
+
+  });
+  //# sourceURL=pen.js
+  </script>
+
 {% endblock %}
