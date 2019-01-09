@@ -167,110 +167,76 @@
   });
   //# sourceURL=pen.js
 
-    jQuery(function() {  
+  jQuery(function() {  
 
-    jQuery('.error').hide(); // Hide Warning Label. 
+  jQuery('.error').hide(); // Hide Warning Label. 
 
-    jQuery("input[name=sub]").on("click", function() {
+  jQuery("input[name=sub]").on("click", function() {
 
-       var returnvalue;
+     var returnvalue;
+     returnvalue=true;
 
        if(jQuery("select[name=study]").val() == 0) {
 
             jQuery("label#sel_study_error").show(); // show Warning 
             jQuery("select#sel_study").focus();  // Focus the select box      
-            returnvalue=false;   
+            returnvalue&=false;   
 
-    } else if (jQuery("select[name=study]").val() != 0) {
+        } else if (jQuery("select[name=study]").val() != 0) {
 
             jQuery("label#sel_study_error").hide(); // show Warning 
             jQuery("select#sel_study").focus();  // Focus the select box      
-            returnvalue=false; 
+            returnvalue&=true; 
 
-    }
-
-    return returnvalue;
-
-    });
-          });  // you can change jQuery with $
-
-    jQuery(function() {  
-
-    jQuery('.error').hide(); // Hide Warning Label. 
-
-    jQuery("input[name=sub]").on("click", function() {
-
-       var returnvalue;
-
+        }
+    
        if(jQuery("select[name=transportation]").val() == 0) {
 
             jQuery("label#sel_transport_error").show(); // show Warning 
             jQuery("select#sel_transport").focus();  // Focus the select box      
-            returnvalue=false;   
+            returnvalue&=false;   
 
-    } else if (jQuery("select[name=transportation]").val() != 0) {
+        } else if (jQuery("select[name=transportation]").val() != 0) {
 
             jQuery("label#sel_transport_error").hide(); // show Warning 
             jQuery("select#sel_transport").focus();  // Focus the select box      
-            returnvalue=false; 
+            returnvalue&=true; 
 
-    }
-
-    return returnvalue;
-
-    });
-          });  // you can change jQuery with $
-
-    jQuery(function() {  
-
-    jQuery('.error').hide(); // Hide Warning Label. 
-
-    jQuery("input[name=sub]").on("click", function() {
-
-       var returnvalue;
+        }
 
        if(jQuery("select[name=region]").val() == 0) {
 
             jQuery("label#sel_region_error").show(); // show Warning 
             jQuery("select#sel_region").focus();  // Focus the select box      
-            returnvalue=false;   
+            returnvalue&=false;   
 
-    } else if (jQuery("select[name=region]").val() != 0) {
+        } else if (jQuery("select[name=region]").val() != 0) {
 
             jQuery("label#sel_region_error").hide(); // show Warning 
             jQuery("select#sel_region").focus();  // Focus the select box      
-            returnvalue=false;   
+            returnvalue&=true;   
 
-    }
-
-    return returnvalue;
-
-    });
-          });  // you can change jQuery with $
-
-    jQuery(function() {  
-
-    jQuery('.error').hide(); // Hide Warning Label. 
-
-    jQuery("input[name=sub]").on("click", function() {
-
-       var returnvalue;
+        }
 
        if(jQuery("select[name=comuna]").val() == 0) {
 
             jQuery("label#sel_comuna_error").show(); // show Warning 
             jQuery("select#sel_comuna").focus();  // Focus the select box      
-            returnvalue=false;   
+            returnvalue&=false;   
 
-    } else if (jQuery("select[name=comuna]").val() != 0) {
+        } else if (jQuery("select[name=comuna]").val() != 0) {
 
             jQuery("label#sel_comuna_error").hide(); // show Warning 
             jQuery("select#sel_comuna").focus();  // Focus the select box      
-            returnvalue=false;   
+            returnvalue&=true;   
 
-    }
-
-    return returnvalue;
+        }
+        if(returnvalue == 1){
+          returnvalue=true;
+        } else {
+          returnvalue=false;
+        }
+        return returnvalue;
 
     });
           });  // you can change jQuery with $
