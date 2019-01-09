@@ -1,7 +1,7 @@
 from datetime import datetime
 from survey import db ## from survey import db
 
-class User(db.Model):
+class Users(db.Model):
 
     __tablename__ = 'Users'
 
@@ -10,14 +10,21 @@ class User(db.Model):
     age = db.Column(db.Text, nullable=True)
     create_at = db.Column(db.DateTime, nullable=False, default = datetime.utcnow)
     country = db.Column(db.String(50), nullable=False)
+    region = db.Column(db.String(50), nullable=False)
+    comuna = db.Column(db.String(50), nullable=True)
+    education = db.Column(db.String(50), nullable=False)
+    transport = db.Column(db.String(50), nullable=False)
+
     # state = db.Column(db.String(50))
     # answers = db.relationship('Answer', backref='author',lazy=True)
 
     def __repr__(self):
-        return f"User:('{self.id}','{self.gender}','{self.age}','{self.country}','{self.create_at}')"
+        return f'''User:('{self.id}','{self.gender}','{self.age}',
+                        '{self.country}','{self.region}','{self.comuna}',
+                        '{self.education}','{self.transport}','{self.create_at}')'''
 
 
-class Answer(db.Model):
+class Answers(db.Model):
 
     __tablename__ = 'Answers'
 

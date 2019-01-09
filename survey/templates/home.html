@@ -7,11 +7,14 @@
 
 {% block content %}
 <form method="post">
-    <select name="category">
+
+    <h1>{{ category }}</h1>
+    <select class="sel" name="category" id="sel">
             <option value="1">un mejor lugar <b>para caminar</b>?</option>
             <option value="2">un mejor lugar <b>para vivir?</b></option>
             <option value="3">un lugar <b>más aburrido?</b></option>
             <option value="4">un lugar <b>más bonito/agradable a la vista?</b></option>
+            <option value="5">un lugar <b>de mayor nivel de ingresos?</b></option>
     </select>
 
     <div id="grid">
@@ -28,9 +31,16 @@
         <input type="image" src="/static/img/{{ photo2 }}.jpg" name="submit" value="image_2" width="100%" height="auto">
       </div>
     </div>
+    <input type="submit" id="button_error" name="submit" value="error">
+
 
     <input type="hidden" name="image_1" value="{{ photo1 }}" />
     <input type="hidden" name="image_2" value="{{ photo2 }}" />
 </form>
+
+<script>
+  var sel = $('sel')
+  sel[value = 0]
+</script>
  
 {% endblock %}

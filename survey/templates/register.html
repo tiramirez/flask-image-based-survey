@@ -16,36 +16,59 @@
       <input type="radio" name="gender" id="female" value="O" required>
       <label for="male">Otro</label>
     </div>
+
     <label for="age">Edad</label>
-    <input type="text" name="age" id="age" required>
+    <input type="number" name="age" id="age" required>
+    {% if english == True %}
     <label for="country">País</label>
     <input type="text" name="country" id="country" required>
+
+
+    {% else %}
     <label for="region">Region</label>
-    <select id="regiones" name="region"></select>
+    <select id="regiones" name="region" id="sel_region"></select>
+    <label class="error" for="region" id="sel_region_error" style="color:#FC2727"><b> Seleccione región, por favor.</b></label><td>
+
     <label for="comuna">Comuna</label>
-    <select id="comunas" name="comuna"></select>
-    <label for="study">Nivel Educacional</label>
-    <select name="trasportation">
+    <select id="comunas" name="comuna" id="sel_comuna"></select>
+    <label class="error" for="comuna" id="sel_comuna_error" style="color:#FC2727"><b> Seleccione comuna, por favor.</b></label><td>
+
+    {% endif %}
+
+    <label for="study">Mayor Nivel Educacional completo (o cursando)</label>
+    <select name="study" id="sel_study">
+            <option value="0" selected="true">Seleccione nivel educacional</option>
             <option value="1">Ninguna</option>
-            <option value="2">Básica</option>
-            <option value="3">Media</option>
-            <option value="4">Tecnico Profesional</option>
-            <option value="5">Universitario</option>
+            <option value="2">Básica o Primaria</option>
+            <option value="3">Media o secundaria</option>
+            <option value="4">Técnica Superior (1 a 3 años)</option>
+            <option value="5">Profesional Universitario (4 o más años)</option>
             <option value="6">Postgrado</option>
     </select>
-    <label for="trasportation">Principal medio de transporte</label>
-    <select name="trasportation">
+
+    <label class="error" for="study" id="sel_study_error" style="color:#FC2727"><b> Seleccione un nivel educacional, por favor.</b></label><td>
+
+
+    <label for="transportation">Principal medio de transporte que utiliza</label>
+    <select name="transportation" id="sel_transport">
+            <option value="0" selected="true">Seleccione un modo de transporte</option>
             <option value="1">Caminata</option>
             <option value="2">Bicicleta</option>
             <option value="3">Transporte Público (metro o bus)</option>
             <option value="4">Automóvil</option>
             <option value="5">Otro</option>
     </select>
+    <label class="error" for="trasportation" id="sel_transport_error" style="color:#FC2727"><b> Seleccione un modo de transporte, por favor.</b></label><td>
+
     
-    <input type="submit" value="Register">
+    <input type="submit" value="Register" name="sub">
   </form>
 
-  <script>var RegionesYcomunas = {
+  <script>
+
+
+
+    var RegionesYcomunas = {
 
     "regiones": [{
       "NombreRegion": "Arica y Parinacota",
@@ -113,8 +136,8 @@
   jQuery(document).ready(function () {
 
     var iRegion = 0;
-    var htmlRegion = '<option value="sin-region">Seleccione región</option><option value="sin-region">--</option>';
-    var htmlComunas = '<option value="sin-region">Seleccione comuna</option><option value="sin-region">--</option>';
+    var htmlRegion = '<option value="0">Seleccione región</option>';
+    var htmlComunas = '<option value="0">Seleccione comuna</option>';
 
     jQuery.each(RegionesYcomunas.regiones, function () {
       htmlRegion = htmlRegion + '<option value="' + RegionesYcomunas.regiones[iRegion].NombreRegion + '">' + RegionesYcomunas.regiones[iRegion].NombreRegion + '</option>';
@@ -127,7 +150,7 @@
     jQuery('#regiones').change(function () {
       var iRegiones = 0;
       var valorRegion = jQuery(this).val();
-      var htmlComuna = '<option value="sin-comuna">Seleccione comuna</option><option value="sin-comuna">--</option>';
+      var htmlComuna = '<option value="0">Seleccione comuna</option>';
       jQuery.each(RegionesYcomunas.regiones, function () {
         if (RegionesYcomunas.regiones[iRegiones].NombreRegion == valorRegion) {
           var iComunas = 0;
@@ -140,21 +163,120 @@
       });
       jQuery('#comunas').html(htmlComuna);
     });
-    jQuery('#comunas').change(function () {
-      if (jQuery(this).val() == 'sin-region') {
-        alert('selecciones Región');
-      } else if (jQuery(this).val() == 'sin-comuna') {
-        alert('selecciones Comuna');
-      }
-    });
-    jQuery('#regiones').change(function () {
-      if (jQuery(this).val() == 'sin-region') {
-        alert('selecciones Región');
-      }
-    });
 
   });
   //# sourceURL=pen.js
-  </script>
+
+    jQuery(function() {  
+
+    jQuery('.error').hide(); // Hide Warning Label. 
+
+    jQuery("input[name=sub]").on("click", function() {
+
+       var returnvalue;
+
+       if(jQuery("select[name=study]").val() == 0) {
+
+            jQuery("label#sel_study_error").show(); // show Warning 
+            jQuery("select#sel_study").focus();  // Focus the select box      
+            returnvalue=false;   
+
+    } else if (jQuery("select[name=study]").val() != 0) {
+
+            jQuery("label#sel_study_error").hide(); // show Warning 
+            jQuery("select#sel_study").focus();  // Focus the select box      
+            returnvalue=false; 
+
+    }
+
+    return returnvalue;
+
+    });
+          });  // you can change jQuery with $
+
+    jQuery(function() {  
+
+    jQuery('.error').hide(); // Hide Warning Label. 
+
+    jQuery("input[name=sub]").on("click", function() {
+
+       var returnvalue;
+
+       if(jQuery("select[name=transportation]").val() == 0) {
+
+            jQuery("label#sel_transport_error").show(); // show Warning 
+            jQuery("select#sel_transport").focus();  // Focus the select box      
+            returnvalue=false;   
+
+    } else if (jQuery("select[name=transportation]").val() != 0) {
+
+            jQuery("label#sel_transport_error").hide(); // show Warning 
+            jQuery("select#sel_transport").focus();  // Focus the select box      
+            returnvalue=false; 
+
+    }
+
+    return returnvalue;
+
+    });
+          });  // you can change jQuery with $
+
+    jQuery(function() {  
+
+    jQuery('.error').hide(); // Hide Warning Label. 
+
+    jQuery("input[name=sub]").on("click", function() {
+
+       var returnvalue;
+
+       if(jQuery("select[name=region]").val() == 0) {
+
+            jQuery("label#sel_region_error").show(); // show Warning 
+            jQuery("select#sel_region").focus();  // Focus the select box      
+            returnvalue=false;   
+
+    } else if (jQuery("select[name=region]").val() != 0) {
+
+            jQuery("label#sel_region_error").hide(); // show Warning 
+            jQuery("select#sel_region").focus();  // Focus the select box      
+            returnvalue=false;   
+
+    }
+
+    return returnvalue;
+
+    });
+          });  // you can change jQuery with $
+
+    jQuery(function() {  
+
+    jQuery('.error').hide(); // Hide Warning Label. 
+
+    jQuery("input[name=sub]").on("click", function() {
+
+       var returnvalue;
+
+       if(jQuery("select[name=comuna]").val() == 0) {
+
+            jQuery("label#sel_comuna_error").show(); // show Warning 
+            jQuery("select#sel_comuna").focus();  // Focus the select box      
+            returnvalue=false;   
+
+    } else if (jQuery("select[name=comuna]").val() != 0) {
+
+            jQuery("label#sel_comuna_error").hide(); // show Warning 
+            jQuery("select#sel_comuna").focus();  // Focus the select box      
+            returnvalue=false;   
+
+    }
+
+    return returnvalue;
+
+    });
+          });  // you can change jQuery with $
+
+</script>
+
+
 
 {% endblock %}
