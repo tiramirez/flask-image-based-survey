@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>{% block title %}Wekun{% endblock %}</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <meta name="viewport" content="width=device-width height=device-height initial-scale=1.0">
+</head>
+<script type="text/javascript">
+</script>
+
+<body>
+<div id="container">
+  <nav>
+    <h1>Wekun</h1 >
+    <ul>
+        <li><a href="{{ url_for('auth.index') }}">Español</a>
+        <li><a href="{{ url_for('auth.index') }}">English</a>
+    </ul>
+  </nav>
+  <header>
+    {% block header %}{% endblock %}
+  </header>
+  <section class="content">
+      {% block content %}{% endblock %}
+  </section>
+  <footer>
+      <a href="{{ url_for('auth.about_us') }}">About us</a>
+  </footer>
+</div>
+</body>
+</html>
