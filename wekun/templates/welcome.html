@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>{% block title %}Wekun{% endblock %}</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <meta name="viewport" content="width=device-width height=device-height initial-scale=1.0">
+</head>
+<script type="text/javascript">
+</script>
+
+<body>
+<div id="container">
+  <nav>
+    <h1>Wekun</h1 >
+    <ul>
+        <li><a href="{{ url_for('auth.spanish') }}">Español</a>
+        <li><a href="{{ url_for('auth.english') }}">English</a>
+    </ul>
+  </nav>
+  <section class="welcome-content">
+      <div class="instructions" id="text1" style="width: 100%;height: 500px; float: left;">
+            <div class="text-above-video">
+              {% if request.cookies.get('languaje') == 'en' %}
+                        <h2>Welcome!</h2>
+              {% else %}
+                        <h2>Bienvenido!</h2>
+              {% endif %}
+            </div>
+      </div>
+  </section>
+</div>
+</body>
+</html>
