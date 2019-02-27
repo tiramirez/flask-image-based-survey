@@ -5,7 +5,7 @@ from flask import (
 from wekun import app, db
 from sqlalchemy import func
 # from wekun.models import Users, Answers, Images
-# from survey.data import IMAGES
+from wekun.data import IMAGES
 import random
 
 
@@ -17,7 +17,6 @@ def index():
     ## Primero se revisa que exista la Cookie 'userid' y que corresponda a un id en la Tabla Users
     username = request.cookies.get('userid')
     counter = 0
-    languaje = request.cookies.get('languaje')
     # counter  = db.session.query(func.count()).filter(Users.id == username).all()[0][0]
 
     ## En caso de cumplirse ambos criterios, se redirige a la pagina home
@@ -48,3 +47,7 @@ def english():
     resp = make_response(redirect('/'))
     resp.set_cookie('languaje', 'en', max_age=60*60*24*365)
     return resp
+
+@bp.route('/survey', methods=('GET', 'POST'))
+def survey():
+    return render_template('survey.html')

@@ -22,8 +22,14 @@
             <div class="text-above-video">
               {% if request.cookies.get('languaje') == 'en' %}
                         <h2>Welcome!</h2>
+                        <p>This survey wants what makes you feel confortable when being on public spaces.</p>
+                        <p>Thank you for helping us!</p>
+                        <a class="btn" href="{{ url_for('auth.survey') }}">Start</a>
               {% else %}
                         <h2>Bienvenido!</h2>
+                        <p>Con esta encuesta queremos entender qué te hace sentir a gusto en los espacios públicos.</p>
+                        <p>¡Muchas gracias por participar!</p>
+                        <a class="btn" href="{{ url_for('auth.survey') }}">Comenzar</a>
               {% endif %}
             </div>
       </div>
