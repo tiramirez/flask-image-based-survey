@@ -39,7 +39,8 @@
             <div class="text-above-instructions">
               {% if request.cookies.get('languaje') == 'en' %}
                         <h2>Instruc</h2>
-                        <p></p>
+                        <p>There will be shown two images and one question. You have to chose which one you prefere.</p>
+                        <h3>Click one image!</h3>
               {% else %}
                         <h2>Instrucciones</h2>
                         <p>A continuación, le presentaremos dos imágenes y una pregunta. Usted podrá escoger cuál de las dos prefiere, haciendo click sobre la imágen que quiere seleccionar.</p>
@@ -93,8 +94,8 @@
             <div class="text-above-instructions">
               {% if request.cookies.get('languaje') == 'en' %}
                         <h2>Instruc</h2>
-                        <p>This survey wants what makes you feel confortable when being on public spaces.</p>
-                        <p>Thank you for helping us!</p>
+                        <p>If you can not decide because they look to similar, click "=". Or if there is an error in one of the images, please click "X".</p>
+                        <p>Click one of those two buttons!</p>
               {% else %}
                         <h2>Instrucciones</h2>
                         <p>En caso de pensar que son muy similares, puede hacer click en el símbolo "=".</p>
@@ -148,8 +149,8 @@
             <div class="text-above-instructions">
               {% if request.cookies.get('languaje') == 'en' %}
                         <h2>Instruc</h2>
-                        <p>This survey wants what makes you feel confortable when being on public spaces.</p>
-                        <p>Thank you for helping us!</p>
+                        <p>Also, you can change the question in the foldable menu.</p>
+                        <h3>Change the question!</h3>
               {% else %}
                         <h2>Instrucciones</h2>
                         <p>En el menú desplegable puedes cambiar la pregunta</p>
@@ -203,7 +204,7 @@
             <div class="text-above-instructions">
               {% if request.cookies.get('languaje') == 'en' %}
                         <h2>Instruc</h2>
-                        <p>This survey wants what makes you feel confortable when being on public spaces.</p>
+                        <p>There are millions of images, so answer as many as you want.</p>
                         <p>Thank you for helping us!</p>
                         <a class="btn" id="next4" href="{{ url_for('auth.survey') }}">Start</a>
               {% else %}
