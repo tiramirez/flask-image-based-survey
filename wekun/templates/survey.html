@@ -50,6 +50,14 @@
   var pregunta;
   pregunta = jQuery("input[name=cookie_category").val();
   jQuery("select > option[value="+ pregunta +"]").attr('selected','selected');
+
+
+  $(document).ready(function(){
+    $("#sel").change(function(){
+      window.location.href = "{{ url_for('auth.survey') }}";
+    });
+
+  });  
 </script>
  
 {% endblock %}

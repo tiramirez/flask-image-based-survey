@@ -29,13 +29,6 @@ section{
   	padding: 2em;
 }
 
-.welcome-content{
-	background: #FF6F7F;
-	height: 600px;
-	padding: 0.1em 0.5em 0.1em 0.5em;
-	border-radius:0px 0px 10px 10px;
-}
-
 footer {
 	background: #747576; 
 	padding: 0.2em 0em 0.2em 1em;
@@ -165,6 +158,30 @@ a { color: white; }
 	box-shadow: 0px 3px 10px 1px grey;
 	background: grey;
 	background: #FF6F70;
+}
+
+.welcome-content{
+	background: #FF6F7F;
+	padding: 0.1em 0.5em 0.1em 0.5em;
+	border-radius:0px 0px 10px 10px;
+	position: relative;
+	display: flex;
+	min-height: 600px;
+}
+
+.text-above-instructions{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+
+}
+
+.text-above-instructions h2{
+	font-size: 24pt;
+}
+
+.text-above-instructions p{
+	font-size: 18pt;
 }
 
 
