@@ -110,6 +110,8 @@ a { color: white; }
 	margin-left: 0.3em;
 	padding-left: 0.2em;
 	background: Gainsboro;
+	border: none;
+	border-radius: 10px;
 }
 
 #top select * {
@@ -127,8 +129,18 @@ a { color: white; }
 }
 
 .img_choice{
-	width: 45%;	
+	width: 45%;
 }
+
+.img_choice input{
+	padding: 4px;
+	box-shadow: 0px 6px 20px 2px grey;
+}
+.img_choice input:hover{
+	box-shadow: 0px 3px 10px 1px grey;
+	background: #FF6F70;
+}
+
 .buttons{
 	width: 10%;
 	display: flex;
@@ -141,13 +153,18 @@ a { color: white; }
 	width:2em;
 	height: 2em;
 	border-radius:100%;
-	font-size: 200%;
+	font-size: 175%;
 	margin: 10%;
-	min-width: 50px;
-	min-height: 50px;
+	min-width: 40px;
+	min-height: 40px;
+	border: none;
+	background: Gainsboro;
+	box-shadow: 1px 6px 20px 1px grey;
 }
-.round:hover{
-	background: #000000;
+.round-btn:hover{
+	box-shadow: 0px 3px 10px 1px grey;
+	background: grey;
+	background: #FF6F70;
 }
 
 
