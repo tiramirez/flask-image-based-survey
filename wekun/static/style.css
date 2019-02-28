@@ -1,13 +1,12 @@
 html { 
 	font-family: sans-serif; 
-	background: lightgray; 
+	background: #343536; 
 	padding: 1rem;
 }
 body { 
 	max-width: 1080px;
 	margin: 0 auto;
 	border-radius:10px;
-	box-shadow: 2px 2px 10px 2px grey;
 	min-width: 800px;
 }
 
@@ -39,8 +38,6 @@ section{
 
 footer {
 	background: #747576; 
-	height: 30px;
-  	justify-content: center;
 	padding: 0.2em 0em 0.2em 1em;
 	border-radius:0px 0px 10px 10px;
 }
@@ -59,7 +56,7 @@ nav h1 a {
 nav ul  { 
 	display: flex; 
 	list-style: none; 
-	margin: 0em 1em 0em 1em; 
+	margin: 1em 1em 1em 1em; 
 	padding: 0; 
 	text-decoration: none; 
 }
@@ -72,15 +69,16 @@ nav ul li a {
 
 footer ul  { 
 	display: flex; 
+	flex-direction: row;
+	justify-content: center;
 	list-style: none; 
-	margin: 0em 1em 0em 1em; 
+	margin: 0.5em 1em 0.5em 1em; 
 	padding: 0;
 	top: 50%;
 }
 
-footer ul li a { 
-	display: flex; 
-	padding: 0rem 1rem 0rem 1rem;
+footer ul li a {
+	padding: 1rem 1rem 1rem 1rem;
 	color: white;
 	text-decoration: none; 
 }
@@ -102,6 +100,7 @@ a { color: white; }
 	display: flex;
 	justify-content: center;
 	margin-bottom: 2em;
+	margin-top: 1em;
 }
 
 #top select{
@@ -126,6 +125,7 @@ a { color: white; }
 #grid{
 	display: flex;
   	flex-direction: row;
+  	margin-bottom: 2em;
 }
 
 .img_choice{
@@ -195,6 +195,7 @@ a { color: white; }
 	#top{
 		flex-direction: column;
 		margin-bottom: 1em;
+		margin-top: 0em;
 	}
 
 	#top select{
@@ -211,6 +212,7 @@ a { color: white; }
 
 	#grid{
 	  	flex-direction: column;
+	  	margin-bottom: 0em;
 	}
 
 	.img_choice{

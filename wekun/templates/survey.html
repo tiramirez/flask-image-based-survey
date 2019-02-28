@@ -9,11 +9,11 @@
 		{% if request.cookies.get('languaje') == 'en' %}
 		<h2>Which place looks</h2>
     <select class="sel" name="category" id="sel">
-            <option value="1">like a better to take a walk?</b>?</option>
-            <option value="2">like a better place to live?</b></option>
-            <option value="3">more boring?</b></option>
-            <option value="4">more beautiful?</b></option>
-            <option value="5">wealthier?</b></option>
+            <option value="1">like a better to take a walk?</option>
+            <option value="2" href="#">like a better place to live?</option>
+            <option value="3">more boring?</option>
+            <option value="4">more beautiful?</option>
+            <option value="5">wealthier?</option>
     </select>
     	{% else %}
 		<h2>¿Cuál le parece</h2>
@@ -30,7 +30,7 @@
     <div id="grid">
       <div class="img_choice" style="float: left">
         <!-- <input type="image" id = "image" src="/static/img/{{ photo1 }}.jpg" name="submit" value="image_1" width="100%" height="auto"> -->
-        <input type="image" id = "image" src="/static/img/50f5e588fdc9f065f000698c.jpg" name="submit" value="image_1" width="100%" height="auto">
+        <input type="image" id = "image" src="/static/img/50f5e588fdc9f065f000698c.jpg" name="submit" value="image_1" width="98%" height="auto">
       </div>
       <div class="buttons" style="float: left">
         <input type="submit" class="round-btn" id="button_E" name="submit" value="=">
@@ -38,7 +38,7 @@
       </div>
       <div class="img_choice" style="float: right">
         <!-- <input type="image" src="/static/img/{{ photo2 }}.jpg" name="submit" value="image_2" width="100%" height="auto"> -->
-        <input type="image" id = "image" src="/static/img/50f5e640fdc9f065f0006ba2.jpg" name="submit" value="image_1" width="100%" height="auto">
+        <input type="image" id = "image" src="/static/img/50f5e640fdc9f065f0006ba2.jpg" name="submit" value="image_1" width="98%" height="auto">
       </div>
     </div>
 
