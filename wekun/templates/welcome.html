@@ -40,50 +40,39 @@
               {% if request.cookies.get('languaje') == 'en' %}
                         <h2>Instruc</h2>
                         <p>There will be shown two images and one question. You have to chose which one you prefere.</p>
-                        <h3>Click one image!</h3>
               {% else %}
                         <h2>Instrucciones</h2>
                         <p>A continuación, le presentaremos dos imágenes y una pregunta. Usted podrá escoger cuál de las dos prefiere, haciendo click sobre la imágen que quiere seleccionar.</p>
-                        <h3>¡Haga click sobre una imagen!</h3>
               {% endif %}
             </div>
             <div class="diagram-instructions">
-                  <div id="top">
-                            <input type="hidden" name="cookie_category" value="{{ category }}" />
+                  <div id="top" >
                         {% if request.cookies.get('languaje') == 'en' %}
-                        <h2>Which place looks</h2>
-                        <select class="sel" name="category" id="sel">
-                                <option value="1">like a better to take a walk?</option>
-                                <option value="2" href="#">like a better place to live?</option>
-                                <option value="3">more boring?</option>
-                                <option value="4">more beautiful?</option>
-                                <option value="5">wealthier?</option>
-                        </select>
+                        <h2>Which place looks like a better to take a walk?</h2>
                           {% else %}
-                        <h2>¿Cuál le parece</h2>
-                        <input type="hidden" name="cookie_category" value="{{ category }}" />
-                        <select class="sel" name="category" id="sel">
-                                <option value="1">un mejor lugar <b>para caminar</b>?</option>
-                                <option value="2">un mejor lugar <b>para vivir?</b></option>
-                                <option value="3">un lugar <b>más aburrido?</b></option>
-                                <option value="4">un lugar <b>más bonito/agradable a la vista?</b></option>
-                                <option value="5">un lugar <b>de mayor nivel de ingresos?</b></option>
-                        </select>
+                        <h2>¿Cuál le parece un mejor lugar para caminar?</h2>
                           {% endif %}
                   </div>
+                  <div id="tooltip">
                   <div id="grid">
-                        <div class="img_choice" style="float: left">
-                          <!-- <input type="image" id = "image" src="/static/img/{{ photo1 }}.jpg" name="submit" value="image_1" width="100%" height="auto"> -->
+                        <div class="img_choice"  style="float: left">
                           <input type="image" id="next1" src="/static/img/50f5e588fdc9f065f000698c.jpg" name="submit" value="image_1" width="98%" height="auto">
                         </div>
                         <div class="buttons" style="float: left">
-                          <input type="submit" class="round-btn" id="button_E" name="submit" value="=">
-                        <input type="submit" class="round-btn" id="button_error" name="submit" value="X">
                         </div>
                         <div class="img_choice" style="float: right">
-                          <!-- <input type="image" src="/static/img/{{ photo2 }}.jpg" name="submit" value="image_2" width="100%" height="auto"> -->
                           <input type="image" id="next1b" src="/static/img/50f5e640fdc9f065f0006ba2.jpg" name="submit" value="image_1" width="98%" height="auto">
                         </div>
+                   </div>
+                   <span id="tooltiptext">
+                        {% if request.cookies.get('languaje') == 'en' %}
+                              Click one image!
+                          {% else %}
+                                ¡Haga click sobre una imagen!
+                          {% endif %}
+                   
+
+                   </span>
                    </div>
             </div>
       </div>
@@ -94,50 +83,78 @@
             <div class="text-above-instructions">
               {% if request.cookies.get('languaje') == 'en' %}
                         <h2>Instruc</h2>
-                        <p>If you can not decide because they look to similar, click "=". Or if there is an error in one of the images, please click "X".</p>
-                        <p>Click one of those two buttons!</p>
               {% else %}
                         <h2>Instrucciones</h2>
-                        <p>En caso de pensar que son muy similares, puede hacer click en el símbolo "=".</p>
-                        <p>Y en caso de detectar un error, o una imagen que no le permite escoger, por favor oprima el botón "X"</p>
-                        <h3>¡Haga click sobre uno de estos botones!</h3>
               {% endif %}
             </div>
             <div class="diagram-instructions">
                   <div id="top">
-                            <input type="hidden" name="cookie_category" value="{{ category }}" />
                         {% if request.cookies.get('languaje') == 'en' %}
-                        <h2>Which place looks</h2>
-                        <select class="sel" name="category" id="sel">
-                                <option value="1">like a better to take a walk?</option>
-                                <option value="2" href="#">like a better place to live?</option>
-                                <option value="3">more boring?</option>
-                                <option value="4">more beautiful?</option>
-                                <option value="5">wealthier?</option>
-                        </select>
+                        <h2>Which place looks like a better to take a walk?</h2>
                           {% else %}
-                        <h2>¿Cuál le parece</h2>
-                        <input type="hidden" name="cookie_category" value="{{ category }}" />
-                        <select class="sel" name="category" id="sel">
-                                <option value="1">un mejor lugar <b>para caminar</b>?</option>
-                                <option value="2">un mejor lugar <b>para vivir?</b></option>
-                                <option value="3">un lugar <b>más aburrido?</b></option>
-                                <option value="4">un lugar <b>más bonito/agradable a la vista?</b></option>
-                                <option value="5">un lugar <b>de mayor nivel de ingresos?</b></option>
-                        </select>
+                        <h2>¿Cuál le parece un mejor lugar para caminar?</h2>
                           {% endif %}
                   </div>
                   <div id="grid">
                         <div class="img_choice" style="float: left">
-                          <!-- <input type="image" id = "image" src="/static/img/{{ photo1 }}.jpg" name="submit" value="image_1" width="100%" height="auto"> -->
                           <input type="image" src="/static/img/50f5e588fdc9f065f000698c.jpg" name="submit" value="image_1" width="98%" height="auto">
                         </div>
                         <div class="buttons" style="float: left">
+                          <div id="tooltip">
                           <input type="submit" id="next2" class="round-btn" name="submit" value="=">
-                        <input type="submit" id="next2b" class="round-btn" name="submit" value="X">
+
+                          <span id="tooltiptext">
+                            {% if request.cookies.get('languaje') == 'en' %}
+                                  If you can not decide because they look to similar, click "="
+                            {% else %}
+                                  En caso de pensar que son muy similares, puede hacer click en el símbolo "=".
+                            {% endif %}
+                          </span>
+                          </div>
+                          <input type="submit" class="round-btn" name="submit" value="X">
                         </div>
                         <div class="img_choice" style="float: right">
-                          <!-- <input type="image" src="/static/img/{{ photo2 }}.jpg" name="submit" value="image_2" width="100%" height="auto"> -->
+                          <input type="image" id="next1b" src="/static/img/50f5e640fdc9f065f0006ba2.jpg" name="submit" value="image_1" width="98%" height="auto">
+                        </div>
+                   </div>
+            </div>
+      </div>
+
+      <div class="instructions" id="text2b" style="display: none;">
+            <div class="text-above-instructions">
+              {% if request.cookies.get('languaje') == 'en' %}
+                        <h2>Instruc</h2>
+              {% else %}
+                        <h2>Instrucciones</h2>
+              {% endif %}
+            </div>
+            <div class="diagram-instructions">
+                  <div id="top">
+                        {% if request.cookies.get('languaje') == 'en' %}
+                        <h2>Which place looks like a better to take a walk?</h2>
+                          {% else %}
+                        <h2>¿Cuál le parece un mejor lugar para caminar?</h2>
+                          {% endif %}
+                  </div>
+                  <div id="grid">
+                        <div class="img_choice" style="float: left">
+                          <input type="image" src="/static/img/50f5e588fdc9f065f000698c.jpg" name="submit" value="image_1" width="98%" height="auto">
+                        </div>
+                        <div class="buttons" style="float: left">
+                          <input type="submit" id="" class="round-btn" name="submit" value="=">
+                          <div id="tooltip">
+                          <input type="submit" id="next2b" class="round-btn" name="submit" value="X">
+
+                          <span id="tooltiptext-down">
+                            {% if request.cookies.get('languaje') == 'en' %}
+                                  Or if there is an error in one of the images, please click "X".
+                            {% else %}
+                                  Y en caso de detectar un error, o una imagen que no le permite escoger, por favor oprima el botón "X"
+                            {% endif %}
+                          </span>
+                          </div>
+                        </div>
+                        <div class="img_choice" style="float: right">
                           <input type="image" id="next1b" src="/static/img/50f5e640fdc9f065f0006ba2.jpg" name="submit" value="image_1" width="98%" height="auto">
                         </div>
                    </div>
@@ -149,17 +166,13 @@
             <div class="text-above-instructions">
               {% if request.cookies.get('languaje') == 'en' %}
                         <h2>Instruc</h2>
-                        <p>Also, you can change the question in the foldable menu.</p>
-                        <h3>Change the question!</h3>
               {% else %}
                         <h2>Instrucciones</h2>
-                        <p>En el menú desplegable puedes cambiar la pregunta</p>
-                        <h3>Cambie la pregunta</h3>
               {% endif %}
             </div>
             <div class="diagram-instructions">
                   <div id="top">
-                            <input type="hidden" name="cookie_category" value="{{ category }}" />
+                        <div id="tooltip1">
                         {% if request.cookies.get('languaje') == 'en' %}
                         <h2>Which place looks</h2>
                         <select class="sel" name="category" id="sel2">
@@ -171,7 +184,6 @@
                         </select>
                           {% else %}
                         <h2>¿Cuál le parece</h2>
-                        <input type="hidden" name="cookie_category" value="{{ category }}" />
                         <select class="sel" name="category" id="sel2">
                                 <option value="1">un mejor lugar <b>para caminar</b>?</option>
                                 <option value="2">un mejor lugar <b>para vivir?</b></option>
@@ -180,6 +192,17 @@
                                 <option value="5">un lugar <b>de mayor nivel de ingresos?</b></option>
                         </select>
                           {% endif %}
+                        <span id="tooltiptext">
+                              {% if request.cookies.get('languaje') == 'en' %}
+                                        <p>Also, you can change the question in the foldable menu.</p>
+                                        <p>Change the question!</p>
+                              {% else %}
+                                        <p>En el menú desplegable puedes cambiar la pregunta</p>
+                                        <p>Cambie la pregunta</p>
+                              {% endif %}
+
+                        </span>
+                      </div>
                   </div>
                   <div id="grid">
                         <div class="img_choice" style="float: left">
@@ -194,7 +217,7 @@
                           <!-- <input type="image" src="/static/img/{{ photo2 }}.jpg" name="submit" value="image_2" width="100%" height="auto"> -->
                           <input type="image" id="next1b" src="/static/img/50f5e640fdc9f065f0006ba2.jpg" name="submit" value="image_1" width="98%" height="auto">
                         </div>
-                   </div>
+                  </div>
             </div>            
       </div>
 
@@ -245,11 +268,11 @@
 
     $("#next2").click(function(){
       $("div#text2").hide();
-      $("div#text3").show();
+      $("div#text2b").show();
     });
 
     $("#next2b").click(function(){
-      $("div#text2").hide();
+      $("div#text2b").hide();
       $("div#text3").show();
     });
 
