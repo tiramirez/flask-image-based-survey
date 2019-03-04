@@ -84,7 +84,9 @@ footer ul li:hover {
 	text-decoration: none;
 	border: 2px solid white;
 	border-radius:10px 10px 10px 10px;
-	padding: 1ex;
+	padding: 1em;
+	margin: 1em;
+	z-index: 3;
 }
 
 a { color: white; }
@@ -168,6 +170,22 @@ a { color: white; }
 	display: flex;
 	min-height: 600px;
 }
+.instructions{
+	display: flex;
+	flex-direction: row;
+	margin-top: 2em;
+}
+
+#btn-space{
+	height: 100%;
+	position: relative;
+	display: flex;
+	align-items: center;
+}
+
+#btn-space a {
+	display: inline-flex;
+}
 
 .text-above-instructions{
 	display: flex;
@@ -184,6 +202,7 @@ a { color: white; }
 	font-size: 18pt;
 }
 
+
 .diagram-instructions{
 	padding: 1em 4em 1em 4em;
 	background: white;
@@ -191,21 +210,56 @@ a { color: white; }
 	margin-bottom: 2em;
 }
 
+.diagram-instructions #top{
+margin-bottom: 5em;
+margin-top: 2em;
+}
+
+
+.color-layer{
+	height: 100%;
+	width: 100%;
+	position: absolute;
+	top:0;
+	left:0;
+	background: #FFFFFF;
+	opacity: 0.5;
+	z-index: 1;
+}
+
+#instructions-number{
+	padding: 0.5em 0.75em 0.5em 0.75em;
+	margin-left: 0.5em;
+	background: white;
+	color: black;
+	border-radius: 50%;
+	font-size: 20pt;
+	font-weight: bold;
+	display: block;
+}
+
+#instructions-text{
+	margin-left: 1.5em;
+	display: block;
+}
+
 #tooltip {
 	position: relative;
 	display: inline-block;
+	z-index: 3;
 }
 
 #tooltip1 {
 	position: relative;
 	display: flex;
 	justify-content: center;
+	z-index: 3;
 }
 
 /* Tooltip text */
 #tooltip #tooltiptext, #tooltip1 #tooltiptext {
 	visibility: visible;
-	width: 400px;
+	width: 500px;
 	background-color: black;
 	color: #fff;
 	text-align: center;
@@ -217,7 +271,9 @@ a { color: white; }
 	z-index: 1;
 	bottom: 103%;
 	left: 50%; 
-	margin-left: -200px; /* Use half of the width (120/2 = 60), to center the tooltip */
+	margin-left: -270px; /* Use half of the width (120/2 = 60), to center the tooltip */
+	font-size: 18pt;
+	display: flex;
 }
 
 #tooltip #tooltiptext::after, #tooltip1 #tooltiptext::after {
@@ -233,7 +289,7 @@ a { color: white; }
 
 
 /* Tooltip text */
-#tooltip #tooltiptext-down{
+#tooltip #tooltiptext-down, #tooltip1 #tooltiptext-down{
 	visibility: visible;
 	width: 400px;
 	background-color: black;
@@ -248,9 +304,11 @@ a { color: white; }
 	top: 103%;
 	left: 50%; 
 	margin-left: -200px; /* Use half of the width (120/2 = 60), to center the tooltip */
+	font-size: 18pt;
+	display: flex;
 }
 
-#tooltip #tooltiptext-down::after {
+#tooltip #tooltiptext-down::after, #tooltip1 #tooltiptext-down::after {
 	content: " ";
 	position: absolute;
 	bottom: 100%;  /* At the top of the tooltip */

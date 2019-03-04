@@ -18,8 +18,9 @@
     </ul>
   </nav>
   <section class="welcome-content">
-
+      <div class="color-layer"></div>
       <div class="instructions" id="text0">
+
             <div class="text-above-instructions">
               {% if request.cookies.get('languaje') == 'en' %}
                         <h2>Welcome!</h2>
@@ -36,14 +37,14 @@
       </div>
 
       <div class="instructions" id="text1" style="display: none;">
-            <div class="text-above-instructions">
+            <div id="btn-space">
+              <a class="btn" id="back1" href="#">
               {% if request.cookies.get('languaje') == 'en' %}
-                        <h2>Instruc</h2>
-                        <p>There will be shown two images and one question. You have to chose which one you prefere.</p>
+                    Back
               {% else %}
-                        <h2>Instrucciones</h2>
-                        <p>A continuación, le presentaremos dos imágenes y una pregunta. Usted podrá escoger cuál de las dos prefiere, haciendo click sobre la imágen que quiere seleccionar.</p>
+                    Volver
               {% endif %}
+              </a>
             </div>
             <div class="diagram-instructions">
                   <div id="top" >
@@ -64,28 +65,41 @@
                           <input type="image" id="next1b" src="/static/img/50f5e640fdc9f065f0006ba2.jpg" name="submit" value="image_1" width="98%" height="auto">
                         </div>
                    </div>
-                   <span id="tooltiptext">
+                   <div id="tooltiptext">
+                        <span id="instructions-number">1</span>
+                        <span id="instructions-text">
                         {% if request.cookies.get('languaje') == 'en' %}
-                              Click one image!
+                                To answer just click one image
                           {% else %}
-                                ¡Haga click sobre una imagen!
+                                Para contestar haga click sobre una imagen
                           {% endif %}
-                   
+                        </span>
 
-                   </span>
                    </div>
+                   </div>
+            </div>
+            <div id="btn-space">
+              <a class="btn" id="next1" href="#">
+              {% if request.cookies.get('languaje') == 'en' %}
+                    Next
+              {% else %}
+                    Siguiente
+              {% endif %}
+              </a>
             </div>
       </div>
 
 
 
       <div class="instructions" id="text2" style="display: none;">
-            <div class="text-above-instructions">
+            <div id="btn-space">
+              <a class="btn" id="back1" href="#">
               {% if request.cookies.get('languaje') == 'en' %}
-                        <h2>Instruc</h2>
+                    Back
               {% else %}
-                        <h2>Instrucciones</h2>
+                    Volver
               {% endif %}
+              </a>
             </div>
             <div class="diagram-instructions">
                   <div id="top">
@@ -101,15 +115,18 @@
                         </div>
                         <div class="buttons" style="float: left">
                           <div id="tooltip">
-                          <input type="submit" id="next2" class="round-btn" name="submit" value="=">
+                          <input type="submit" id="next2" class="round-btn" name="submit" value="=" style="background: #FF6F70;">
 
-                          <span id="tooltiptext">
+                          <div id="tooltiptext">
+                            <span id="instructions-number">2</span>
+                            <span id="instructions-text">
                             {% if request.cookies.get('languaje') == 'en' %}
                                   If you can not decide because they look to similar, click "="
                             {% else %}
                                   En caso de pensar que son muy similares, puede hacer click en el símbolo "=".
                             {% endif %}
                           </span>
+                          </div>
                           </div>
                           <input type="submit" class="round-btn" name="submit" value="X">
                         </div>
@@ -118,15 +135,26 @@
                         </div>
                    </div>
             </div>
+            <div id="btn-space">
+              <a class="btn" id="next1" href="#">
+              {% if request.cookies.get('languaje') == 'en' %}
+                    Next
+              {% else %}
+                    Siguiente
+              {% endif %}
+              </a>
+            </div>
       </div>
 
       <div class="instructions" id="text2b" style="display: none;">
-            <div class="text-above-instructions">
+            <div id="btn-space">
+              <a class="btn" id="back1" href="#">
               {% if request.cookies.get('languaje') == 'en' %}
-                        <h2>Instruc</h2>
+                    Back
               {% else %}
-                        <h2>Instrucciones</h2>
+                    Volver
               {% endif %}
+              </a>
             </div>
             <div class="diagram-instructions">
                   <div id="top">
@@ -143,15 +171,18 @@
                         <div class="buttons" style="float: left">
                           <input type="submit" id="" class="round-btn" name="submit" value="=">
                           <div id="tooltip">
-                          <input type="submit" id="next2b" class="round-btn" name="submit" value="X">
+                          <input type="submit" id="next2b" class="round-btn" name="submit" value="X" style="background: #FF6F70;">
 
-                          <span id="tooltiptext-down">
+                          <div id="tooltiptext-down">
+                            <span id="instructions-number">3</span>
+                            <span id="instructions-text">
                             {% if request.cookies.get('languaje') == 'en' %}
-                                  Or if there is an error in one of the images, please click "X".
+                                  If there is an error in one of the images, please click "X".
                             {% else %}
-                                  Y en caso de detectar un error, o una imagen que no le permite escoger, por favor oprima el botón "X"
+                                  En caso de detectar un error, o una imagen que no le permite escoger, por favor oprima el botón "X"
                             {% endif %}
                           </span>
+                          </div>
                           </div>
                         </div>
                         <div class="img_choice" style="float: right">
@@ -159,16 +190,27 @@
                         </div>
                    </div>
             </div>
+            <div id="btn-space">
+              <a class="btn" id="next1" href="#">
+              {% if request.cookies.get('languaje') == 'en' %}
+                    Next
+              {% else %}
+                    Siguiente
+              {% endif %}
+              </a>
+            </div>
       </div>
 
 
       <div class="instructions" id="text3" style="display: none;">
-            <div class="text-above-instructions">
+            <div id="btn-space">
+              <a class="btn" id="back1" href="#">
               {% if request.cookies.get('languaje') == 'en' %}
-                        <h2>Instruc</h2>
+                    Back
               {% else %}
-                        <h2>Instrucciones</h2>
+                    Volver
               {% endif %}
+              </a>
             </div>
             <div class="diagram-instructions">
                   <div id="top">
@@ -184,7 +226,7 @@
                         </select>
                           {% else %}
                         <h2>¿Cuál le parece</h2>
-                        <select class="sel" name="category" id="sel2">
+                        <select class="sel" name="category" id="sel2" style="background: #FF6F70;">
                                 <option value="1">un mejor lugar <b>para caminar</b>?</option>
                                 <option value="2">un mejor lugar <b>para vivir?</b></option>
                                 <option value="3">un lugar <b>más aburrido?</b></option>
@@ -192,17 +234,17 @@
                                 <option value="5">un lugar <b>de mayor nivel de ingresos?</b></option>
                         </select>
                           {% endif %}
-                        <span id="tooltiptext">
+                          <div id="tooltiptext-down">
+                            <span id="instructions-number">4</span>
+                            <span id="instructions-text">
                               {% if request.cookies.get('languaje') == 'en' %}
-                                        <p>Also, you can change the question in the foldable menu.</p>
-                                        <p>Change the question!</p>
+                                        Also, you can change the question
                               {% else %}
-                                        <p>En el menú desplegable puedes cambiar la pregunta</p>
-                                        <p>Cambie la pregunta</p>
+                                        Si quieres, puedes cambiar la pregunta
                               {% endif %}
-
-                        </span>
-                      </div>
+                            </span>
+                          </div>
+                        </div>
                   </div>
                   <div id="grid">
                         <div class="img_choice" style="float: left">
@@ -218,22 +260,43 @@
                           <input type="image" id="next1b" src="/static/img/50f5e640fdc9f065f0006ba2.jpg" name="submit" value="image_1" width="98%" height="auto">
                         </div>
                   </div>
-            </div>            
+            </div>
+            <div id="btn-space">
+              <a class="btn" id="next1" href="#">
+              {% if request.cookies.get('languaje') == 'en' %}
+                    Next
+              {% else %}
+                    Siguiente
+              {% endif %}
+              </a>
+            </div>           
       </div>
 
 
 
       <div class="instructions" id="text4" style="display: none;">
+            <div id="btn-space">
+              <a class="btn" id="back1" href="#">
+              {% if request.cookies.get('languaje') == 'en' %}
+                    Back
+              {% else %}
+                    Volver
+              {% endif %}
+              </a>
+            </div>
             <div class="text-above-instructions">
               {% if request.cookies.get('languaje') == 'en' %}
-                        <h2>Instruc</h2>
                         <p>There are millions of images, so answer as many as you want.</p>
                         <p>Thank you for helping us!</p>
-                        <a class="btn" id="next4" href="{{ url_for('auth.survey') }}">Start</a>
               {% else %}
-                        <h2>Instrucciones</h2>
                         <p>La cantidad de imágenes es infinita, por lo que cuando no quieras contestar más imágenes puede cerrar nuestra página.</p>
-                        <a class="btn" id="next4" href="{{ url_for('auth.survey') }}">Comenzar</a>
+              {% endif %}
+            </div>
+            <div id="btn-space">
+              {% if request.cookies.get('languaje') == 'en' %}
+                    <a class="btn" id="next4" href="{{ url_for('auth.survey') }}">Start</a>
+              {% else %}
+                    <a class="btn" id="next4" href="{{ url_for('auth.survey') }}">Comenzar</a>
               {% endif %}
             </div>
       </div>
