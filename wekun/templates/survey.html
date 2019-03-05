@@ -1,7 +1,6 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <form method="post">
 
 	<div id="top">
@@ -30,7 +29,7 @@
     <div id="grid">
       <div class="img_choice" style="float: left">
         <!-- <input type="image" id = "image" src="/static/img/{{ photo1 }}.jpg" name="submit" value="image_1" width="100%" height="auto"> -->
-        <input type="image" id = "image" src="/static/img/50f5e588fdc9f065f000698c.jpg" name="submit" value="image_1" width="98%" height="auto">
+        <input type="image" id = "image" src="/static/img/{{ photo1 }}.jpg" name="submit" value="image_1" width="98%" height="auto">
       </div>
       <div class="buttons" style="float: left">
         <input type="submit" class="round-btn" id="button_E" name="submit" value="=">
@@ -38,7 +37,7 @@
       </div>
       <div class="img_choice" style="float: right">
         <!-- <input type="image" src="/static/img/{{ photo2 }}.jpg" name="submit" value="image_2" width="100%" height="auto"> -->
-        <input type="image" id = "image" src="/static/img/50f5e640fdc9f065f0006ba2.jpg" name="submit" value="image_1" width="98%" height="auto">
+        <input type="image" id = "image" src="/static/img/{{ photo2 }}.jpg" name="submit" value="image_2" width="98%" height="auto">
       </div>
     </div>
 

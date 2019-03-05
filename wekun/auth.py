@@ -4,7 +4,7 @@ from flask import (
 )
 from wekun import app, db
 from sqlalchemy import func
-# from wekun.models import Users, Answers, Images
+from wekun.models import Users, Answers
 from wekun.data import IMAGES
 import random
 
@@ -16,7 +16,7 @@ def index():
 
     ## Primero se revisa que exista la Cookie 'userid' y que corresponda a un id en la Tabla Users
     username = request.cookies.get('userid')
-    counter = 0
+    counter = 1 
     # counter  = db.session.query(func.count()).filter(Users.id == username).all()[0][0]
 
     ## En caso de cumplirse ambos criterios, se redirige a la pagina home
@@ -48,9 +48,47 @@ def english():
     resp.set_cookie('languaje', 'en', max_age=60*60*24*365)
     return resp
 
+## select from data 2 random images
+def get_photos(source):
+    p1 = random.choice(source)
+    p2 = random.choice(source)
+
+    ## Revisar que no sea la misma imagen
+    if p1["id"] == p2["id"]:
+        return get_photos(source)
+    return p1["id"], p2["id"]
+
 @bp.route('/survey', methods=('GET', 'POST'))
 def survey():
-    return render_template('survey.html')
+    if request.method == 'GET':
+        url_1, url_2= get_photos(IMAGES)
+        url_1 = "{}".format(url_1)
+        url_2 = "{}".format(url_2)
+        category = session.get('category')
+        # print(category)
+        if category == None:
+            ## randint(a,b) returns a random integer N such that a <= N <= b.
+            category = str(random.randint(1,4))
+
+
+    elif request.method == 'POST':
+        ## Extraer vairables
+        author = request.cookies.get('userid')
+        category = request.form.get('category')
+        choice = request.form.get('submit')
+        id_1 = request.form.get('image_1')
+        id_2 = request.form.get('image_2')
+
+        session['category'] = category
+
+        ## Instertar en la Base de Datos
+        answer = Answers(user_id=author, img_1=id_1, img_2=id_2, choice=choice, question=category)
+        db.session.add(answer)
+        db.session.commit()
+
+        return redirect(url_for('auth.index'))
+    return render_template('survey.html', photo1 = url_1, photo2 = url_2, category=category)
+
 
 @bp.route('/register', methods=('GET', 'POST'))
 def register():
@@ -75,6 +113,12 @@ def register():
         ## Crear el diccionario Cookie key:'userid', value:str(userid), con vigencia de 365 dias
         resp = make_response(redirect('/'))
         resp.set_cookie('userid', str(userid), max_age=60*60*24*365)
+        resp.set_cookie('gender', str(gender), max_age=60*60*24*365)
+        resp.set_cookie('age', str(age), max_age=60*60*24*365)
+        resp.set_cookie('ip_address', str(ip_address), max_age=60*60*24*365)
+        resp.set_cookie('country', str(country), max_age=60*60*24*365)
+        resp.set_cookie('region', str(region), max_age=60*60*24*365)
+        resp.set_cookie('comuna', str(comuna), max_age=60*60*24*365)
 
         return resp
 

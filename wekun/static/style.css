@@ -87,6 +87,9 @@ footer ul li:hover {
 	padding: 1em;
 	margin: 1em;
 	z-index: 3;
+	color: #FF6F70;
+	background: white;
+	max-width: 400px;
 }
 
 a { color: white; }
@@ -191,6 +194,7 @@ a { color: white; }
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
+	z-index: 3;
 
 }
 

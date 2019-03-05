@@ -26,6 +26,9 @@
 
             <select id="country" name="country"></select>
     </div>
+    <label class="error" for="region" id="sel_pais_error" style="color:#FC2727">
+    Seleccione país, por favor.
+    </label>
     
     <div class="item-register" id="state-div">
             <label class="main-label" for="region">
@@ -33,14 +36,18 @@
             </label>
             <select name ="state" id ="state"></select>
     </div>
-    <label class="error" for="region" id="sel_region_error" style="color:#FC2727"><b> Seleccione región, por favor.</b></label>
+    <label class="error" for="region" id="sel_region_error" style="color:#FC2727">
+    Seleccione región, por favor.
+    </label>
     
     <div class="item-register" id="div-comuna" style="display: none;">
             <label class="main-label" for="comuna">
             {% if request.cookies.get('languaje') == 'en' %} Comuna  {% else %} Comuna {% endif %}</label>
             <select id="comunas" name="comuna" id="sel_comuna"></select>
     </div>
-    <label class="error" for="comuna" id="sel_comuna_error" style="color:#FC2727"><b> Seleccione comuna, por favor.</b></label>
+    <label class="error" for="comuna" id="sel_comuna_error" style="color:#FC2727">
+    Seleccione comuna, por favor.
+    </label>
     
     <div class="item-register" id="study-level" name="study-level">
             <label class="main-label" for="study">
@@ -78,7 +85,6 @@
     <label class="error" for="study-level" id="sel_study_error" style="color:#FC2727"><b> Seleccione un nivel educacional, por favor.</b></label>
     
     <div class="item-register" id="transport-habits">
-
             <label class="main-label" for="transportation">
                 {% if request.cookies.get('languaje') == 'en' %} 
                 Transport
@@ -95,8 +101,10 @@
                     <option value="5">Otro</option>
             </select>
     </div>
-    <label class="error" for="trasportation" id="sel_transport_error" style="color:#FC2727"><b> Seleccione un modo de transporte, por favor.</b></label>
-<input type="submit" class="btn" name="submit-register">
+    <label class="error" for="trasportation" id="sel_transport_error" style="color:#FC2727">
+    Seleccione un modo de transporte, por favor.
+    </label>
+<input type="submit" class="btn" name="submit-register" value="Comenzar" style="background: grey; color: white; font-weight: bold;">
 
 </form>
 
@@ -183,8 +191,6 @@
       "comunas": ["Punta Arenas", "Laguna Blanca", "Río Verde", "San Gregorio", "Cabo de Hornos (Ex Navarino)", "AntárVca", "Porvenir", "Primavera", "Timaukel", "Natales", "Torres del Paine"] }] };
 
 
-  jQuery(document).ready(function () {
-
     var htmlComunas = '<option value="0">Seleccione comuna</option>';
 
     jQuery('#comunas').html(htmlComunas);
@@ -205,13 +211,13 @@
       });
       jQuery('#comunas').html(htmlComuna);
     });
-
   });
-  //# sourceURL=pen.js
+    //# sourceURL=pen.js
+    jQuery(function() {  
 
     jQuery('.error').hide(); // Hide Warning Label. 
 
-    jQuery("input[name=sub]").on("click", function() {
+    jQuery("input[name=submit-register]").on("click", function() {
 
      var returnvalue;
      returnvalue=true;
@@ -228,7 +234,7 @@
             jQuery("select#sel_study").focus();  // Focus the select box      
             returnvalue&=true; 
 
-        }
+        };
 
        if(jQuery("select[name=transportation]").val() == 0) {
 
@@ -242,29 +248,29 @@
             jQuery("select#sel_transport").focus();  // Focus the select box      
             returnvalue&=true; 
 
-        }
+        };
 
-       if(jQuery("select[name=region]").val() == 0) {
+       if(jQuery("select[name=state]").val() == 0) {
 
             jQuery("label#sel_region_error").show(); // show Warning 
             jQuery("select#sel_region").focus();  // Focus the select box      
             returnvalue&=false;   
 
-        } else if (jQuery("select[name=region]").val() != 0) {
+        } else if (jQuery("select[name=state]").val() != 0) {
 
             jQuery("label#sel_region_error").hide(); // show Warning 
             jQuery("select#sel_region").focus();  // Focus the select box      
             returnvalue&=true;   
 
-        }
-
-       if(jQuery("select[name=comuna]").val() == 0) {
+        };
+        var selectedCountry = $("select#country").children("option:selected").val();
+       if((jQuery(selectedCountry == "Chile")) && (jQuery("select[name=comuna]").val() == 0)) {
 
             jQuery("label#sel_comuna_error").show(); // show Warning 
             jQuery("select#sel_comuna").focus();  // Focus the select box      
             returnvalue&=false;   
 
-        } else if (jQuery("select[name=comuna]").val() != 0) {
+        } else if ((jQuery(selectedCountry == "Chile")) && (jQuery("select[name=comuna]").val() != 0)) {
 
             jQuery("label#sel_comuna_error").hide(); // show Warning 
             jQuery("select#sel_comuna").focus();  // Focus the select box      
@@ -279,7 +285,8 @@
         return returnvalue;
 
     });
-          });  // you can change jQuery with $
+    
+    });  // you can change jQuery with $
 </script>
 
 {% endblock %}

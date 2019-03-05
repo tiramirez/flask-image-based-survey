@@ -34,14 +34,14 @@ class Answers(db.Model):
     choice = db.Column(db.String(20), nullable=True) ## image_1/image_2/equal/error
     question = db.Column(db.Integer, nullable=False)
 
-'''############## Questions #############
-    1: Walkability
-    2: Better place to live
-    3: Boring
-    4: Beauty
-    5: Wealthy
-    ##################################
-'''
+############## Questions #############
+#      1: Walkability
+#      2: Better place to live
+#      3: Boring
+#      4: Beauty
+#      5: Wealthy
+##################################
+
     create_at = db.Column(db.DateTime, default = datetime.utcnow, nullable=False)
 
     def __repr__(self):
