@@ -319,6 +319,63 @@ margin-top: 2em;
 	border-color: transparent transparent black transparent;
 }
 
+.content form { 
+	display: flex;
+	flex-direction: column;
+}
+
+.content label { 
+	font-weight: bold; 
+	width: 100%; 	
+	font-size: 20px;
+	color: #363534;
+	background: none;
+}
+
+.item-register{
+	display: inline-flex;
+	flex-direction: row;
+	background: WhiteSmoke;
+	border: 2px solid none;
+	border-radius: 10px;
+	padding: 1em;
+	margin: 0.5em;
+}
+
+.item-register .main-label{
+	width: 40%;
+	text-align:right;
+	font-weight: bold;
+	font-size: 20px;
+	padding-right: 2em;
+
+}
+
+.item-register .round, .item-register .round-label{
+	height: 1em;
+	width: 1em;
+	text-align:right;
+	font-weight: bold;
+	font-size: 20px;
+	display: inline-block;
+
+}
+
+.item-register .round-label{
+	margin-right: 1em;
+
+}
+
+.item-register input, .item-register select{
+	width: 50%;
+	height: 1	em;
+	text-align:right;
+	font-weight: bold;
+	font-size: 20px;
+	background: lightgrey;
+	border-radius: 10px;
+
+}
 
 @media screen and (max-width: 500px){
 	html { 

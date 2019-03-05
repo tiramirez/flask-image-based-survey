@@ -79,7 +79,7 @@
                    </div>
             </div>
             <div id="btn-space">
-              <a class="btn" id="next1" href="#">
+              <a class="btn" id="next1c" href="#">
               {% if request.cookies.get('languaje') == 'en' %}
                     Next
               {% else %}
@@ -93,7 +93,7 @@
 
       <div class="instructions" id="text2" style="display: none;">
             <div id="btn-space">
-              <a class="btn" id="back1" href="#">
+              <a class="btn" id="back2" href="#">
               {% if request.cookies.get('languaje') == 'en' %}
                     Back
               {% else %}
@@ -136,7 +136,7 @@
                    </div>
             </div>
             <div id="btn-space">
-              <a class="btn" id="next1" href="#">
+              <a class="btn" id="next2b" href="#">
               {% if request.cookies.get('languaje') == 'en' %}
                     Next
               {% else %}
@@ -146,9 +146,9 @@
             </div>
       </div>
 
-      <div class="instructions" id="text2b" style="display: none;">
+      <div class="instructions" id="text3" style="display: none;">
             <div id="btn-space">
-              <a class="btn" id="back1" href="#">
+              <a class="btn" id="back3" href="#">
               {% if request.cookies.get('languaje') == 'en' %}
                     Back
               {% else %}
@@ -171,7 +171,7 @@
                         <div class="buttons" style="float: left">
                           <input type="submit" id="" class="round-btn" name="submit" value="=">
                           <div id="tooltip">
-                          <input type="submit" id="next2b" class="round-btn" name="submit" value="X" style="background: #FF6F70;">
+                          <input type="submit" id="next3" class="round-btn" name="submit" value="X" style="background: #FF6F70;">
 
                           <div id="tooltiptext-down">
                             <span id="instructions-number">3</span>
@@ -191,7 +191,7 @@
                    </div>
             </div>
             <div id="btn-space">
-              <a class="btn" id="next1" href="#">
+              <a class="btn" id="next3b" href="#">
               {% if request.cookies.get('languaje') == 'en' %}
                     Next
               {% else %}
@@ -202,9 +202,9 @@
       </div>
 
 
-      <div class="instructions" id="text3" style="display: none;">
+      <div class="instructions" id="text4" style="display: none;">
             <div id="btn-space">
-              <a class="btn" id="back1" href="#">
+              <a class="btn" id="back4" href="#">
               {% if request.cookies.get('languaje') == 'en' %}
                     Back
               {% else %}
@@ -262,7 +262,7 @@
                   </div>
             </div>
             <div id="btn-space">
-              <a class="btn" id="next1" href="#">
+              <a class="btn" id="next4" href="#">
               {% if request.cookies.get('languaje') == 'en' %}
                     Next
               {% else %}
@@ -274,9 +274,9 @@
 
 
 
-      <div class="instructions" id="text4" style="display: none;">
+      <div class="instructions" id="text5" style="display: none;">
             <div id="btn-space">
-              <a class="btn" id="back1" href="#">
+              <a class="btn" id="back5" href="#">
               {% if request.cookies.get('languaje') == 'en' %}
                     Back
               {% else %}
@@ -294,9 +294,9 @@
             </div>
             <div id="btn-space">
               {% if request.cookies.get('languaje') == 'en' %}
-                    <a class="btn" id="next4" href="{{ url_for('auth.survey') }}">Start</a>
+                    <a class="btn" id="next5" href="{{ url_for('auth.register') }}">Start</a>
               {% else %}
-                    <a class="btn" id="next4" href="{{ url_for('auth.survey') }}">Comenzar</a>
+                    <a class="btn" id="next5" href="{{ url_for('auth.register') }}">Comenzar</a>
               {% endif %}
             </div>
       </div>
@@ -329,18 +329,63 @@
       $("div#text2").show();
     });
 
-    $("#next2").click(function(){
-      $("div#text2").hide();
-      $("div#text2b").show();
+    $("#next1c").click(function(){
+      $("div#text1").hide();
+      $("div#text2").show();
     });
 
-    $("#next2b").click(function(){
-      $("div#text2b").hide();
+    $("#back1").click(function(){
+      $("div#text1").hide();
+      $("div#text0").show();
+    });
+
+    $("#next2").click(function(){
+      $("div#text2").hide();
       $("div#text3").show();
     });
 
-    $("#sel2").change(function(){
+    $("#next2b").click(function(){
+      $("div#text2").hide();
+      $("div#text3").show();
+    });
+
+    $("#back2").click(function(){
+      $("div#text2").hide();
+      $("div#text1").show();
+    });
+
+    $("#next3").click(function(){
       $("div#text3").hide();
+      $("div#text4").show();
+    });
+
+    $("#next3b").click(function(){
+      $("div#text3").hide();
+      $("div#text4").show();
+    });
+
+    $("#back3").click(function(){
+      $("div#text3").hide();
+      $("div#text2").show();
+    });
+
+    $("#next4").click(function(){
+      $("div#text4").hide();
+      $("div#text5").show();
+    });
+
+    $("#sel2").change(function(){
+      $("div#text4").hide();
+      $("div#text5").show();
+    });
+
+    $("#back4").click(function(){
+      $("div#text4").hide();
+      $("div#text3").show();
+    });
+
+    $("#back5").click(function(){
+      $("div#text5").hide();
       $("div#text4").show();
     });
 
