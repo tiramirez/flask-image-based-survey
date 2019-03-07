@@ -30,7 +30,11 @@ def index():
 
 @bp.route('/about_us', methods=('GET', 'POST'))
 def about_us():
-    return "Hello world"
+    return render_template('about_us.html')
+
+@bp.route('/contact', methods=('GET', 'POST'))
+def contact():
+    return render_template('contact.html')
 
 @bp.route('/welcome', methods=('GET', 'POST'))
 def welcome():
@@ -47,6 +51,7 @@ def english():
     resp = make_response(redirect('/'))
     resp.set_cookie('languaje', 'en', max_age=60*60*24*365)
     return resp
+
 
 ## select from data 2 random images
 def get_photos(source):
@@ -73,20 +78,25 @@ def survey():
 
     elif request.method == 'POST':
         ## Extraer vairables
-        author = request.cookies.get('userid')
+        choice = request.form.get('answer')
         category = request.form.get('category')
-        choice = request.form.get('submit')
-        id_1 = request.form.get('image_1')
-        id_2 = request.form.get('image_2')
+        if choice == None:
+            session['category'] = category
+            return redirect(url_for('auth.index'))
+        else:
+            author = request.cookies.get('userid')
+            category = request.form.get('category')
+            choice = request.form.get('answer')
+            id_1 = request.form.get('image_1')
+            id_2 = request.form.get('image_2')
+            session['category'] = category
 
-        session['category'] = category
+            ## Instertar en la Base de Datos
+            answer = Answers(user_id=author, img_1=id_1, img_2=id_2, choice=choice, question=category)
+            db.session.add(answer)
+            db.session.commit()
 
-        ## Instertar en la Base de Datos
-        answer = Answers(user_id=author, img_1=id_1, img_2=id_2, choice=choice, question=category)
-        db.session.add(answer)
-        db.session.commit()
-
-        return redirect(url_for('auth.index'))
+            return redirect(url_for('auth.index'))
     return render_template('survey.html', photo1 = url_1, photo2 = url_2, category=category)
 
 

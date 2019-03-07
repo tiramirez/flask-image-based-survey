@@ -7,7 +7,7 @@
 		    <input type="hidden" name="cookie_category" value="{{ category }}" />
 		{% if request.cookies.get('languaje') == 'en' %}
 		<h2>Which place looks</h2>
-    <select class="sel" name="category" id="sel">
+    <select class="sel" name="category" id="sel" onchange="this.form.submit()">
             <option value="1">like a better to take a walk?</option>
             <option value="2" href="#">like a better place to live?</option>
             <option value="3">more boring?</option>
@@ -29,34 +29,34 @@
     <div id="grid">
       <div class="img_choice" style="float: left">
         <!-- <input type="image" id = "image" src="/static/img/{{ photo1 }}.jpg" name="submit" value="image_1" width="100%" height="auto"> -->
-        <input type="image" id = "image" src="/static/img/{{ photo1 }}.jpg" name="submit" value="image_1" width="98%" height="auto">
+        <input type="image" id = "image" src="/static/img/{{ photo1 }}.jpg" name="answer" value="image_1" width="98%" height="auto">
       </div>
       <div class="buttons" style="float: left">
-        <input type="submit" class="round-btn" id="button_E" name="submit" value="=">
-    	<input type="submit" class="round-btn" id="button_error" name="submit" value="X">
+        <input type="submit" class="round-btn" id="button_E" name="answer" value="=">
+    	<input type="submit" class="round-btn" id="button_error" name="answer" value="X">
       </div>
       <div class="img_choice" style="float: right">
         <!-- <input type="image" src="/static/img/{{ photo2 }}.jpg" name="submit" value="image_2" width="100%" height="auto"> -->
-        <input type="image" id = "image" src="/static/img/{{ photo2 }}.jpg" name="submit" value="image_2" width="98%" height="auto">
+        <input type="image" id = "image" src="/static/img/{{ photo2 }}.jpg" name="answer" value="image_2" width="98%" height="auto">
       </div>
     </div>
 
     <input type="hidden" name="image_1" value="{{ photo1 }}" />
     <input type="hidden" name="image_2" value="{{ photo2 }}" />
 </form>
+<div class="disclaimer">
+    {% if request.cookies.get('languaje') == 'en' %}
+              <span id="star">* </span><p>There are millions of images, so answer as many as you want and then just close the site. Thank you for helping us!</p>
+    {% else %}
+              <span id="star">* </span><p>La cantidad de imágenes es infinita, por lo que cuando no quieras evaluar más lugares solo debes cerrar la página.</br>¡Gracias por ayudarnos!</p>
+    {% endif %}
+  </div>
 
 <script>
   var pregunta;
   pregunta = jQuery("input[name=cookie_category").val();
   jQuery("select > option[value="+ pregunta +"]").attr('selected','selected');
 
-
-  $(document).ready(function(){
-    $("#sel").change(function(){
-      window.location.href = "{{ url_for('auth.survey') }}";
-    });
-
-  });  
 </script>
  
 {% endblock %}

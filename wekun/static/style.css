@@ -381,6 +381,19 @@ margin-top: 2em;
 
 }
 
+.disclaimer{
+	font-size: 12pt;
+	font-weight: bold;
+	display: flex;
+}
+.disclaimer p{
+	margin: 0.5em;
+}
+
+.disclaimer #star{
+	font-size: 32pt;
+}
+
 @media screen and (max-width: 500px){
 	html { 
 		padding: 0rem;

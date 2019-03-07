@@ -12,20 +12,31 @@
   <nav>
     <h1>Wekun</h1 >
     <ul>
-        <li><a href="{{ url_for('auth.index') }}">Español</a>
-        <li><a href="{{ url_for('auth.index') }}">English</a>
+        <li><a href="{{ url_for('auth.spanish') }}">Español</a>
+        <li><a href="{{ url_for('auth.english') }}">English</a>
     </ul>
   </nav>
   <section class="content">
       {% block content %}{% endblock %}
   </section>
   <footer>
+    {% if request.cookies.get('languaje') == 'en' %}
     <ul>
-      <li><a href="{{ url_for('auth.about_us') }}">About</a></li>
-      <li><a href="">Papers</a></li>
-      <li><a href="">Contact</a></li>
-      <li><a href="">Start again</a></li>
+      <li><a href="{{ url_for('auth.index') }}">Home</a></li>
+      <li><a href="{{ url_for('auth.welcome') }}">Instructions</a></li>
+      <li><a href="{{ url_for('auth.register') }}">Change User</a></li>
+      <li><a href="{{ url_for('auth.about_us') }}">About Wekun</a></li>
+      <li><a href="{{ url_for('auth.contact') }}">Our Team</a></li>
     </ul>
+    {% else %}
+    <ul>
+      <li><a href="{{ url_for('auth.index') }}">Inicio</a></li>
+      <li><a href="{{ url_for('auth.welcome') }}">Instruccciones</a></li>
+      <li><a href="{{ url_for('auth.register') }}">Nuevo Usuario</a></li>
+      <li><a href="{{ url_for('auth.about_us') }}">Qué es Wekun</a></li>
+      <li><a href="{{ url_for('auth.contact') }}">Nuestro Equipo</a></li>
+    </ul>
+    {% endif %}
   </footer>
 </div>
 </body>
