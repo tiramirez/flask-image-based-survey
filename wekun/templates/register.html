@@ -259,12 +259,12 @@
 
         };
 
-       if(jQuery("select[name=state]").val() == null) {
+       if(jQuery("select[name=state]").val() == null || jQuery("select[name=state]").val() == "" ) {
             jQuery("label#sel_state_error").show(); // show Warning 
             jQuery("select#state").focus();  // Focus the select box      
             returnvalue&=false;   
 
-        } else if (jQuery("select[name=state]").val() != 0) {
+        } else if (jQuery("select[name=state]" || jQuery("select[name=state]").val() == "").val() != 0) {
 
             jQuery("label#sel_region_error").hide(); // show Warning     
             returnvalue&=true;   

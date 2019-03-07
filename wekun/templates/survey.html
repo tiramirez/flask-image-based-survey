@@ -16,7 +16,6 @@
     </select>
     	{% else %}
 		<h2>¿Cuál le parece</h2>
-    <input type="hidden" name="cookie_category" value="{{ category }}" />
     <select class="sel" name="category" id="sel">
             <option value="1">un mejor lugar <b>para caminar</b>?</option>
             <option value="2">un mejor lugar <b>para vivir?</b></option>
@@ -27,18 +26,16 @@
     	{% endif %}
 	</div>
     <div id="grid">
-      <div class="img_choice" style="float: left">
+      <button class="img_choice" type="submit" name="answer" value="image_1"><img class="image" src="/static/img/{{ photo1 }}.jpg"></button>
+      <!-- <input type="submit" class="img_choice" style="background-image: url(/static/img/{{ photo1 }}.jpg); float: left;" name="answer" value="image_1"> -->
         <!-- <input type="image" id = "image" src="/static/img/{{ photo1 }}.jpg" name="submit" value="image_1" width="100%" height="auto"> -->
-        <input type="image" id = "image" src="/static/img/{{ photo1 }}.jpg" name="answer" value="image_1" width="98%" height="auto">
-      </div>
+   <!--      <input type="submit" style="background-image: url(/static/img/{{ photo1 }}.jpg);" name="answer" value="image_1">
+      </div> -->
       <div class="buttons" style="float: left">
         <input type="submit" class="round-btn" id="button_E" name="answer" value="=">
     	<input type="submit" class="round-btn" id="button_error" name="answer" value="X">
       </div>
-      <div class="img_choice" style="float: right">
-        <!-- <input type="image" src="/static/img/{{ photo2 }}.jpg" name="submit" value="image_2" width="100%" height="auto"> -->
-        <input type="image" id = "image" src="/static/img/{{ photo2 }}.jpg" name="answer" value="image_2" width="98%" height="auto">
-      </div>
+      <button class="img_choice" type="submit" name="answer" value="image_2"><img class="image" src="/static/img/{{ photo2 }}.jpg"></button>
     </div>
 
     <input type="hidden" name="image_1" value="{{ photo1 }}" />

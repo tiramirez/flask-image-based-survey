@@ -80,6 +80,7 @@ def survey():
         ## Extraer vairables
         choice = request.form.get('answer')
         category = request.form.get('category')
+        print(choice)
         if choice == None:
             session['category'] = category
             print("Cambio de pregunta")
