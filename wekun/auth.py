@@ -82,11 +82,10 @@ def survey():
         category = request.form.get('category')
         if choice == None:
             session['category'] = category
+            print("Cambio de pregunta")
             return redirect(url_for('auth.index'))
         else:
             author = request.cookies.get('userid')
-            category = request.form.get('category')
-            choice = request.form.get('answer')
             id_1 = request.form.get('image_1')
             id_2 = request.form.get('image_2')
             session['category'] = category
@@ -95,7 +94,7 @@ def survey():
             answer = Answers(user_id=author, img_1=id_1, img_2=id_2, choice=choice, question=category)
             db.session.add(answer)
             db.session.commit()
-
+            print("Respuesta guardada")
             return redirect(url_for('auth.index'))
     return render_template('survey.html', photo1 = url_1, photo2 = url_2, category=category)
 
@@ -123,13 +122,6 @@ def register():
         ## Crear el diccionario Cookie key:'userid', value:str(userid), con vigencia de 365 dias
         resp = make_response(redirect('/'))
         resp.set_cookie('userid', str(userid), max_age=60*60*24*365)
-        resp.set_cookie('gender', str(gender), max_age=60*60*24*365)
-        resp.set_cookie('age', str(age), max_age=60*60*24*365)
-        resp.set_cookie('ip_address', str(ip_address), max_age=60*60*24*365)
-        resp.set_cookie('country', str(country), max_age=60*60*24*365)
-        resp.set_cookie('region', str(region), max_age=60*60*24*365)
-        resp.set_cookie('comuna', str(comuna), max_age=60*60*24*365)
-
         return resp
 
     return render_template('register.html')
