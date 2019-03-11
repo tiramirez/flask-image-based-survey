@@ -85,7 +85,6 @@ footer ul li:hover {
 	border: 2px solid white;
 	border-radius:10px 10px 10px 10px;
 	padding: 1em;
-	margin: 1em;
 	max-width: 400px;
 	z-index: 3;
 	color: white;
@@ -422,6 +421,17 @@ margin-top: 2em;
 
 .disclaimer #star{
 	font-size: 32pt;
+}
+
+
+#botones-register{
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+}
+#botones-register a, #botones-register input{
+	margin: 1em;
+	font-size: 14pt;
 }
 
 @media screen and (max-width: 500px){

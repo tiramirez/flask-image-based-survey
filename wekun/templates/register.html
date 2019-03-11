@@ -131,7 +131,8 @@
     <label class="error" for="trasportation" id="sel_transport_error" style="color:#FC2727">
     Seleccione un modo de transporte, por favor.
     </label>
-      <a class="btn" id="next5" href="{{ url_for('auth.welcome') }}">
+    <div id="botones-register">
+      <a class="btn" id="next5" href="{{ url_for('auth.welcome') }}" style="background: grey;">
                 {% if request.cookies.get('languaje') == 'en' %} 
                 Tutorial
                 {% else %} 
@@ -139,6 +140,7 @@
                 {% endif %}
       </a>
       <input type="submit" class="btn" name="submit-register" value="Comenzar">
+    </div>
 </form>
 
   
