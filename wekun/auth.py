@@ -106,6 +106,7 @@ def register():
         ## Request de las variables del form
         gender = request.form['gender']
         age = str(request.form['age'])
+        nacionality = request.form['country2']
         country = request.form['country']
         region = request.form['state']
         comuna = request.form['comuna']
@@ -115,7 +116,7 @@ def register():
         ip_address = request.remote_addr
 
         ## Insrtar la columna en la Base de Datos
-        user = Users(gender=gender, age=age, country=country, region=region, comuna=comuna, ip_address=ip_address,
+        user = Users(gender=gender, age=age, nacionality=nacionality, country=country, region=region, comuna=comuna, ip_address=ip_address,
                     education=education, transport=transport)
         db.session.add(user)
         db.session.commit()

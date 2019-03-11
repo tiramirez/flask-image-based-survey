@@ -20,22 +20,27 @@
   <section class="welcome-content">
       <div class="color-layer"></div>
       <div class="instructions" id="text0">
-
             <div class="text-above-instructions">
               {% if request.cookies.get('languaje') == 'en' %}
                         <h2>Welcome!</h2>
-                        <p>This survey wants what makes you feel confortable when being on public spaces.</p>
+                        <p>This survey aims to understand the factors that make you feel comfortable in public spaces.</p>
                         <p>Thank you for helping us!</p>
-                        <a class="btn" id="next0" href="#">Start</a>
+                        <a class="btn" id="next0" href="#">Begin tutorial</a>
               {% else %}
                         <h2>Bienvenido!</h2>
                         <p>Con esta encuesta queremos entender qué te hace sentir a gusto en los espacios públicos.</p>
                         <p>¡Muchas gracias por participar!</p>
-                        <a class="btn" id="next0" href="#">Comenzar</a>
+                        <a class="btn" id="next0" href="#">Leer Instrucciones</a>
               {% endif %}
             </div>
       </div>
-
+      <div class="text-above-instructions" id="title-instructions" style="display: none; float: left; width:100%;">
+        {% if request.cookies.get('languaje') == 'en' %}
+                  <h2>Tutorial</h2>
+        {% else %}
+                  <h2>Instrucciones</h2>
+        {% endif %}
+      </div>
       <div class="instructions" id="text1" style="display: none;">
             <div id="btn-space">
               <a class="btn" id="back1" href="#">
@@ -49,7 +54,7 @@
             <div class="diagram-instructions">
                   <div id="top" >
                         {% if request.cookies.get('languaje') == 'en' %}
-                        <h2>Which place looks like a better to take a walk?</h2>
+                        <h2>Which looks like a better place to take a walk?</h2>
                           {% else %}
                         <h2>¿Cuál le parece un mejor lugar para caminar?</h2>
                           {% endif %}
@@ -121,7 +126,7 @@
                             <span id="instructions-number">2</span>
                             <span id="instructions-text">
                             {% if request.cookies.get('languaje') == 'en' %}
-                                  If you can not decide because they look to similar, click "="
+                                  If you cannot decide because they look too similar, click "="
                             {% else %}
                                   En caso de pensar que son muy similares, puede hacer click en el símbolo "=".
                             {% endif %}
@@ -217,7 +222,7 @@
                         <div id="tooltip1">
                         {% if request.cookies.get('languaje') == 'en' %}
                         <h2>Which place looks</h2>
-                        <select class="sel" name="category" id="sel2">
+                        <select class="sel" name="category" id="sel2" style="background: #FF6F70;">
                                 <option value="1">like a better to take a walk?</option>
                                 <option value="2" href="#">like a better place to live?</option>
                                 <option value="3">more boring?</option>
@@ -282,7 +287,7 @@
     $("#next0").click(function(){
       $("div#text0").hide();
       $("div#text1").show();
-
+      $("div#title-instructions").show();
     });
 
     $("#next1").click(function(){
@@ -303,6 +308,7 @@
     $("#back1").click(function(){
       $("div#text1").hide();
       $("div#text0").show();
+      $("div#title-instructions").hide();
     });
 
     $("#next2").click(function(){

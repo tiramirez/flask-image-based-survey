@@ -9,6 +9,7 @@ class Users(db.Model):
     gender = db.Column(db.String(1), nullable=False)
     age = db.Column(db.Text, nullable=True)
     create_at = db.Column(db.DateTime, nullable=False, default = datetime.utcnow)
+    nacionality = db.Column(db.String(50), nullable=False)
     country = db.Column(db.String(50), nullable=False)
     region = db.Column(db.String(50), nullable=False)
     comuna = db.Column(db.String(50), nullable=True)

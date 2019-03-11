@@ -5,28 +5,44 @@
 <form method="post">
 	<script type= "text/javascript" src = "/static/countries.js"></script>
     <div class="item-register" id="gender">
-            <label class="main-label" for="gender" style="margin-top: 0em;">Sexo</label>
+            <label class="main-label" for="gender" style="margin-top: 0em;">
+              {% if request.cookies.get('languaje') == 'en' %} Gender {% else %} Sexo {% endif %}
+            </label>
               <input class="round" type="radio" name="gender" id="male" value="M" required>
               <label class="round-label" for="male">M</label>
               <input class="round" type="radio" name="gender" id="female" value="F" required>
               <label class="round-label" for="male">F</label>
               <input class="round" type="radio" name="gender" id="female" value="O" required>
-              <label class="round-label" for="male">Otro</label>
+              <label class="round-label" for="male">{% if request.cookies.get('languaje') == 'en' %} Other {% else %} Otro {% endif %}</label>
     </div>
     <div class="item-register" id="age">
-            <label class="main-label" for="age">Edad</label>
+            <label class="main-label" for="age">
+              {% if request.cookies.get('languaje') == 'en' %} Age {% else %} Edad {% endif %}
+            </label>
             <input type="number" name="age" id="age" style="width: 200px;" required>
     </div>
+
+    <div class="item-register" id="nacionality-div">
+            
+            <label class="main-label" for="country2">
+            {% if request.cookies.get('languaje') == 'en' %} Nacionality {% else %} Nacionalidad {% endif %}
+            </label>
+
+            <select id="country2" name="country2"></select>
+    </div>
+    <label class="error" for="nacionality-div" id="sel_country2_error" style="color:#FC2727">
+    Seleccione país, por favor.
+    </label>
 
     <div class="item-register" id="country-div">
             
             <label class="main-label" for="country">
-            {% if request.cookies.get('languaje') == 'en' %} Country {% else %} País {% endif %}
+            {% if request.cookies.get('languaje') == 'en' %} Country of residence {% else %} País de Residencia {% endif %}
             </label>
 
             <select id="country" name="country"></select>
     </div>
-    <label class="error" for="region" id="sel_country_error" style="color:#FC2727">
+    <label class="error" for="country-div" id="sel_country_error" style="color:#FC2727">
     Seleccione país, por favor.
     </label>
     
@@ -87,11 +103,21 @@
     <div class="item-register" id="transport-habits">
             <label class="main-label" for="transportation">
                 {% if request.cookies.get('languaje') == 'en' %} 
-                Transport
+                Main transport 
                 {% else %} 
                 Principal medio de </br>transporte que utiliza 
                 {% endif %}
             </label>
+                {% if request.cookies.get('languaje') == 'en' %} 
+            <select name="transportation" id="sel_transport">
+                    <option value="0" selected="true">Select one modo of transport</option>
+                    <option value="1">Walking</option>
+                    <option value="2">Bicycle</option>
+                    <option value="3">Public Transport (metro o bus)</option>
+                    <option value="4">Car</option>
+                    <option value="5">Other</option>
+            </select>
+                {% else %} 
             <select name="transportation" id="sel_transport">
                     <option value="0" selected="true">Seleccione un modo de transporte</option>
                     <option value="1">Caminata</option>
@@ -100,11 +126,19 @@
                     <option value="4">Automóvil</option>
                     <option value="5">Otro</option>
             </select>
+                {% endif %}
     </div>
     <label class="error" for="trasportation" id="sel_transport_error" style="color:#FC2727">
     Seleccione un modo de transporte, por favor.
     </label>
-      <input type="submit" class="btn" name="submit-register" value="Comenzar" style="background: grey; color: white; font-weight: bold; align-self: center; font-size: 18pt; padding: 0.5em 2em 0.5em 2em;">
+      <a class="btn" id="next5" href="{{ url_for('auth.welcome') }}">
+                {% if request.cookies.get('languaje') == 'en' %} 
+                Tutorial
+                {% else %} 
+                Instrucciones
+                {% endif %}
+      </a>
+      <input type="submit" class="btn" name="submit-register" value="Comenzar">
 </form>
 
   
@@ -112,6 +146,7 @@
 <script type="text/javascript">
 
     populateCountries("country", "state");
+    populateCountries("country2");
 
     jQuery(function() { 
 
@@ -244,6 +279,18 @@
 
             jQuery("label#sel_transport_error").hide(); // show Warning    
             returnvalue&=true; 
+
+        };
+
+       if(jQuery("select[name=country2]").val() == -1) {
+            jQuery("label#sel_country2_error").show(); // show Warning 
+            jQuery("select#country2").focus();  // Focus the select box      
+            returnvalue&=false;   
+
+        } else if (jQuery("select[name=country2]").val() != 0) {
+
+            jQuery("label#sel_country2_error").hide(); // show Warning     
+            returnvalue&=true;   
 
         };
 

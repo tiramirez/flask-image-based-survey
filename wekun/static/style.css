@@ -86,10 +86,14 @@ footer ul li:hover {
 	border-radius:10px 10px 10px 10px;
 	padding: 1em;
 	margin: 1em;
-	z-index: 3;
-	color: #FF6F70;
-	background: white;
 	max-width: 400px;
+	z-index: 3;
+	color: white;
+	background: #FF6F70;
+	font-weight: bold;
+	width: 80%;
+	text-align: center;
+	text-transform: uppercase;
 }
 
 a { color: white; }
@@ -172,11 +176,11 @@ img.image{
 }
 
 .welcome-content{
-	background: #FF6F7F;
 	padding: 0.1em 2em 0.1em 2em;
 	border-radius:0px 0px 10px 10px;
 	position: relative;
 	display: flex;
+	flex-direction: column;
 	min-height: 600px;
 }
 .instructions{
@@ -201,23 +205,28 @@ img.image{
 	flex-direction: column;
 	justify-content: center;
 	z-index: 3;
-
+	width: 100%;
+	align-items: center;
 }
 
 .text-above-instructions h2{
-	font-size: 24pt;
+	font-size: 28pt;
+	text-align: center;
+	margin: 1em 0em 0em 0em;
 }
 
 .text-above-instructions p{
-	font-size: 18pt;
+	font-size: 24pt;
+	justify-content: center;
+	text-align: center;
+	padding: 0% 20% 0% 20%;
 }
 
-
 .diagram-instructions{
-	padding: 1em 4em 1em 4em;
+	padding: 1em 3em 1em 3em;
 	background: white;
 	border-radius: 10px;
-	margin-bottom: 2em;
+	margin: 0em 0.5em 2em 0.5em;
 }
 
 .diagram-instructions #top{
@@ -240,22 +249,23 @@ margin-top: 2em;
 #instructions-number{
 	padding: 0.5em 0.75em 0.5em 0.75em;
 	margin-left: 0.5em;
-	background: white;
-	color: black;
+	background: black;
+	color: white;
 	border-radius: 50%;
-	font-size: 20pt;
-	font-weight: bold;
+	font-size: 24pt;
+	font-weight: bolder;
 	display: block;
 }
 
 #instructions-text{
 	margin-left: 1.5em;
-	display: block;
+	display: inline-block;
+	vertical-align: middle;
 }
 
 #tooltip {
 	position: relative;
-	display: inline-block;
+	display: flex;
 	z-index: 3;
 }
 
@@ -283,7 +293,14 @@ margin-top: 2em;
 	left: 50%; 
 	margin-left: -270px; /* Use half of the width (120/2 = 60), to center the tooltip */
 	font-size: 18pt;
-	display: flex;
+	display: table;
+}
+
+#tooltip #tooltiptext span, #tooltip1 #tooltiptext span{
+	display: table-cell;
+	vertical-align: middle;
+	justify-content: center;
+	padding-right: 1em;
 }
 
 #tooltip #tooltiptext::after, #tooltip1 #tooltiptext::after {
@@ -315,8 +332,15 @@ margin-top: 2em;
 	left: 50%; 
 	margin-left: -200px; /* Use half of the width (120/2 = 60), to center the tooltip */
 	font-size: 18pt;
-	display: flex;
+	display: table;
 }
+#tooltip #tooltiptext-down span, #tooltip1 #tooltiptext-down span{
+	display: table-cell;
+	vertical-align: middle;
+	justify-content: center;
+	padding-right: 1em;
+}
+
 
 #tooltip #tooltiptext-down::after, #tooltip1 #tooltiptext-down::after {
 	content: " ";
