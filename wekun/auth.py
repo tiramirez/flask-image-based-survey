@@ -113,7 +113,8 @@ def register():
         education = request.form['study']
         transport = request.form['transportation']
         userid = db.session.query(func.count(Users.id)).all()[0][0] + 1 ## Falta generar un id secreto
-        ip_address = request.environ['REMOTE_ADDR']
+        # ip_address = request.environ['REMOTE_ADDR']
+        ip_address = request.environ.get('HTTP_X_REAL_IP', request.remote_addr) 
 
         ## Insrtar la columna en la Base de Datos
         user = Users(gender=gender, age=age, nacionality=nacionality, country=country, region=region, comuna=comuna, ip_address=ip_address,
