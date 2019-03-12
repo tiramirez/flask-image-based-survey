@@ -25,12 +25,12 @@
                         <h2>Welcome!</h2>
                         <p>This survey aims to understand the factors that make you feel comfortable in public spaces.</p>
                         <p>Thank you for helping us!</p>
-                        <a class="btn" id="next0" href="#">Begin tutorial</a>
+                        <a class="btn" id="next0" href="#">Continue</a>
               {% else %}
                         <h2>Bienvenido!</h2>
                         <p>Con esta encuesta queremos entender qué te hace sentir a gusto en los espacios públicos.</p>
                         <p>¡Muchas gracias por participar!</p>
-                        <a class="btn" id="next0" href="#">Leer Instrucciones</a>
+                        <a class="btn" id="next0" href="#">Continuar</a>
               {% endif %}
             </div>
       </div>
@@ -54,7 +54,7 @@
             <div class="diagram-instructions">
                   <div id="top" >
                         {% if request.cookies.get('languaje') == 'en' %}
-                        <h2>Which looks like a better place to take a walk?</h2>
+                        <h2>Which place looks like a better place to walk?</h2>
                           {% else %}
                         <h2>¿Cuál le parece un mejor lugar para caminar?</h2>
                           {% endif %}
@@ -109,7 +109,7 @@
             <div class="diagram-instructions">
                   <div id="top">
                         {% if request.cookies.get('languaje') == 'en' %}
-                        <h2>Which place looks like a better to take a walk?</h2>
+                        <h2>Which place looks like a better place to walk?</h2>
                           {% else %}
                         <h2>¿Cuál le parece un mejor lugar para caminar?</h2>
                           {% endif %}
@@ -128,7 +128,7 @@
                             {% if request.cookies.get('languaje') == 'en' %}
                                   If you cannot decide because they look too similar, click "="
                             {% else %}
-                                  En caso de pensar que son muy similares, puede hacer click en el símbolo "=".
+                                  En caso de pensar que son muy similares, puede hacer click en el símbolo "="
                             {% endif %}
                           </span>
                           </div>
@@ -164,7 +164,7 @@
             <div class="diagram-instructions">
                   <div id="top">
                         {% if request.cookies.get('languaje') == 'en' %}
-                        <h2>Which place looks like a better to take a walk?</h2>
+                        <h2>Which place looks like a better place to walk?</h2>
                           {% else %}
                         <h2>¿Cuál le parece un mejor lugar para caminar?</h2>
                           {% endif %}
@@ -182,9 +182,9 @@
                             <span id="instructions-number">3</span>
                             <span id="instructions-text">
                             {% if request.cookies.get('languaje') == 'en' %}
-                                  If there is an error in one of the images, please click "X".
+                                  If there is an error that doesn't allow you to answer, please click "X"
                             {% else %}
-                                  En caso de detectar un error, o una imagen que no le permite escoger, por favor oprima el botón "X"
+                                  En caso de detectar un error que no le permita responder, por favor oprima el botón "X"
                             {% endif %}
                           </span>
                           </div>
@@ -223,7 +223,7 @@
                         {% if request.cookies.get('languaje') == 'en' %}
                         <h2>Which place looks</h2>
                         <select class="sel" name="category" id="sel2" style="background: #FF6F70;">
-                                <option value="1">like a better to take a walk?</option>
+                                <option value="1">like a better place to walk?</option>
                                 <option value="2" href="#">like a better place to live?</option>
                                 <option value="3">more boring?</option>
                                 <option value="4">more beautiful?</option>
