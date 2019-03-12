@@ -29,6 +29,7 @@
             </label>
 
             <select id="country2" name="country2"></select>
+
     </div>
     <label class="error" for="nacionality-div" id="sel_country2_error" style="color:#FC2727">
     Seleccione país, por favor.
@@ -37,7 +38,8 @@
     <div class="item-register" id="country-div">
             
             <label class="main-label" for="country">
-            {% if request.cookies.get('languaje') == 'en' %} Country of residence {% else %} País de Residencia {% endif %}
+            {% if request.cookies.get('languaje') == 'en' %} Country of residence {% else %} País de Residencia
+            {% endif %}
             </label>
 
             <select id="country" name="country"></select>
@@ -48,7 +50,8 @@
     
     <div class="item-register" id="state-div">
             <label class="main-label" for="region">
-            {% if request.cookies.get('languaje') == 'en' %} State {% else %} Región {% endif %}
+            {% if request.cookies.get('languaje') == 'en' %} State of residence {% else %} Región de Residencia
+            {% endif %}
             </label>
             <select name ="state" id ="state"></select>
     </div>
@@ -58,7 +61,8 @@
     
     <div class="item-register" id="div-comuna" style="display: none;">
             <label class="main-label" for="comuna">
-            {% if request.cookies.get('languaje') == 'en' %} Comuna  {% else %} Comuna {% endif %}</label>
+            {% if request.cookies.get('languaje') == 'en' %} Comuna  {% else %} Comuna de Residencia
+          {% endif %}</label>
             <select id="comunas" name="comuna" id="sel_comuna"></select>
     </div>
     <label class="error" for="comuna" id="sel_comuna_error" style="color:#FC2727">
@@ -76,14 +80,13 @@
 
             {% if request.cookies.get('languaje') == 'en' %} 
             <select name="study" id="sel_study">
-                    <option value="0" selected="true">Seleccione nivel educacional</option>
+                    <option value="0" selected="true">Select a educational level</option>
                     <option value="en1">None</option>
                     <option value="en2">Elementary or primary</option>
                     <option value="en3">Secondary</option>
-                    <option value="en4">Post‐Secondary Vocational (2 years program)</option>
-                    <option value="en5">Post‐Secondary Vocational (4 years program)</option>
-                    <option value="en6">Post Baccalaureate</option>
-                    <option value="en7">Graduate</option>
+                    <option value="en4">Technical School</option>
+                    <option value="en5">University</option>
+                    <option value="en6">Postgraduate (master´s, PhD)</option>
             </select>
             {% else %} 
             <select name="study" id="sel_study">
@@ -103,14 +106,14 @@
     <div class="item-register" id="transport-habits">
             <label class="main-label" for="transportation">
                 {% if request.cookies.get('languaje') == 'en' %} 
-                Main transport 
+                Main transport mode 
                 {% else %} 
                 Principal medio de </br>transporte que utiliza 
                 {% endif %}
             </label>
                 {% if request.cookies.get('languaje') == 'en' %} 
             <select name="transportation" id="sel_transport">
-                    <option value="0" selected="true">Select one modo of transport</option>
+                    <option value="0" selected="true">Select one mode of transport</option>
                     <option value="1">Walking</option>
                     <option value="2">Bicycle</option>
                     <option value="3">Public Transport (metro o bus)</option>
@@ -139,7 +142,11 @@
                 Instrucciones
                 {% endif %}
       </a>
+          {% if request.cookies.get('languaje') == 'en' %} 
+      <input type="submit" class="btn" name="submit-register" value="Start">
+          {% else %} 
       <input type="submit" class="btn" name="submit-register" value="Comenzar">
+          {% endif %}
     </div>
 </form>
 
