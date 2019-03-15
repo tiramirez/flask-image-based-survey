@@ -1,12 +1,115 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h2>Ricardo Hurtubia</h2>
+<h1>
+	{% if request.cookies.get('languaje') == 'en' %}
+		Our Team
+	{% else %}
+		Nuestro Equipo
+	{% endif %}
+</h1>
 
-<h2>Hans Lobel</h2>
 
-<h2>Tomás Ramírez</h2>
+<div class="contact-name">
+	<h2>Ricardo <strong>Hurtubia</strong></h2>
+</div>
+<div class="contact-div">
+	<div class="contact-picture">
+		<img src="/static/rhg.jpg">
+	</div>
+	<div class="contact-info">
+		<span class="afiliacion">
+			{% if request.cookies.get('languaje') == 'en' %}
+				Pontificia Universidad Católica de Chile</br>
+				Department of Transport Engineering and Logistics, School of Engineering</br>
+				Facultad de Arquitectura, Diseño y Estudios Urbanos</br>
+			{% else %}
+				Pontificia Universidad Católica de Chile</br>
+				Departamento de Ingeniería de Transporte y Logística, Facultad de Ingeniería</br>
+				Facultad de Arquitectura, Diseño y Estudios Urbanos</br>
+			{% endif %}
+		</span>
+		<a class="page" href="http://www.hurtubia.cl/" target="_blank">hurtubia.cl/</a>
+		<span class="link"></span>
+	</div>
 
-<h2>Tomás Rossetti</h2>
+</div>
+
+
+<div class="contact-name">
+	<h2>Hans Lobel</h2>
+</div>
+<div class="contact-div">
+	<div class="contact-picture">
+		<img src="/static/hans.png">
+	</div>
+	<div class="contact-info">
+		
+		<span class="afiliacion">
+			{% if request.cookies.get('languaje') == 'en' %}
+				Pontificia Universidad Católica de Chile</br>
+				Department of Transport Engineering and Logistics, School of Engineering</br>
+				Department of Computer Science, School of Engineering</br>
+			{% else %}
+				Pontificia Universidad Católica de Chile</br>
+				Departamento de Ingeniería de Transporte y Logística, Facultad de Ingeniería</br>
+				Departamento de Ciencias de la Computacipón, Facultad de Ingeniería</br>
+			{% endif %}
+		</span>
+		<a class="page" href="http://halobel.sitios.ing.uc.cl/" target="_blank">halobel.sitios.ing.uc.cl/</a>
+		<span class="link"></span>
+	</div>
+
+</div>
+
+
+<div class="contact-name">
+	<h2>Tomás Ramírez</h2>
+</div>
+
+<div class="contact-div">
+	<div class="contact-picture">
+		<img src="/static/trs.jpg">
+	</div>
+	<div class="contact-info">
+		<span class="afiliacion">
+			{% if request.cookies.get('languaje') == 'en' %}
+				Pontificia Universidad Católica de Chile</br>
+				Department of Transport Engineering and Logistics, School of Engineering</br>
+			{% else %}
+				Pontificia Universidad Católica de Chile</br>
+				Departamento de Ingeniería de Transporte y Logística, Facultad de Ingeniería</br>
+			{% endif %}
+		</span>
+		<span class="page"></span>
+		<span class="link"></span>
+	</div>
+
+</div>
+
+<div class="contact-name">
+	<h2>Tomás Rossetti</h2>
+</div>
+<div class="contact-div">
+	<div class="contact-picture">
+		<img src="/static/rossetti.jpg">
+	</div>
+	<div class="contact-info">
+		
+		<span class="afiliacion">
+			{% if request.cookies.get('languaje') == 'en' %}
+				Pontificia Universidad Católica de Chile</br>
+				Center of Sustainable Urban Development</br>
+			{% else %}
+				Pontificia Universidad Católica de Chile</br>
+				Centro de Desarrollo Urbano Sustentable</br>
+			{% endif %}
+		</span>
+		<span class="page"></span>
+		<span class="link"></span>
+	</div>
+
+</div>
+
 
 {% endblock %}

@@ -13,31 +13,61 @@ bp = Blueprint('auth', __name__)
 
 @bp.route('/')
 def index():
+    page = session.get('page')
 
-    ## Primero se revisa que exista la Cookie 'userid' y que corresponda a un id en la Tabla Users
-    username = request.cookies.get('userid')
-    counter = 1 
-    # counter  = db.session.query(func.count()).filter(Users.id == username).all()[0][0]
+    if page == None:
+        ## Primero se revisa que exista la Cookie 'userid' y que corresponda a un id en la Tabla Users
+        username = request.cookies.get('userid')
+        # counter = 1 
+        counter  = db.session.query(func.count()).filter(Users.id == username).all()[0][0]
 
-    ## En caso de cumplirse ambos criterios, se redirige a la pagina home
-    if username and counter > 0:
-        # print("Hay cookies")
-        return redirect(url_for('auth.survey'))
+        ## En caso de cumplirse ambos criterios, se redirige a la pagina home
+        if username and counter > 0:
+            # print("Hay cookies")
+            return redirect(url_for('auth.survey'))
 
-    # # En caso contrario se redirige a la pagina de registro
-    # print("No hay cookies")
-    return redirect(url_for('auth.welcome'))
+        # # En caso contrario se redirige a la pagina de registro
+        # print("No hay cookies")
+        return redirect(url_for('auth.welcome'))    
+    elif page == "survey":
+        ## Primero se revisa que exista la Cookie 'userid' y que corresponda a un id en la Tabla Users
+        username = request.cookies.get('userid')
+        # counter = 1 
+        counter  = db.session.query(func.count()).filter(Users.id == username).all()[0][0]
+
+        ## En caso de cumplirse ambos criterios, se redirige a la pagina home
+        if username and counter > 0:
+            # print("Hay cookies")
+            return redirect(url_for('auth.survey'))
+
+        # # En caso contrario se redirige a la pagina de registro
+        # print("No hay cookies")
+        return redirect(url_for('auth.register'))
+
+    elif page == "welcome":
+        return redirect(url_for('auth.welcome'))
+    elif page == "register":
+        return redirect(url_for('auth.register'))
+    elif page == "contact":
+        return redirect(url_for('auth.contact'))
+    elif page == "about_us":
+        return redirect(url_for('auth.about_us'))
+    else:
+        return redirect(url_for('auth.welcome'))        
 
 @bp.route('/about_us', methods=('GET', 'POST'))
 def about_us():
+    session['page'] = "about_us"
     return render_template('about_us.html')
 
 @bp.route('/contact', methods=('GET', 'POST'))
 def contact():
+    session['page'] = "contact"
     return render_template('contact.html')
 
 @bp.route('/welcome', methods=('GET', 'POST'))
 def welcome():
+    session['page'] = "welcome"
     return render_template('welcome.html')
 
 @bp.route('/es', methods=('GET','POST'))
@@ -66,6 +96,7 @@ def get_photos(source):
 @bp.route('/survey', methods=('GET', 'POST'))
 def survey():
     if request.method == 'GET':
+        session['page'] = "survey"
         url_1, url_2= get_photos(IMAGES)
         url_1 = "{}".format(url_1)
         url_2 = "{}".format(url_2)
@@ -126,5 +157,5 @@ def register():
         resp = make_response(redirect('/'))
         resp.set_cookie('userid', str(userid), max_age=60*60*24*365)
         return resp
-
+    session['page'] = "register"
     return render_template('register.html')

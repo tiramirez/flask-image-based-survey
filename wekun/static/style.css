@@ -29,6 +29,11 @@ section{
   	padding: 2em;
 }
 
+section h1{
+	font-size: 28pt;
+	margin: 0em 0em 1em 3rem;
+}
+
 footer {
 	background: #747576; 
 	padding: 0.2em 0em 0.2em 1em;
@@ -432,6 +437,38 @@ margin-top: 2em;
 #botones-register a, #botones-register input{
 	margin: 1em;
 	font-size: 14pt;
+}
+
+
+.contact-div{
+	display: inline-flex;
+	padding:1em 3em 2em 3em;
+}
+.contact-name{
+	padding-left: 3em;
+}
+.contact-name h2{
+	margin: 0;
+	font-weight: normal;
+}
+
+
+.contact-picture img{
+	width: 200px;
+	height: auto;
+	float: left;
+	padding: 0em 1em 0em 0em;
+}
+.contact-info{
+	float: left;
+}
+
+
+@media screen and (max-width: 940px){
+	#tooltip1{
+		flex-direction: column;
+	}
+
 }
 
 @media screen and (max-width: 500px){
