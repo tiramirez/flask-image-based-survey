@@ -159,8 +159,8 @@ def register():
         resp = make_response(redirect('/'))
         resp.set_cookie('userid', str(userid), max_age=60*60*24*365)
         return resp
-    # ip_address = request.headers.get('X-Forwarded-For', request.remote_addr)
-    # print("IP-ADD " + str(ip_address))
+    ip_address = request.headers.get('X-Forwarded-For', request.remote_addr)
+    print("IP-ADD " + str(ip_address))
 
     # ip_address2 = request.headers.get('X-Real-IP', request.remote_addr)
     # print("IP-ADD 2 " + str(ip_address2))
@@ -171,7 +171,7 @@ def register():
 
     # ip_address4 = ip_address = request.environ['REMOTE_ADDR']
     # print("IP-ADD 4 " + str(ip_address4))
-    print (uuid.uuid1())
+    # print (uuid.uuid1())
     session['page'] = "register"
 
     return render_template('register.html')
