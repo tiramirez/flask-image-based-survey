@@ -149,8 +149,6 @@ def register():
         ip_address = request.headers['X-Real-IP']
         # ip_address = request.environ['REMOTE_ADDR']
         # ip_address = request.environ.get('HTTP_X_REAL_IP', request.remote_addr) 
-        # ip_address = request.get_remote_host(apache.REMOTE_NOLOOKUP)
-        
 
         ## Insrtar la columna en la Base de Datos
         user = Users(gender=gender, age=age, nacionality=nacionality, country=country, region=region, comuna=comuna, ip_address=ip_address,
@@ -168,4 +166,12 @@ def register():
     ip_address2 = request.headers.get('X-Real-IP', request.remote_addr)
     print("IP-ADD 2 " + str(ip_address2))
     session['page'] = "register"
+
+    ip_address3 = ip_address = request.environ.get('HTTP_X_REAL_IP', request.remote_addr) 
+    print("IP-ADD 3 " + str(ip_address3))
+
+    ip_address4 = ip_address = request.environ['REMOTE_ADDR']
+    print("IP-ADD 4 " + str(ip_address4))
+    session['page'] = "register"
+
     return render_template('register.html')
