@@ -6,6 +6,8 @@ class Users(db.Model):
     __tablename__ = 'Users'
 
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    user_id = db.Column(db.String(50), nullable=True) ## image id
+    device_id = db.Column(db.String(50), nullable=True) ## image id
     gender = db.Column(db.String(1), nullable=False)
     age = db.Column(db.Text, nullable=True)
     create_at = db.Column(db.DateTime, nullable=False, default = datetime.utcnow)
@@ -21,7 +23,7 @@ class Users(db.Model):
     # answers = db.relationship('Answer', backref='author',lazy=True)
 
     def __repr__(self):
-        return f'''User:('{self.id}','{self.gender}','{self.age}','{self.country}','{self.region}','{self.comuna}','{self.ip_address}','{self.education}','{self.transport}','{self.create_at}')'''
+        return f'''User:('{self.id}','{self.user_id}','{self.device_id}','{self.gender}','{self.age}','{self.country}','{self.region}','{self.comuna}','{self.ip_address}','{self.education}','{self.transport}','{self.create_at}')'''
 
 
 class Answers(db.Model):
@@ -29,7 +31,7 @@ class Answers(db.Model):
     __tablename__ = 'Answers'
 
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
-    user_id = db.Column(db.Integer, db.ForeignKey('Users.id'), nullable=False)
+    user_id = db.Column(db.String(50), db.ForeignKey('Users.user_id'), nullable=False)
     img_1 = db.Column(db.String(50), nullable=True) ## image id
     img_2 = db.Column(db.String(50), nullable=True) ## image id
     choice = db.Column(db.String(20), nullable=True) ## image_1/image_2/equal/error

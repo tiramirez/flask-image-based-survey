@@ -20,12 +20,12 @@ def index():
 
     if page == None:
         ## Primero se revisa que exista la Cookie 'userid' y que corresponda a un id en la Tabla Users
-        username = request.cookies.get('userid')
+        user_name = request.cookies.get('user_id')
         # counter = 1 
-        counter  = db.session.query(func.count()).filter(Users.id == username).all()[0][0]
+        counter  = len(db.session.query(Users).filter(Users.user_id == user_name).all())
 
         ## En caso de cumplirse ambos criterios, se redirige a la pagina home
-        if username and counter > 0:
+        if user_name and counter > 0:
             # print("Hay cookies")
             return redirect(url_for('auth.survey'))
 
@@ -34,12 +34,12 @@ def index():
         return redirect(url_for('auth.welcome'))    
     elif page == "survey":
         ## Primero se revisa que exista la Cookie 'userid' y que corresponda a un id en la Tabla Users
-        username = request.cookies.get('userid')
+        user_name = request.cookies.get('user_id')
         # counter = 1 
-        counter  = db.session.query(func.count()).filter(Users.id == username).all()[0][0]
+        counter  = len(db.session.query(Users).filter(Users.user_id == user_name).all())
 
         ## En caso de cumplirse ambos criterios, se redirige a la pagina home
-        if username and counter > 0:
+        if user_name and counter > 0:
             # print("Hay cookies")
             return redirect(url_for('auth.survey'))
 
@@ -107,7 +107,7 @@ def survey():
         # print(category)
         if category == None:
             ## randint(a,b) returns a random integer N such that a <= N <= b.
-            category = str(random.randint(1,4))
+            category = str(random.randint(1,5))
 
 
     elif request.method == 'POST':
@@ -117,10 +117,10 @@ def survey():
         print(choice)
         if choice == None:
             session['category'] = category
-            print("Cambio de pregunta")
+            # print("Cambio de pregunta")
             return redirect(url_for('auth.index'))
         else:
-            author = request.cookies.get('userid')
+            author = request.cookies.get('user_id')
             id_1 = request.form.get('image_1')
             id_2 = request.form.get('image_2')
             session['category'] = category
@@ -129,7 +129,7 @@ def survey():
             answer = Answers(user_id=author, img_1=id_1, img_2=id_2, choice=choice, question=category)
             db.session.add(answer)
             db.session.commit()
-            print("Respuesta guardada")
+            # print("Respuesta guardada")
             return redirect(url_for('auth.index'))
     return render_template('survey.html', photo1 = url_1, photo2 = url_2, category=category)
 
@@ -137,6 +137,11 @@ def survey():
 @bp.route('/register', methods=('GET', 'POST'))
 def register():
     if request.method == 'POST':
+        userid = str(uuid.uuid1())
+        deviceid = request.cookies.get('device_id')
+        if deviceid == None:
+            deviceid = str(uuid.uuid1())
+
         ## Request de las variables del form
         gender = request.form['gender']
         age = str(request.form['age'])
@@ -146,21 +151,25 @@ def register():
         comuna = request.form['comuna']
         education = request.form['study']
         transport = request.form['transportation']
-        userid = db.session.query(func.count(Users.id)).all()[0][0] + 1 ## Falta generar un id secreto
+        # userid = db.session.query(func.count(Users.id)).all()[0][0] + 1 ## Falta generar un id secreto
         ip_address = request.headers.get('X-Forwarded-For', request.remote_addr)
 
         ## Insrtar la columna en la Base de Datos
-        user = Users(gender=gender, age=age, nacionality=nacionality, country=country, region=region, comuna=comuna, ip_address=ip_address,
-                    education=education, transport=transport)
+        user = Users(user_id = userid, device_id = deviceid, gender=gender, age=age, 
+                    nacionality=nacionality, country=country, region=region, comuna=comuna,
+                    ip_address=ip_address, education=education, transport=transport)
         db.session.add(user)
         db.session.commit()
 
         ## Crear el diccionario Cookie key:'userid', value:str(userid), con vigencia de 365 dias
+        session['page'] = "survey"
         resp = make_response(redirect('/'))
-        resp.set_cookie('userid', str(userid), max_age=60*60*24*365)
+        resp.set_cookie('user_id', str(userid), max_age=60*60*24*365)
+        resp.set_cookie('device_id', str(deviceid), max_age=60*60*24*365)
         return resp
-    ip_address = request.headers.get('X-Forwarded-For', request.remote_addr)
-    print("IP-ADD " + str(ip_address))
+
+    # ip_address = request.headers.get('X-Forwarded-For', request.remote_addr)
+    # print("IP-ADD " + str(ip_address))
 
     # ip_address2 = request.headers.get('X-Real-IP', request.remote_addr)
     # print("IP-ADD 2 " + str(ip_address2))
