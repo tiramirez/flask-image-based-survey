@@ -6,7 +6,7 @@ class Users(db.Model):
     __tablename__ = 'Users'
 
     id = db.Column(db.Integer, autoincrement=True)
-    user_id = db.Column(db.String(50), , primary_key=True, nullable=False) ## image id
+    user_id = db.Column(db.String(50), primary_key=True, nullable=False) ## image id
     device_id = db.Column(db.String(50), nullable=True) ## image id
     gender = db.Column(db.String(1), nullable=False)
     age = db.Column(db.Text, nullable=True)
