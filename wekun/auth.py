@@ -7,6 +7,7 @@ from sqlalchemy import func
 from wekun.models import Users, Answers
 from wekun.data import IMAGES
 import random
+import uuid 
 # from mod_python import apache
 
 
@@ -170,7 +171,7 @@ def register():
 
     # ip_address4 = ip_address = request.environ['REMOTE_ADDR']
     # print("IP-ADD 4 " + str(ip_address4))
-
+    print (uuid.uuid1())
     session['page'] = "register"
 
     return render_template('register.html')

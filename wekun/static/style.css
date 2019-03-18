@@ -585,7 +585,7 @@ footer .menu-btn:checked ~ .menu-icon:not(.steps) .navicon:after {
 	}
 
 	section{
-	  	padding: 0em 1em 0.5em 1em;
+	  	padding: 0em 0em 0em 0em;
 	}
 
 	footer {
@@ -655,5 +655,26 @@ footer .menu-btn:checked ~ .menu-icon:not(.steps) .navicon:after {
 		flex-direction: column;
 		padding:1em 1em 2em 1em;
 	}
+	.item-register{
+		display: inline-flex;
+		flex-direction: column;
+		padding: 0.5em;
+		margin: 0.5em;
+	}
+	.item-register#gender, .item-register#age{
+		display: inline-flex;
+		flex-direction: row;
+		padding: 0.5em;
+		margin: 0.5em;
+	}
 
+	.item-register .main-label{
+		width: 100%;
+		text-align:left;
+		padding-right: 0em;
+		margin-bottom: 0.2em;
+	}
+	.item-register input, .item-register select {
+		width: 100%;
+	}
 }
