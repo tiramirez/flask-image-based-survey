@@ -146,9 +146,7 @@ def register():
         education = request.form['study']
         transport = request.form['transportation']
         userid = db.session.query(func.count(Users.id)).all()[0][0] + 1 ## Falta generar un id secreto
-        ip_address = request.headers['X-Real-IP']
-        # ip_address = request.environ['REMOTE_ADDR']
-        # ip_address = request.environ.get('HTTP_X_REAL_IP', request.remote_addr) 
+        ip_address = request.headers.get('X-Forwarded-For', request.remote_addr)
 
         ## Insrtar la columna en la Base de Datos
         user = Users(gender=gender, age=age, nacionality=nacionality, country=country, region=region, comuna=comuna, ip_address=ip_address,
@@ -160,18 +158,19 @@ def register():
         resp = make_response(redirect('/'))
         resp.set_cookie('userid', str(userid), max_age=60*60*24*365)
         return resp
-    ip_address = request.headers.get('X-Forwarded-For', request.remote_addr)
-    print("IP-ADD " + str(ip_address))
+    # ip_address = request.headers.get('X-Forwarded-For', request.remote_addr)
+    # print("IP-ADD " + str(ip_address))
 
-    ip_address2 = request.headers.get('X-Real-IP', request.remote_addr)
-    print("IP-ADD 2 " + str(ip_address2))
-    session['page'] = "register"
+    # ip_address2 = request.headers.get('X-Real-IP', request.remote_addr)
+    # print("IP-ADD 2 " + str(ip_address2))
+    # session['page'] = "register"
 
-    ip_address3 = ip_address = request.environ.get('HTTP_X_REAL_IP', request.remote_addr) 
-    print("IP-ADD 3 " + str(ip_address3))
+    # ip_address3 = ip_address = request.environ.get('HTTP_X_REAL_IP', request.remote_addr) 
+    # print("IP-ADD 3 " + str(ip_address3))
 
-    ip_address4 = ip_address = request.environ['REMOTE_ADDR']
-    print("IP-ADD 4 " + str(ip_address4))
+    # ip_address4 = ip_address = request.environ['REMOTE_ADDR']
+    # print("IP-ADD 4 " + str(ip_address4))
+
     session['page'] = "register"
 
     return render_template('register.html')
