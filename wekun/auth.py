@@ -151,7 +151,7 @@ def register():
         # ip_address = request.environ.get('HTTP_X_REAL_IP', request.remote_addr) 
         # ip_address = request.get_remote_host(apache.REMOTE_NOLOOKUP)
         
-        
+
         ## Insrtar la columna en la Base de Datos
         user = Users(gender=gender, age=age, nacionality=nacionality, country=country, region=region, comuna=comuna, ip_address=ip_address,
                     education=education, transport=transport)
@@ -163,6 +163,6 @@ def register():
         resp.set_cookie('userid', str(userid), max_age=60*60*24*365)
         return resp
     ip_address = request.headers.get('X-Forwarded-For', request.remote_addr)
-    print(ip_address)
+    print("IP-ADD" + str(ip_address))
     session['page'] = "register"
     return render_template('register.html')
