@@ -7,6 +7,8 @@ from sqlalchemy import func
 from wekun.models import Users, Answers
 from wekun.data import IMAGES
 import random
+# from mod_python import apache
+
 
 
 bp = Blueprint('auth', __name__)
@@ -144,9 +146,12 @@ def register():
         education = request.form['study']
         transport = request.form['transportation']
         userid = db.session.query(func.count(Users.id)).all()[0][0] + 1 ## Falta generar un id secreto
+        ip_address = request.headers['X-Real-IP']
         # ip_address = request.environ['REMOTE_ADDR']
-        ip_address = request.environ.get('HTTP_X_REAL_IP', request.remote_addr) 
-
+        # ip_address = request.environ.get('HTTP_X_REAL_IP', request.remote_addr) 
+        # ip_address = request.get_remote_host(apache.REMOTE_NOLOOKUP)
+        
+        
         ## Insrtar la columna en la Base de Datos
         user = Users(gender=gender, age=age, nacionality=nacionality, country=country, region=region, comuna=comuna, ip_address=ip_address,
                     education=education, transport=transport)
@@ -157,5 +162,7 @@ def register():
         resp = make_response(redirect('/'))
         resp.set_cookie('userid', str(userid), max_age=60*60*24*365)
         return resp
+    ip_address = request.headers.get('X-Forwarded-For', request.remote_addr)
+    print(ip_address)
     session['page'] = "register"
     return render_template('register.html')
