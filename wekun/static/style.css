@@ -552,6 +552,9 @@ nav .menu-btn:checked ~ .menu-icon:not(.steps) .navicon:after {
 .instructions-responsive{
 	display: none;
 }
+.instructions{
+	display: none;
+}
 
 
 @media screen and (max-width: 940px){
@@ -679,9 +682,7 @@ nav .menu-btn:checked ~ .menu-icon:not(.steps) .navicon:after {
 		padding: 0% 0% 0% 0%;
 	}
 
-	.instructions{
-		display: none;
-	}
+
 	.instructions-responsive{
 		display: inline;
 	}
@@ -720,7 +721,7 @@ nav .menu-btn:checked ~ .menu-icon:not(.steps) .navicon:after {
 }	
 
 
-@media screen and (min-width: 500px){
+@media screen and (min-width: 501px){
 	footer{
 		display: flex;
 		align-items: center;
@@ -755,6 +756,10 @@ nav .menu-btn:checked ~ .menu-icon:not(.steps) .navicon:after {
 
 	nav .menu-icon {
 	    display: none;
+	}	
+
+	.instructions{
+		display: inline;
 	}
 
 }

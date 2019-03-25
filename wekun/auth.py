@@ -124,13 +124,15 @@ def survey():
             id_1 = request.form.get('image_1')
             id_2 = request.form.get('image_2')
             session['category'] = category
-
-            ## Instertar en la Base de Datos
-            answer = Answers(user_id=author, img_1=id_1, img_2=id_2, choice=choice, question=category)
-            db.session.add(answer)
-            db.session.commit()
-            # print("Respuesta guardada")
-            return redirect(url_for('auth.index'))
+            if author == None:
+                return redirect(url_for('auth.index'))
+            else:
+                ## Instertar en la Base de Datos
+                answer = Answers(user_id=author, img_1=id_1, img_2=id_2, choice=choice, question=category)
+                db.session.add(answer)
+                db.session.commit()
+                # print("Respuesta guardada")
+                return redirect(url_for('auth.index'))
     return render_template('survey.html', photo1 = url_1, photo2 = url_2, category=category)
 
 
