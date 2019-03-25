@@ -27,6 +27,8 @@ section{
 	background: Gainsboro;
 	position: relative;
   	padding: 2em;
+  	display: flex;
+  	flex-direction: column;
 }
 
 section h1{
@@ -34,12 +36,6 @@ section h1{
 	margin: 0em 0em 1em 3rem;
 }
 
-footer {
-	background: #747576; 
-	padding: 0.2em 0em 0.2em 1em;
-	border-radius:0px 0px 10px 10px;
-	position: fixed;
-}
 
 nav h1 { 
 	color: white;
@@ -66,7 +62,7 @@ nav ul li a {
 	color: white; 
 }
 
-footer ul  { 
+/*footer ul  { 
 	display: flex; 
 	flex-direction: row;
 	justify-content: center;
@@ -84,7 +80,7 @@ footer ul li a {
 footer ul li:hover { 
 	color: black;
 	background-color: #000000;
-}
+}*/
 
 .btn{
 	text-decoration: none;
@@ -467,6 +463,12 @@ margin-top: 2em;
 /* ------------------------------------------------ */
 
 
+footer {
+	background: #747576; 
+	padding: 0.2em 0em 0.2em 1em;
+	border-radius:0px 0px 10px 10px;
+}
+
 footer ul {
   margin: 0;
   padding: 0;
@@ -485,7 +487,7 @@ footer li a:hover,
 footer .menu-btn:hover {
   background-color: #f4f4f4;
 }
-
+/*
 footer .logo {
   display: block;
   float: left;
@@ -493,14 +495,20 @@ footer .logo {
   padding: 10px 20px;
   text-decoration: none;
 }
+*/
+/* menu */
 
-
+footer .menu {
+  clear: both;
+  max-height: 0;
+  transition: max-height .2s ease-out;
+}
 
 footer .menu-icon {
   cursor: pointer;
   display: inline-block;
-  float: right;
-  padding: 28px 20px;
+  float: left;
+  padding: 1em;
   position: relative;
   user-select: none;
 }
@@ -675,5 +683,33 @@ footer .menu-btn:checked ~ .menu-icon:not(.steps) .navicon:after {
 	}
 	.item-register input, .item-register select {
 		width: 100%;
+	}
+
+	.text-above-instructions p{
+		padding: 0% 0% 0% 0%;
+	}
+
+
+
+}	
+
+
+@media screen and (min-width: 500px){
+	footer li {
+		float: left;
+	}
+	
+	footer li a {
+	    padding: 20px 30px;
+	}
+
+	footer .menu {
+	    clear: none;
+	    float: right;
+	    max-height: none;
+	}
+
+	footer .menu-icon {
+	    display: none;
 	}
 }
