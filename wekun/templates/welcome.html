@@ -3,7 +3,7 @@
 {% block content %}
 
       <div class="instructions-responsive">
-          <div class="text-above-instructions" id="text-responsive-0" style="display: none;">
+          <div class="text-above-instructions" id="text-responsive-0">
             {% if request.cookies.get('languaje') == 'en' %}
                       <h2>Welcome!</h2>
                       <p>This survey aims to understand the factors that make you feel comfortable in public spaces.</p>
@@ -17,7 +17,7 @@
             {% endif %}
           </div>
 
-          <div class="text-above-instructions" id="text-responsive-0">
+          <div class="text-above-instructions" id="text-responsive-1"style="display: none;">
             {% if request.cookies.get('languaje') == 'en' %}
                       <h2>Tutorial</h2>
                       <p>To answer just click one image</p>
@@ -35,18 +35,112 @@
                   </div>
                   <div id="responsive-grid">
                         <div class="img_choice"  style="float: left">
-                          <input type="image" id="next1" src="/static/img/50f5e588fdc9f065f000698c.jpg" name="submit" value="image_1" width="98%" height="auto">
+                          <input type="image" id="" src="/static/img/50f5e588fdc9f065f000698c.jpg" name="submit" value="image_1" width="98%" height="auto">
                         </div>
                         <div class="buttons" style="float: left; height: 1em;">
                         </div>
                         <div class="img_choice" style="float: right">
-                          <input type="image" id="next1b" src="/static/img/50f5e640fdc9f065f0006ba2.jpg" name="submit" value="image_1" width="98%" height="auto">
+                          <input type="image" id="" src="/static/img/50f5e640fdc9f065f0006ba2.jpg" name="submit" value="image_1" width="98%" height="auto">
                         </div>
                    </div>
             </div>
-            <a class="btn" id="next-responsive-0" href="#">Volver</a>
-            <a class="btn" id="next-responsive-0" href="#">Siguiente</a>
+            <a class="btn" id="back-responsive-1" href="#">Volver</a>
+            <a class="btn" id="next-responsive-1" href="#">Siguiente</a>
           </div>
+
+
+                          
+
+
+            <div class="text-above-instructions" id="text-responsive-2" style="display: none;">
+            {% if request.cookies.get('languaje') == 'en' %}
+                      <h2>Tutorial</h2>
+                      <p>If you cannot decide because they look too similar, click "="</p>
+            {% else %}
+                      <h2>Instrucciones</h2>
+                      <p>En caso de pensar que son muy similares, puede hacer click en el símbolo "="</p>
+            {% endif %}
+            <div class="diagram-instructions">
+                  <div id="responsive-grid">
+                      <input type="submit" id="next-responsive-2b" class="round-btn" name="submit" value="=" style="background: #FF6F70;">
+                    </div>
+            </div>
+            <a class="btn" id="back-responsive-2" href="#">Volver</a>
+            <a class="btn" id="next-responsive-2" href="#">Siguiente</a>
+          </div>
+
+          <div class="text-above-instructions" id="text-responsive-3" style="display: none;">
+            {% if request.cookies.get('languaje') == 'en' %}
+                      <h2>Tutorial</h2>
+                      <p>If there is an error that doesn't allow you to answer, please click "X"</p>
+            {% else %}
+                      <h2>Instrucciones</h2>
+                      <p>En caso de detectar un error que no le permita responder, por favor oprima el botón "X"</p>
+            {% endif %}
+            <div class="diagram-instructions">
+                  <div id="responsive-grid">
+                      <input type="submit" id="next-responsive-2b" class="round-btn" name="submit" value="X" style="background: #FF6F70;">
+                    </div>
+            </div>
+            <a class="btn" id="back-responsive-3" href="#">Volver</a>
+            <a class="btn" id="next-responsive-3" href="#">Siguiente</a>
+          </div>
+
+
+          <div class="text-above-instructions" id="text-responsive-4" style="display: none;">
+            {% if request.cookies.get('languaje') == 'en' %}
+                      <h2>Tutorial</h2>
+                      <p>Also, you can change the question</p>
+            {% else %}
+                      <h2>Instrucciones</h2>
+                      <p>Si quieres, también puedes cambiar la pregunta</p>
+            {% endif %}
+            <div class="diagram-instructions">
+                  <div id="responsive-grid">
+                          {% if request.cookies.get('languaje') == 'en' %}
+                        <h2>Which place looks</h2>
+                        <select class="sel" name="category" id="sel2" style="background: #FF6F70;">
+                                <option value="1">like a better place to walk?</option>
+                                <option value="2" href="#">like a better place to live?</option>
+                                <option value="3">more boring?</option>
+                                <option value="4">more beautiful?</option>
+                                <option value="5">wealthier?</option>
+                        </select>
+                          {% else %}
+                        <h2>¿Cuál le parece</h2>
+                        <select class="sel" name="category" id="sel2" style="background: #FF6F70;">
+                                <option value="1">un mejor lugar para caminar?</option>
+                                <option value="2">un mejor lugar para vivir?</option>
+                                <option value="3">un lugar más aburrido?</option>
+                                <option value="4">un lugar más bonito/agradable a la vista?</option>
+                                <option value="5">un lugar de mayor nivel de ingresos?</option>
+                        </select>
+                          {% endif %}
+                    </div>
+            </div>
+            <a class="btn" id="back-responsive-4" href="#">Volver</a>
+            <a class="btn" id="next-responsive-4" href="#">Siguiente</a>
+          </div>
+
+
+          <div class="text-above-instructions" id="text-responsive-5" style="display: none;">
+            {% if request.cookies.get('languaje') == 'en' %}
+                      <h2>Tutorial</h2>
+                      <p>This site uses cookies to register the answers in a proper way.
+                      Don't worry, all the information collected is 100% anonymous.</p>
+                      <p>If you continue, we assume you agree with this usage.</p>
+                      <p>More info in the FAQs section.</p>
+            {% else %}
+                      <h2>Instrucciones</h2>
+                      <p>Este sitio utiliza Cookies para poder registrar la información de manera ordenada.
+                      Pero no te preocupes, toda la infromación es guardada de forma anónima.</p>
+                      <p>Al continuar es asume que esta de acuerdo con estos términos</p>
+                      <p>Para mayor infromación revisa la sección de preguntas frecuentes</p>
+            {% endif %}
+            <a class="btn" id="back-responsive-5" href="#">Volver</a>
+            <a class="btn" id="next-responsive-5" href="{{ url_for('auth.register') }}">Continuar</a>
+          </div>
+
       </div>
 
 <!-- -------------------------------------------------------------------------- -->
@@ -373,6 +467,58 @@
     $("#back4").click(function(){
       $("div#text4").hide();
       $("div#text3").show();
+    });
+
+
+
+    $("#next-responsive-0").click(function(){
+      $("div#text-responsive-0").hide();
+      $("div#text-responsive-1").show();
+    });
+
+    $("#next-responsive-1").click(function(){
+      $("div#text-responsive-1").hide();
+      $("div#text-responsive-2").show();
+    });
+
+    $("#back-responsive-1").click(function(){
+      $("div#text-responsive-1").hide();
+      $("div#text-responsive-0").show();
+    });
+
+    $("#next-responsive-2").click(function(){
+      $("div#text-responsive-2").hide();
+      $("div#text-responsive-3").show();
+    });
+
+    $("#back-responsive-2").click(function(){
+      $("div#text-responsive-2").hide();
+      $("div#text-responsive-1").show();
+    });
+
+    $("#next-responsive-3").click(function(){
+      $("div#text-responsive-3").hide();
+      $("div#text-responsive-4").show();
+    });
+
+    $("#back-responsive-3").click(function(){
+      $("div#text-responsive-3").hide();
+      $("div#text-responsive-2").show();
+    });
+
+    $("#next-responsive-4").click(function(){
+      $("div#text-responsive-4").hide();
+      $("div#text-responsive-5").show();
+    });
+
+    $("#back-responsive-4").click(function(){
+      $("div#text-responsive-4").hide();
+      $("div#text-responsive-3").show();
+    });
+
+    $("#back-responsive-5").click(function(){
+      $("div#text-responsive-5").hide();
+      $("div#text-responsive-4").show();
     });
 
   });  
