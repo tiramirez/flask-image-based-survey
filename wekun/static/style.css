@@ -549,6 +549,10 @@ nav .menu-btn:checked ~ .menu-icon:not(.steps) .navicon:after {
   top: 0;
 }
 
+.instructions-responsive{
+	display: none;
+}
+
 
 @media screen and (max-width: 940px){
 	#tooltip1{
@@ -566,14 +570,18 @@ nav .menu-btn:checked ~ .menu-icon:not(.steps) .navicon:after {
 		border-radius:0px;
 		min-width: 200px;
 		width: 100vw;
-		height: 100vh;
+		max-height: 100vh;
 	}
 	nav {
 		border-radius:0px 0px 0px 0px;
 	}
+	#container{
+		max-height: 100%;
+	}
 
 	section{
 	  	padding: 0em 0em 0em 0em;
+	  	max-height: 100%;
 	}
 
 	footer {
@@ -607,7 +615,7 @@ nav .menu-btn:checked ~ .menu-icon:not(.steps) .navicon:after {
 		height: 80%;
 		width: 100%;
 		padding-left: 2em;	
-		padding-right: 2em;	
+		padding-right: 2em;
 	}
 	#image{
 		height: 100%;
@@ -670,6 +678,42 @@ nav .menu-btn:checked ~ .menu-icon:not(.steps) .navicon:after {
 		padding: 0% 0% 0% 0%;
 	}
 
+	.instructions{
+		display: none;
+	}
+	.instructions-responsive{
+		display: inline;
+	}
+
+	.text-above-instructions h2{
+		font-size: 18pt;
+		margin: 0.2em 0em 0em 0em;
+	}
+
+	.text-above-instructions p{
+		font-size: 14pt;
+	}
+
+	#responsive-grid{
+		display: flex;
+	  	flex-direction: column;
+	  	margin-bottom: 0.5em;
+	}
+	#responsive-grid .img_choice{
+		padding: 0em;
+		height: 33%;
+	}
+	.diagram-instructions{
+		padding: 1em 0.5em 1em 0.5em;
+		background: white;
+		border-radius: 10px;
+		margin: 0em 0.5em 2em 0.5em;
+	}
+
+	.diagram-instructions #top{
+		margin-bottom: 0.5em;
+		margin-top: 1em;
+	}
 
 
 }	
@@ -711,4 +755,5 @@ nav .menu-btn:checked ~ .menu-icon:not(.steps) .navicon:after {
 	nav .menu-icon {
 	    display: none;
 	}
+
 }

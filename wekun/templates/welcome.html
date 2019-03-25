@@ -1,24 +1,56 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>{% block title %}Wekun{% endblock %}</title>
-  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-  <meta name="viewport" content="width=device-width height=device-height initial-scale=1.0">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-</head>
+{% extends 'base.html' %}
 
+{% block content %}
 
-<body>
-<div id="container">
-  <nav>
-    <h1>Wekun</h1 >
-    <ul>
-        <li><a href="{{ url_for('auth.spanish') }}">Español</a>
-        <li><a href="{{ url_for('auth.english') }}">English</a>
-    </ul>
-  </nav>
-  <section class="welcome-content">
-      <div class="color-layer"></div>
+      <div class="instructions-responsive">
+          <div class="text-above-instructions" id="text-responsive-0" style="display: none;">
+            {% if request.cookies.get('languaje') == 'en' %}
+                      <h2>Welcome!</h2>
+                      <p>This survey aims to understand the factors that make you feel comfortable in public spaces.</p>
+                      <p>Thank you for helping us!</p>
+                      <a class="btn" id="next-responsive-0" href="#">Continue</a>
+            {% else %}
+                      <h2>Bienvenido!</h2>
+                      <p>Con esta encuesta queremos entender qué te hace sentir a gusto en los espacios públicos.</p>
+                      <p>¡Muchas gracias por participar!</p>
+                      <a class="btn" id="next-responsive-0" href="#">Continuar</a>
+            {% endif %}
+          </div>
+
+          <div class="text-above-instructions" id="text-responsive-0">
+            {% if request.cookies.get('languaje') == 'en' %}
+                      <h2>Tutorial</h2>
+                      <p>To answer just click one image</p>
+            {% else %}
+                      <h2>Instrucciones</h2>
+                      <p>Para contestar haga click sobre una imagen</p>
+            {% endif %}
+            <div class="diagram-instructions">
+                  <div id="top" >
+                        {% if request.cookies.get('languaje') == 'en' %}
+                        <h2>Which place looks like a better place to walk?</h2>
+                          {% else %}
+                        <h2>¿Cuál le parece un mejor lugar para caminar?</h2>
+                          {% endif %}
+                  </div>
+                  <div id="responsive-grid">
+                        <div class="img_choice"  style="float: left">
+                          <input type="image" id="next1" src="/static/img/50f5e588fdc9f065f000698c.jpg" name="submit" value="image_1" width="98%" height="auto">
+                        </div>
+                        <div class="buttons" style="float: left; height: 1em;">
+                        </div>
+                        <div class="img_choice" style="float: right">
+                          <input type="image" id="next1b" src="/static/img/50f5e640fdc9f065f0006ba2.jpg" name="submit" value="image_1" width="98%" height="auto">
+                        </div>
+                   </div>
+            </div>
+            <a class="btn" id="next-responsive-0" href="#">Volver</a>
+            <a class="btn" id="next-responsive-0" href="#">Siguiente</a>
+          </div>
+      </div>
+
+<!-- -------------------------------------------------------------------------- -->
+
       <div class="instructions" id="text0">
             <div class="text-above-instructions">
               {% if request.cookies.get('languaje') == 'en' %}
@@ -232,11 +264,11 @@
                           {% else %}
                         <h2>¿Cuál le parece</h2>
                         <select class="sel" name="category" id="sel2" style="background: #FF6F70;">
-                                <option value="1">un mejor lugar <b>para caminar</b>?</option>
-                                <option value="2">un mejor lugar <b>para vivir?</b></option>
-                                <option value="3">un lugar <b>más aburrido?</b></option>
-                                <option value="4">un lugar <b>más bonito/agradable a la vista?</b></option>
-                                <option value="5">un lugar <b>de mayor nivel de ingresos?</b></option>
+                                <option value="1">un mejor lugar para caminar?</option>
+                                <option value="2">un mejor lugar para vivir?</option>
+                                <option value="3">un lugar más aburrido?</option>
+                                <option value="4">un lugar más bonito/agradable a la vista?</option>
+                                <option value="5">un lugar de mayor nivel de ingresos?</option>
                         </select>
                           {% endif %}
                           <div id="tooltiptext-down">
@@ -274,11 +306,8 @@
               {% endif %}
             </div>           
       </div>
-    </div>
-  </section>
-</div>
-</body>
-</html>
+
+
 
 <script>
 
@@ -347,4 +376,7 @@
     });
 
   });  
+
 </script>
+
+{% endblock %}
