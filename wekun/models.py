@@ -9,21 +9,26 @@ class Users(db.Model):
     user_id = db.Column(db.String(50), primary_key=True, nullable=False) ## image id
     device_id = db.Column(db.String(50), nullable=True) ## image id
     gender = db.Column(db.String(1), nullable=False)
-    age = db.Column(db.Text, nullable=True)
+    age = db.Column(db.Text, nullable=False)
     create_at = db.Column(db.DateTime, nullable=False, default = datetime.utcnow)
     nationality = db.Column(db.String(50), nullable=False)
     country = db.Column(db.String(50), nullable=False)
     region = db.Column(db.String(50), nullable=False)
     comuna = db.Column(db.String(50), nullable=True)
-    ip_address = db.Column(db.String(50), nullable=True)
+    ip_address = db.Column(db.String(50), nullable=False)
     education = db.Column(db.String(50), nullable=False)
     transport = db.Column(db.String(50), nullable=False)
+    psico1 = db.Column(db.String(50), nullable=True)
+    psico2 = db.Column(db.String(50), nullable=True)
 
     # state = db.Column(db.String(50))
     # answers = db.relationship('Answer', backref='author',lazy=True)
 
     def __repr__(self):
-        return f'''User:('{self.id}','{self.user_id}','{self.device_id}','{self.gender}','{self.age}','{self.nationality}','{self.country}','{self.region}','{self.comuna}','{self.ip_address}','{self.education}','{self.transport}','{self.create_at}')'''
+        return f'''User:('{self.id}','{self.user_id}','{self.device_id}','{self.gender}',
+            '{self.age}','{self.nationality}','{self.country}','{self.region}','{self.comuna}',
+            '{self.ip_address}','{self.education}','{self.transport}','{self.create_at}',
+            '{self.psico1}','{self.psico2}')'''
 
 
 class Answers(db.Model):

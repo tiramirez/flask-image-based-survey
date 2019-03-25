@@ -44,7 +44,13 @@
 <div class="ten-answers-buttons" style="">
 <span>Ya has contestado 10 preguntas, ahora podrías ayudarnos con 5 breves preguntas. Luego podrás continuar evauando imágenes.</span>
 <input type="submit" class="" id="" name="answer" value="X">
-<input type="submit" class="" id="" name="answer" value="Contestar psicometricas">
+<a class="btn" id="next5" href="{{ url_for('auth.psicometrico') }}" style="background: grey;">
+                {% if request.cookies.get('languaje') == 'en' %} 
+                Psicom
+                {% else %} 
+                Contestar psicom
+                {% endif %}
+      </a>
 <input type="submit" class="" id="" name="answer" value="Finalizar">
 </div>
 <div class="disclaimer">

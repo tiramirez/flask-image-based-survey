@@ -186,3 +186,22 @@ def register():
     session['page'] = "register"
 
     return render_template('register.html')
+
+
+@bp.route('/psicometrico', methods=('GET', 'POST'))
+def psicometrico():
+
+    if request.method == 'POST':
+        author = request.cookies.get('user_id')
+        psico1 = request.form['psico1']
+        psico2 = request.form['psico2']
+        if author == None:
+            return redirect(url_for('auth.index'))
+        else:
+            ## Instertar en la Base de Datos
+            db.session.query(Users).filter(Users.user_id == author).update({'psico1': str(psico1),'psico2': str(psico2)})
+            # db.session.query().filter(Users.user_id == author).update({"psico2": psico2})
+            db.session.commit()
+            # print("Respuesta guardada")
+            return redirect(url_for('auth.index'))
+    return render_template('psico.html')
