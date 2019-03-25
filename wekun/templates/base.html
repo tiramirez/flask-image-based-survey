@@ -11,18 +11,38 @@
 <body>
 <div id="container">
   <nav>
-    <h1>Wekun</h1 >
-    <ul>
-        <li><a href="{{ url_for('auth.spanish') }}">Español</a>
-        <li><a href="{{ url_for('auth.english') }}">English</a>
-    </ul>
+      <input class="menu-btn" type="checkbox" id="menu-btn" />
+      <label class="menu-icon" for="menu-btn"><span class="navicon"></span></label>
+      <h1>Wekun</h1 >
+      <ul id="languaje-menu">
+          <li><a href="{{ url_for('auth.spanish') }}">Español</a>
+          <li><a href="{{ url_for('auth.english') }}">English</a>
+      </ul>
+      <div class="menu-foldable">
+            {% if request.cookies.get('languaje') == 'en' %}
+            <ul class="menu">
+              <li><a href="{{ url_for('auth.survey') }}">Survey</a></li>
+              <li><a href="{{ url_for('auth.welcome') }}">Instructions</a></li>
+              <li><a href="{{ url_for('auth.register') }}">Change User</a></li>
+              <li><a href="{{ url_for('auth.about_us') }}">About Wekun</a></li>
+              <li><a href="{{ url_for('auth.contact') }}">Our Team</a></li>
+            </ul>
+            {% else %}
+            <ul class="menu">
+              <li><a href="{{ url_for('auth.survey') }}">Encuesta</a></li>
+              <li><a href="{{ url_for('auth.welcome') }}">Instruccciones</a></li>
+              <li><a href="{{ url_for('auth.register') }}">Nuevo Usuario</a></li>
+              <li><a href="{{ url_for('auth.about_us') }}">Qué es Wekun</a></li>
+              <li><a href="{{ url_for('auth.contact') }}">Nuestro Equipo</a></li>
+            </ul>
+            {% endif %}
+      </div>  
   </nav>
+
   <section class="content">
       {% block content %}{% endblock %}
   </section>
   <footer>
-    <input class="menu-btn" type="checkbox" id="menu-btn" />
-    <label class="menu-icon" for="menu-btn"><span class="navicon"></span></label>
     {% if request.cookies.get('languaje') == 'en' %}
     <ul class="menu">
       <li><a href="{{ url_for('auth.survey') }}">Survey</a></li>
