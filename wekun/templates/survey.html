@@ -1,6 +1,27 @@
 {% extends 'base.html' %}
 
 {% block content %}
+  {% if counter == 10 %}
+  <div class="text-layer">
+    <span>Ya has contestado 10 preguntas,  ahora podrías ayudarnos con 5 breves preguntas. Luego podrás continuar evauando imágenes.</span>
+  </div>
+    <div class="button-layer">
+    <a class="btn" id="continue" href="" style="background: grey;">
+                {% if request.cookies.get('languaje') == 'en' %} 
+                Continue rating images
+                {% else %} 
+                Seguir evaluando imágenes 
+                {% endif %}
+    </a>
+    <a class="btn" id="" href="{{ url_for('auth.psicometrico') }}" style="background: #FF6F70;">
+                {% if request.cookies.get('languaje') == 'en' %} 
+                Answers the new section
+                {% else %} 
+                Contestar nueva sección
+                {% endif %}
+    </a>
+  </div>
+  {% endif %}
 <form method="post">
 
 	<div id="top">
@@ -41,30 +62,42 @@
     <input type="hidden" name="image_1" value="{{ photo1 }}" />
     <input type="hidden" name="image_2" value="{{ photo2 }}" />
 </form>
-<div class="ten-answers-buttons" style="">
-<span>Ya has contestado 10 preguntas, ahora podrías ayudarnos con 5 breves preguntas. Luego podrás continuar evauando imágenes.</span>
-<input type="submit" class="" id="" name="answer" value="X">
-<a class="btn" id="next5" href="{{ url_for('auth.psicometrico') }}" style="background: grey;">
+
+{% if counter > 10 %}
+<div class="ten-answers-buttons" style="" id="answer-later">
+    <a class="btn" id="" href="{{ url_for('auth.psicometrico') }}" style="background: grey;">
                 {% if request.cookies.get('languaje') == 'en' %} 
-                Psicom
+                Answers the new section
                 {% else %} 
-                Contestar psicom
+                Contestar preguntas adicionales
                 {% endif %}
-      </a>
-<input type="submit" class="" id="" name="answer" value="Finalizar">
+    </a>
 </div>
+{% endif %}
+
 <div class="disclaimer">
     {% if request.cookies.get('languaje') == 'en' %}
               <span id="star">* </span><p>There are millions of images, so answer as many as you want and then just close the site. Thank you for helping us!</p>
     {% else %}
               <span id="star">* </span><p>La cantidad de imágenes es infinita, por lo que cuando no quieras evaluar más lugares solo debes cerrar la página.</br>¡Gracias por ayudarnos!</p>
     {% endif %}
+    <!-- <h1> Has contestado {{ counter }} imágenes.</h1> -->
   </div>
 
 <script>
   var pregunta;
   pregunta = jQuery("input[name=cookie_category").val();
   jQuery("select > option[value="+ pregunta +"]").attr('selected','selected');
+
+
+
+  $(document).ready(function(){
+
+    $("#continue").click(function(){
+      $("div.color-layer").hide();
+      $("div#answer-later").show();
+    });
+  });
 
 </script>
  

@@ -109,6 +109,11 @@ def survey():
             ## randint(a,b) returns a random integer N such that a <= N <= b.
             category = str(random.randint(1,5))
 
+        user_name = request.cookies.get('user_id')
+        # counter = 1 
+        counter  = len(db.session.query(Answers).filter(Answers.user_id == user_name).all())
+
+
 
     elif request.method == 'POST':
         ## Extraer vairables
@@ -133,7 +138,7 @@ def survey():
                 db.session.commit()
                 # print("Respuesta guardada")
                 return redirect(url_for('auth.index'))
-    return render_template('survey.html', photo1 = url_1, photo2 = url_2, category=category)
+    return render_template('survey.html', photo1 = url_1, photo2 = url_2, category=category, counter = counter)
 
 
 @bp.route('/register', methods=('GET', 'POST'))

@@ -232,6 +232,28 @@ img.image{
 	z-index: 1;
 }
 
+.text-layer{
+	position: relative;
+	top:20%;
+	display: flex;
+	flex-wrap:wrap;
+	z-index: 3;
+	opacity: 1;
+	font-size: 20pt;
+}
+
+.button-layer{
+	position: relative;
+	top:50%;
+	display: flex;
+	flex-wrap:wrap;
+	z-index: 3;
+	opacity: 1;
+}
+.button-layer a {
+	margin: 1em; 
+}
+
 #instructions-number{
 	padding: 0.5em 0.75em 0.5em 0.75em;
 	margin-left: 0.5em;

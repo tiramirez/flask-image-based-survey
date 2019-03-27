@@ -3,43 +3,73 @@
 {% block content %}
 
 <form method="post">
+    {% if request.cookies.get('languaje') == 'en' %} 
+    <span>Show your level of agreement with the following statements, being (-) strongly agree (0) indifference (++) strongly agree</span>
+    {% else %} 
+    <span>Muestre su nivel de acuerdo con las siguientes frases, siendo (--) muy en deacuerdo, (0) indiferencia y (++) muy de acuerdo</span>
+    {% endif %}
+
     <div class="item-register" id="psico1">
             <label class="main-label" for="psico1" style="margin-top: 0em;">
-              {% if request.cookies.get('languaje') == 'en' %} Question 1 {% else %} Pregunta 1 {% endif %}
+              {% if request.cookies.get('languaje') == 'en' %} 
+              Question 1 
+              {% else %} 
+              Prefiero un patio más grande en mi casa, antes que más plazas públicas
+              {% endif %}
             </label>
-              <input class="round" type="radio" name="psico1" value="1" required>
+              <input class="round" type="radio" name="psico1" value="--" required>
               <label class="round-label" for="male">1</label>
-              <input class="round" type="radio" name="psico1" value="2" required>
+              <input class="round" type="radio" name="psico1" value="-" required>
               <label class="round-label" for="male">2</label>
-              <input class="round" type="radio" name="psico1" value="3" required>
+              <input class="round" type="radio" name="psico1" value="0" required>
               <label class="round-label" for="male">3</label>
-              <input class="round" type="radio" name="psico1" value="4" required>
+              <input class="round" type="radio" name="psico1" value="+" required>
               <label class="round-label" for="male">4</label>
-              <input class="round" type="radio" name="psico1" value="5" required>
+              <input class="round" type="radio" name="psico1" value="++" required>
               <label class="round-label" for="male">5</label>
     </div>
 
-    <div class="item-register" id="study-level" name="study-level">
-            <label class="main-label" for="study">
-                {% if request.cookies.get('languaje') == 'en' %} 
-                Highest educational level completed
-                {% else %} 
-                Mayor Nivel Educacional</br>que ha completado 
-                {% endif %}
+
+    <div class="item-register" id="psico2">
+            <label class="main-label" for="psico1" style="margin-top: 0em;">
+              {% if request.cookies.get('languaje') == 'en' %} 
+              Question 2
+              {% else %}
+              Evito el transporte público, principalmente porque me molesta compartir con muchas personas
+              {% endif %}
             </label>
-
-            <select name="psico2" id="psico2">
-                    <option value="0" selected="true">Select a educational level</option>
-                    <option value="en1">1</option>
-                    <option value="en2">2</option>
-                    <option value="en3">3</option>
-                    <option value="en4">4</option>
-                    <option value="en5">5</option>
-            </select>
-
+              <input class="round" type="radio" name="psico2" value="--" required>
+              <label class="round-label" for="male">1</label>
+              <input class="round" type="radio" name="psico2" value="-" required>
+              <label class="round-label" for="male">2</label>
+              <input class="round" type="radio" name="psico2" value="0" required>
+              <label class="round-label" for="male">3</label>
+              <input class="round" type="radio" name="psico2" value="+" required>
+              <label class="round-label" for="male">4</label>
+              <input class="round" type="radio" name="psico2" value="++" required>
+              <label class="round-label" for="male">5</label>
     </div>
-    <label class="error" for="study-level" id="sel_study_error" style="color:#FC2727"><b> Seleccione un nivel educacional, por favor.</b></label>
-   
+
+    <div class="item-register" id="psico3">
+            <label class="main-label" for="psico1" style="margin-top: 0em;">
+              {% if request.cookies.get('languaje') == 'en' %} 
+              Question 2
+              {% else %}
+              Estoy dispuetso a pagar impuestos para financias más y mejorar espacios públicos
+              {% endif %}
+            </label>
+              <input class="round" type="radio" name="psico3" value="--" required>
+              <label class="round-label" for="male">1</label>
+              <input class="round" type="radio" name="psico3" value="-" required>
+              <label class="round-label" for="male">2</label>
+              <input class="round" type="radio" name="psico3" value="0" required>
+              <label class="round-label" for="male">3</label>
+              <input class="round" type="radio" name="psico3" value="+" required>
+              <label class="round-label" for="male">4</label>
+              <input class="round" type="radio" name="psico3" value="++" required>
+              <label class="round-label" for="male">5</label>
+    </div>
+    
     <div id="botones-register">
           {% if request.cookies.get('languaje') == 'en' %} 
       <input type="submit" class="btn" name="submit-register" value="Send">
