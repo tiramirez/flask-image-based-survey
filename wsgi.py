@@ -1,4 +1,4 @@
-from wekun import app as application
+from wekun import application
 
 if __name__ == "__main__":
 	application.run()
