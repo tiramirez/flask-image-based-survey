@@ -2,7 +2,7 @@ import functools
 from flask import (
     Blueprint, flash, g, redirect, render_template, request, session, url_for, make_response
 )
-from wekun import app, db
+from wekun import application, db
 from sqlalchemy import func
 from wekun.models import Users, Answers
 from wekun.data import IMAGES
