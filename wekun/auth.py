@@ -210,3 +210,11 @@ def psicometrico():
             # print("Respuesta guardada")
             return redirect(url_for('auth.index'))
     return render_template('psico.html')
+
+@bp.route('/show',methods=('GET','POST'))
+def show_img():
+	if request.method == 'POST':
+		img_id = request.form['ID']
+	else:
+		img_id = None
+	return render_template('show_img.html', photo=img_id)
