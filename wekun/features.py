@@ -9,4 +9,14 @@ filter = df['NA']==1.0
 error = df[filter]
 list_error = error['ID'].values.tolist()
 
-print(list_error)
+
+test = '50f42de0fdc9f065f0002285'
+
+file = open('algo.py', 'w')
+
+file.write('IMAGES = [')
+for i in list_error:
+	file.write('{"id":"'+ i.replace('.jpg','') +'"},\n')
+file.close()
+
+print(test in list_error)
