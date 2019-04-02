@@ -778,10 +778,9 @@ nav .menu-btn:checked ~ .menu-icon:not(.steps) .navicon:after {
 
 	nav .menu-icon {
 	    display: none;
-	}	
-
+	}
 	.instructions{
-		display: inline;
+	    display:flex;
 	}
 
 }
