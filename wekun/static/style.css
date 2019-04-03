@@ -718,12 +718,26 @@ div#answer-later{
 		flex-direction: column;
 		padding:1em 1em 2em 1em;
 	}
-	.item-register, .item-register-psicometrico {
+	.item-register{
 		display: inline-flex;
 		flex-direction: column;
 		padding: 0.5em;
 		margin: 0.5em;
 	}
+	.item-register-psicometrico {
+		display: inline-flex;
+		flex-wrap: wrap;
+		padding: 0.5em;
+		margin: 0.5em;
+	}
+	.item-register-psicometrico .label-psicometrico{
+		width: 100%;
+		text-align:left;
+	}
+	.checkboxgroup{
+		width: 15%;
+	}
+
 	.item-register#gender, .item-register#age{
 		display: inline-flex;
 		flex-direction: row;
