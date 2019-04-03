@@ -202,11 +202,22 @@ def psicometrico():
         author = request.cookies.get('user_id')
         psico1 = request.form['psico1']
         psico2 = request.form['psico2']
+        psico3 = request.form['psico3']
+        psico4 = request.form['psico4']
+        psico5 = request.form['psico5']
+        psico6 = request.form['psico6']
+        psico7 = request.form['psico7']
+        psico8 = request.form['psico8']
+        psico9 = request.form['psico9']
+        psico10 = request.form['psico10']
+        income = request.form['income']
         if author == None:
             return redirect(url_for('auth.index'))
         else:
             ## Instertar en la Base de Datos
-            db.session.query(Users).filter(Users.user_id == author).update({'psico1': str(psico1),'psico2': str(psico2)})
+            db.session.query(Users).filter(Users.user_id == author).update({'psico1': str(psico1),
+                'psico2': str(psico2), 'psico3': str(psico3), 'psico4': str(psico4), 'psico5': str(psico5),
+                'psico6': str(psico6), 'psico7': str(psico7), 'psico8': str(psico8), 'psico9': str(psico9), 'psico10': str(psico10)})
             # db.session.query().filter(Users.user_id == author).update({"psico2": psico2})
             db.session.commit()
             # print("Respuesta guardada")

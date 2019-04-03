@@ -3,218 +3,320 @@
 {% block content %}
 
 <form method="post">
+    <h3>
     {% if request.cookies.get('languaje') == 'en' %} 
-    <span>Show your level of agreement with the following statements, being (-) strongly agree (0) indifference (++) strongly agree</span>
+    Please indicate your level of agreement with the following statements, being (-) strongly agree, (0) indifference, and (++) strongly agree
     {% else %} 
-    <span>Muestre su nivel de acuerdo con las siguientes frases, siendo (--) muy en deacuerdo, (0) indiferencia y (++) muy de acuerdo</span>
+    Muestre su nivel de acuerdo con las siguientes frases, siendo (--) muy en deacuerdo, (0) indiferencia, y (++) muy de acuerdo
     {% endif %}
+    </h3>
 
-    <div class="item-register" id="psico1">
-            <label class="main-label" for="psico1" style="margin-top: 0em;">
+    <div class="item-register-psicometrico" id="psico1">
+            <label class="label-psicometrico" for="psico1" style="margin-top: 0em;">
               {% if request.cookies.get('languaje') == 'en' %} 
               I prefer a larger patio in my house, rather than more public squares.
               {% else %} 
               Prefiero un patio más grande en mi casa, antes que más plazas públicas.
               {% endif %}
             </label>
-              <input class="round" type="radio" name="psico1" value="--" required>
-              <label class="round-label" for="male">--</label>
-              <input class="round" type="radio" name="psico1" value="-" required>
-              <label class="round-label" for="male">-</label>
-              <input class="round" type="radio" name="psico1" value="0" required>
-              <label class="round-label" for="male">0</label>
-              <input class="round" type="radio" name="psico1" value="+" required>
-              <label class="round-label" for="male">+</label>
-              <input class="round" type="radio" name="psico1" value="++" required>
-              <label class="round-label" for="male">++</label>
+            <div class="checkboxgroup">
+              <input class="input-psicometrico" type="radio" name="psico1" value="--" required>
+              <label class="round-label-psicometrico" for="psico1">--</label>
+            </div>
+            <div class="checkboxgroup">
+              <input class="input-psicometrico" type="radio" name="psico1" value="-" required>
+              <label class="round-label-psicometrico" for="psico1">-</label>
+              </div>
+            <div class="checkboxgroup">
+              <input class="input-psicometrico" type="radio" name="psico1" value="0" required>
+              <label class="round-label-psicometrico" for="psico1">0</label>
+              </div>
+            <div class="checkboxgroup">
+              <input class="input-psicometrico" type="radio" name="psico1" value="+" required>
+              <label class="round-label-psicometrico" for="psico1">+</label>
+              </div>
+            <div class="checkboxgroup">
+              <input class="input-psicometrico" type="radio" name="psico1" value="++" required>
+              <label class="round-label-psicometrico" for="psico1">++</label>
+              </div>
     </div>
 
 
-    <div class="item-register" id="psico2">
-            <label class="main-label" for="psico2" style="margin-top: 0em;">
+    <div class="item-register-psicometrico" id="psico2">
+            <label class="label-psicometrico" for="psico2" style="margin-top: 0em;">
               {% if request.cookies.get('languaje') == 'en' %} 
               I am willing to pay more taxes to finance more and better public spaces.
               {% else %}
               Estoy dispuesto a pagar más impuestos para financiar más y mejores espacios públicos.
               {% endif %}
             </label>
-              <input class="round" type="radio" name="psico2" value="--" required>
-              <label class="round-label" for="male">--</label>
-              <input class="round" type="radio" name="psico2" value="-" required>
-              <label class="round-label" for="male">-</label>
-              <input class="round" type="radio" name="psico2" value="0" required>
-              <label class="round-label" for="male">0</label>
-              <input class="round" type="radio" name="psico2" value="+" required>
-              <label class="round-label" for="male">+</label>
-              <input class="round" type="radio" name="psico2" value="++" required>
-              <label class="round-label" for="male">++</label>
+            <div class="checkboxgroup">
+              <input class="input-psicometrico" type="radio" name="psico2" value="--" required>
+              <label class="round-label-psicometrico" for="psico2">--</label>
+            </div>
+            <div class="checkboxgroup">
+              <input class="input-psicometrico" type="radio" name="psico2" value="-" required>
+              <label class="round-label-psicometrico" for="psico2">-</label>
+              </div>
+            <div class="checkboxgroup">
+              <input class="input-psicometrico" type="radio" name="psico2" value="0" required>
+              <label class="round-label-psicometrico" for="psico2">0</label>
+              </div>
+            <div class="checkboxgroup">
+              <input class="input-psicometrico" type="radio" name="psico2" value="+" required>
+              <label class="round-label-psicometrico" for="psico2">+</label>
+              </div>
+            <div class="checkboxgroup">
+              <input class="input-psicometrico" type="radio" name="psico2" value="++" required>
+              <label class="round-label-psicometrico" for="psico2">++</label>
+              </div>
     </div>
 
-    <div class="item-register" id="psico3">
-            <label class="main-label" for="psico3" style="margin-top: 0em;">
+    <div class="item-register-psicometrico" id="psico3">
+            <label class="label-psicometrico" for="psico3" style="margin-top: 0em;">
               {% if request.cookies.get('languaje') == 'en' %} 
               I prefer to spend my leisure time at my house rather than in more public places.
               {% else %}
               Prefiero pasar mis ratos libres en mi casa antes que en lugares más públicos.
               {% endif %}
             </label>
-              <input class="round" type="radio" name="psico3" value="--" required>
-              <label class="round-label" for="male">--</label>
-              <input class="round" type="radio" name="psico3" value="-" required>
-              <label class="round-label" for="male">-</label>
-              <input class="round" type="radio" name="psico3" value="0" required>
-              <label class="round-label" for="male">0</label>
-              <input class="round" type="radio" name="psico3" value="+" required>
-              <label class="round-label" for="male">+</label>
-              <input class="round" type="radio" name="psico3" value="++" required>
-              <label class="round-label" for="male">++</label>
+            <div class="checkboxgroup">
+              <input class="input-psicometrico" type="radio" name="psico3" value="--" required>
+              <label class="round-label-psicometrico" for="psico3">--</label>
+            </div>
+            <div class="checkboxgroup">
+              <input class="input-psicometrico" type="radio" name="psico3" value="-" required>
+              <label class="round-label-psicometrico" for="psico3">-</label>
+              </div>
+            <div class="checkboxgroup">
+              <input class="input-psicometrico" type="radio" name="psico3" value="0" required>
+              <label class="round-label-psicometrico" for="psico3">0</label>
+              </div>
+            <div class="checkboxgroup">
+              <input class="input-psicometrico" type="radio" name="psico3" value="+" required>
+              <label class="round-label-psicometrico" for="psico3">+</label>
+              </div>
+            <div class="checkboxgroup">
+              <input class="input-psicometrico" type="radio" name="psico3" value="++" required>
+              <label class="round-label-psicometrico" for="psico3">++</label>
+              </div>
     </div>
 
-    <div class="item-register" id="psico4">
-            <label class="main-label" for="psico4" style="margin-top: 0em;">
+    <div class="item-register-psicometrico" id="psico4">
+            <label class="label-psicometrico" for="psico4" style="margin-top: 0em;">
               {% if request.cookies.get('languaje') == 'en' %} 
               I prefer to live closer to my work, even when it means having a smaller house.
               {% else %}
               Prefiero vivir más cerca de mi trabajo, aún cuando eso implique tener una vivienda más pequeña.
               {% endif %}
             </label>
-              <input class="round" type="radio" name="psico4" value="--" required>
-              <label class="round-label" for="male">--</label>
-              <input class="round" type="radio" name="psico4" value="-" required>
-              <label class="round-label" for="male">-</label>
-              <input class="round" type="radio" name="psico4" value="0" required>
-              <label class="round-label" for="male">0</label>
-              <input class="round" type="radio" name="psico4" value="+" required>
-              <label class="round-label" for="male">+</label>
-              <input class="round" type="radio" name="psico4" value="++" required>
-              <label class="round-label" for="male">++</label>
+            <div class="checkboxgroup">
+              <input class="input-psicometrico" type="radio" name="psico4" value="--" required>
+              <label class="round-label-psicometrico" for="psico4">--</label>
+            </div>
+            <div class="checkboxgroup">
+              <input class="input-psicometrico" type="radio" name="psico4" value="-" required>
+              <label class="round-label-psicometrico" for="psico4">-</label>
+              </div>
+            <div class="checkboxgroup">
+              <input class="input-psicometrico" type="radio" name="psico4" value="0" required>
+              <label class="round-label-psicometrico" for="psico4">0</label>
+              </div>
+            <div class="checkboxgroup">
+              <input class="input-psicometrico" type="radio" name="psico4" value="+" required>
+              <label class="round-label-psicometrico" for="psico4">+</label>
+              </div>
+            <div class="checkboxgroup">
+              <input class="input-psicometrico" type="radio" name="psico4" value="++" required>
+              <label class="round-label-psicometrico" for="psico4">++</label>
+              </div>
     </div>
 
 
-    <div class="item-register" id="psico5">
-            <label class="main-label" for="psico5" style="margin-top: 0em;">
+    <div class="item-register-psicometrico" id="psico5">
+            <label class="label-psicometrico" for="psico5" style="margin-top: 0em;">
               {% if request.cookies.get('languaje') == 'en' %} 
               Climate change is not real.
               {% else %}
               El cambio climático no es real.
               {% endif %}
             </label>
-              <input class="round" type="radio" name="psico5" value="--" required>
-              <label class="round-label" for="male">--</label>
-              <input class="round" type="radio" name="psico5" value="-" required>
-              <label class="round-label" for="male">-</label>
-              <input class="round" type="radio" name="psico5" value="0" required>
-              <label class="round-label" for="male">0</label>
-              <input class="round" type="radio" name="psico5" value="+" required>
-              <label class="round-label" for="male">+</label>
-              <input class="round" type="radio" name="psico5" value="++" required>
-              <label class="round-label" for="male">++</label>
+            <div class="checkboxgroup">
+              <input class="input-psicometrico" type="radio" name="psico5" value="--" required>
+              <label class="round-label-psicometrico" for="psico5">--</label>
+            </div>
+            <div class="checkboxgroup">
+              <input class="input-psicometrico" type="radio" name="psico5" value="-" required>
+              <label class="round-label-psicometrico" for="psico5">-</label>
+              </div>
+            <div class="checkboxgroup">
+              <input class="input-psicometrico" type="radio" name="psico5" value="0" required>
+              <label class="round-label-psicometrico" for="psico5">0</label>
+              </div>
+            <div class="checkboxgroup">
+              <input class="input-psicometrico" type="radio" name="psico5" value="+" required>
+              <label class="round-label-psicometrico" for="psico5">+</label>
+              </div>
+            <div class="checkboxgroup">
+              <input class="input-psicometrico" type="radio" name="psico5" value="++" required>
+              <label class="round-label-psicometrico" for="psico5">++</label>
+              </div>
     </div>
 
-    <div class="item-register" id="psico6">
-            <label class="main-label" for="psico6" style="margin-top: 0em;">
+    <div class="item-register-psicometrico" id="psico6">
+            <label class="label-psicometrico" for="psico6" style="margin-top: 0em;">
               {% if request.cookies.get('languaje') == 'en' %} 
               Climate change has been caused by the action of the human being.
               {% else %}
               El cambio climático ha sido causado por el actuar del ser humano.
               {% endif %}
             </label>
-              <input class="round" type="radio" name="psico6" value="--" required>
-              <label class="round-label" for="male">--</label>
-              <input class="round" type="radio" name="psico6" value="-" required>
-              <label class="round-label" for="male">-</label>
-              <input class="round" type="radio" name="psico6" value="0" required>
-              <label class="round-label" for="male">0</label>
-              <input class="round" type="radio" name="psico6" value="+" required>
-              <label class="round-label" for="male">+</label>
-              <input class="round" type="radio" name="psico6" value="++" required>
-              <label class="round-label" for="male">++</label>
+            <div class="checkboxgroup">
+              <input class="input-psicometrico" type="radio" name="psico6" value="--" required>
+              <label class="round-label-psicometrico" for="psico6">--</label>
+            </div>
+            <div class="checkboxgroup">
+              <input class="input-psicometrico" type="radio" name="psico6" value="-" required>
+              <label class="round-label-psicometrico" for="psico6">-</label>
+              </div>
+            <div class="checkboxgroup">
+              <input class="input-psicometrico" type="radio" name="psico6" value="0" required>
+              <label class="round-label-psicometrico" for="psico6">0</label>
+              </div>
+            <div class="checkboxgroup">
+              <input class="input-psicometrico" type="radio" name="psico6" value="+" required>
+              <label class="round-label-psicometrico" for="psico6">+</label>
+              </div>
+            <div class="checkboxgroup">
+              <input class="input-psicometrico" type="radio" name="psico6" value="++" required>
+              <label class="round-label-psicometrico" for="psico6">++</label>
+              </div>
     </div>
 
-    <div class="item-register" id="psico7">
-            <label class="main-label" for="psico7" style="margin-top: 0em;">
+    <div class="item-register-psicometrico" id="psico7">
+            <label class="label-psicometrico" for="psico7" style="margin-top: 0em;">
               {% if request.cookies.get('languaje') == 'en' %} 
               We must take action to stop climate change, although this may increase unemployment.
               {% else %}
               Debemos tomar acción para detener el cambio climático, aunque esto pueda aumentar el desempleo.
               {% endif %}
             </label>
-              <input class="round" type="radio" name="psico7" value="--" required>
-              <label class="round-label" for="male">--</label>
-              <input class="round" type="radio" name="psico7" value="-" required>
-              <label class="round-label" for="male">-</label>
-              <input class="round" type="radio" name="psico7" value="0" required>
-              <label class="round-label" for="male">0</label>
-              <input class="round" type="radio" name="psico7" value="+" required>
-              <label class="round-label" for="male">+</label>
-              <input class="round" type="radio" name="psico7" value="++" required>
-              <label class="round-label" for="male">++</label>
+            <div class="checkboxgroup">
+              <input class="input-psicometrico" type="radio" name="psico7" value="--" required>
+              <label class="round-label-psicometrico" for="psico7">--</label>
+            </div>
+            <div class="checkboxgroup">
+              <input class="input-psicometrico" type="radio" name="psico7" value="-" required>
+              <label class="round-label-psicometrico" for="psico7">-</label>
+              </div>
+            <div class="checkboxgroup">
+              <input class="input-psicometrico" type="radio" name="psico7" value="0" required>
+              <label class="round-label-psicometrico" for="psico7">0</label>
+              </div>
+            <div class="checkboxgroup">
+              <input class="input-psicometrico" type="radio" name="psico7" value="+" required>
+              <label class="round-label-psicometrico" for="psico7">+</label>
+              </div>
+            <div class="checkboxgroup">
+              <input class="input-psicometrico" type="radio" name="psico7" value="++" required>
+              <label class="round-label-psicometrico" for="psico7">++</label>
+              </div>
     </div>
 
 
-    <div class="item-register" id="psico8">
-            <label class="main-label" for="psico8" style="margin-top: 0em;">
+    <div class="item-register-psicometrico" id="psico8">
+            <label class="label-psicometrico" for="psico8" style="margin-top: 0em;">
               {% if request.cookies.get('languaje') == 'en' %} 
               Priority should be given to public transport on city streets, even if this means taking space away from the automobile.
               {% else %}
               Se debería dar prioridad al transporte público en las calles de la ciudad, aunque esto signifique quitar espacio al automóvil.
               {% endif %}
             </label>
-              <input class="round" type="radio" name="psico8" value="--" required>
-              <label class="round-label" for="male">--</label>
-              <input class="round" type="radio" name="psico8" value="-" required>
-              <label class="round-label" for="male">-</label>
-              <input class="round" type="radio" name="psico8" value="0" required>
-              <label class="round-label" for="male">0</label>
-              <input class="round" type="radio" name="psico8" value="+" required>
-              <label class="round-label" for="male">+</label>
-              <input class="round" type="radio" name="psico8" value="++" required>
-              <label class="round-label" for="male">++</label>
+            <div class="checkboxgroup">
+              <input class="input-psicometrico" type="radio" name="psico8" value="--" required>
+              <label class="round-label-psicometrico" for="psico8">--</label>
+            </div>
+            <div class="checkboxgroup">
+              <input class="input-psicometrico" type="radio" name="psico8" value="-" required>
+              <label class="round-label-psicometrico" for="psico8">-</label>
+              </div>
+            <div class="checkboxgroup">
+              <input class="input-psicometrico" type="radio" name="psico8" value="0" required>
+              <label class="round-label-psicometrico" for="psico8">0</label>
+              </div>
+            <div class="checkboxgroup">
+              <input class="input-psicometrico" type="radio" name="psico8" value="+" required>
+              <label class="round-label-psicometrico" for="psico8">+</label>
+              </div>
+            <div class="checkboxgroup">
+              <input class="input-psicometrico" type="radio" name="psico8" value="++" required>
+              <label class="round-label-psicometrico" for="psico8">++</label>
+              </div>
     </div>
 
-    <div class="item-register" id="psico9">
-            <label class="main-label" for="psico9" style="margin-top: 0em;">
+    <div class="item-register-psicometrico" id="psico9">
+            <label class="label-psicometrico" for="psico9" style="margin-top: 0em;">
               {% if request.cookies.get('languaje') == 'en' %} 
               When I walk through the streets of the city, I am always very worried that they will not steal from me.
               {% else %}
               Cuando camino por las calles de la ciudad, estoy siempre muy preocupado de que no me vayan a robar.
               {% endif %}
             </label>
-              <input class="round" type="radio" name="psico9" value="--" required>
-              <label class="round-label" for="male">--</label>
-              <input class="round" type="radio" name="psico9" value="-" required>
-              <label class="round-label" for="male">-</label>
-              <input class="round" type="radio" name="psico9" value="0" required>
-              <label class="round-label" for="male">0</label>
-              <input class="round" type="radio" name="psico9" value="+" required>
-              <label class="round-label" for="male">+</label>
-              <input class="round" type="radio" name="psico9" value="++" required>
-              <label class="round-label" for="male">++</label>
+            <div class="checkboxgroup">
+              <input class="input-psicometrico" type="radio" name="psico9" value="--" required>
+              <label class="round-label-psicometrico" for="psico9">--</label>
+            </div>
+            <div class="checkboxgroup">
+              <input class="input-psicometrico" type="radio" name="psico9" value="-" required>
+              <label class="round-label-psicometrico" for="psico9">-</label>
+              </div>
+            <div class="checkboxgroup">
+              <input class="input-psicometrico" type="radio" name="psico9" value="0" required>
+              <label class="round-label-psicometrico" for="psico9">0</label>
+              </div>
+            <div class="checkboxgroup">
+              <input class="input-psicometrico" type="radio" name="psico9" value="+" required>
+              <label class="round-label-psicometrico" for="psico9">+</label>
+              </div>
+            <div class="checkboxgroup">
+              <input class="input-psicometrico" type="radio" name="psico9" value="++" required>
+              <label class="round-label-psicometrico" for="psico9">++</label>
+              </div>
     </div>
 
-    <div class="item-register" id="psico10">
-            <label class="main-label" for="psico10" style="margin-top: 0em;">
+    <div class="item-register-psicometrico" id="psico10">
+            <label class="label-psicometrico" for="psico10" style="margin-top: 0em;">
               {% if request.cookies.get('languaje') == 'en' %} 
               Crime is one of the main problems in our society.
               {% else %}
               La delincuencia es uno de los principales problemas de nuestra sociedad.
               {% endif %}
             </label>
-              <input class="round" type="radio" name="psico10" value="--" required>
-              <label class="round-label" for="male">--</label>
-              <input class="round" type="radio" name="psico10" value="-" required>
-              <label class="round-label" for="male">-</label>
-              <input class="round" type="radio" name="psico10" value="0" required>
-              <label class="round-label" for="male">0</label>
-              <input class="round" type="radio" name="psico10" value="+" required>
-              <label class="round-label" for="male">+</label>
-              <input class="round" type="radio" name="psico10" value="++" required>
-              <label class="round-label" for="male">++</label>
+            <div class="checkboxgroup">
+              <input class="input-psicometrico" type="radio" name="psico10" value="--" required>
+              <label class="round-label-psicometrico" for="psico10">--</label>
+            </div>
+            <div class="checkboxgroup">
+              <input class="input-psicometrico" type="radio" name="psico10" value="-" required>
+              <label class="round-label-psicometrico" for="psico10">-</label>
+              </div>
+            <div class="checkboxgroup">
+              <input class="input-psicometrico" type="radio" name="psico10" value="0" required>
+              <label class="round-label-psicometrico" for="psico10">0</label>
+              </div>
+            <div class="checkboxgroup">
+              <input class="input-psicometrico" type="radio" name="psico10" value="+" required>
+              <label class="round-label-psicometrico" for="psico10">+</label>
+              </div>
+            <div class="checkboxgroup">
+              <input class="input-psicometrico" type="radio" name="psico10" value="++" required>
+              <label class="round-label-psicometrico" for="psico10">++</label>
+              </div>
     </div>
 
 
-    <div class="item-register" id="income">
-            <label class="main-label" for="income">
+    <div class="item-register-psicometrico" id="income">
+            <label class="label-psicometrico" for="income">
               {% if request.cookies.get('languaje') == 'en' %}
               Aproximately monthly net income in local currency (optional)
               {% else %}

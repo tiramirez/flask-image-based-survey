@@ -3,7 +3,11 @@
 {% block content %}
   {% if counter == 10 %}
   <div class="text-layer">
-    <span>Ya has contestado 10 preguntas,  ahora podrías ayudarnos con 5 breves preguntas. Luego podrás continuar evauando imágenes.</span>
+    {% if request.cookies.get('languaje') == 'en' %} 
+    <span>You have answered 10 questions, now you may help us with 10 more questions. You can return to the images after this.</span>
+    {% else %} 
+    <span>Ya has contestado 10 preguntas,  ahora podría ayudarnos con 5 breves preguntas. Luego podrá continuar evauando imágenes.</span>
+    {% endif %}
   </div>
     <div class="button-layer">
     <a class="btn" id="continue" href="" style="background: grey;">
