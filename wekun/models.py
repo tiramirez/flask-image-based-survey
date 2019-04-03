@@ -20,15 +20,23 @@ class Users(db.Model):
     transport = db.Column(db.String(50), nullable=False)
     psico1 = db.Column(db.String(50), nullable=True)
     psico2 = db.Column(db.String(50), nullable=True)
-
-    # state = db.Column(db.String(50))
-    # answers = db.relationship('Answer', backref='author',lazy=True)
+    psico3 = db.Column(db.String(50), nullable=True)
+    psico4 = db.Column(db.String(50), nullable=True)
+    psico5 = db.Column(db.String(50), nullable=True)
+    psico6 = db.Column(db.String(50), nullable=True)
+    psico7 = db.Column(db.String(50), nullable=True)
+    psico8 = db.Column(db.String(50), nullable=True)
+    psico9 = db.Column(db.String(50), nullable=True)
+    psico10 = db.Column(db.String(50), nullable=True)
+    income = db.Column(db.String(50), nullable=True)
 
     def __repr__(self):
-        return f'''User:('{self.id}','{self.user_id}','{self.device_id}','{self.gender}',
-            '{self.age}','{self.nationality}','{self.country}','{self.region}','{self.comuna}',
-            '{self.ip_address}','{self.education}','{self.transport}','{self.create_at}',
-            '{self.psico1}','{self.psico2}')'''
+        return f"User:('{self.id}','{self.user_id}','{self.device_id}','{self.gender}'," +
+                        f"{self.age}','{self.nationality}','{self.country}','{self.region}','{self.comuna}'," +
+                        f"{self.ip_address}','{self.education}','{self.transport}','{self.create_at}'," +
+                        f"{self.psico1}','{self.psico2}','{self.psico3}','{self.psico4}','{self.psico5}'," +
+                        f"{self.psico6}','{self.psico7}'),'{self.psico8}','{self.psico9}','{self.psico10}'," +
+                        f"{self.income}"
 
 
 class Answers(db.Model):
