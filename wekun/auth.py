@@ -49,6 +49,8 @@ def index():
 
     elif page == "welcome":
         return redirect(url_for('auth.welcome'))
+    elif page == "psicometrico":
+        return redirect(url_for('auth.psicometrico'))
     elif page == "register":
         return redirect(url_for('auth.register'))
     elif page == "contact":
@@ -209,6 +211,7 @@ def psicometrico():
             db.session.commit()
             # print("Respuesta guardada")
             return redirect(url_for('auth.index'))
+    session['page'] = "psicometrico"
     return render_template('psico.html')
 
 @bp.route('/show',methods=('GET','POST'))
