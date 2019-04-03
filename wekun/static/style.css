@@ -718,7 +718,7 @@ div#answer-later{
 		flex-direction: column;
 		padding:1em 1em 2em 1em;
 	}
-	.item-register{
+	.item-register, .item-register-psicometrico {
 		display: inline-flex;
 		flex-direction: column;
 		padding: 0.5em;
