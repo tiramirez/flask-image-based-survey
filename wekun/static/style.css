@@ -579,6 +579,14 @@ nav .menu-btn:checked ~ .menu-icon:not(.steps) .navicon:after {
 }
 
 
+
+/* ---------------------------------- */
+
+div#answer-later{
+	display: flex;
+	padding-bottom: 1em;
+}
+
 @media screen and (max-width: 940px){
 	#tooltip1{
 		flex-direction: column;
