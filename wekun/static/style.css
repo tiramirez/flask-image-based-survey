@@ -784,6 +784,7 @@ div#answer-later{
 	}
 	.item-register select {
 		-webkit-appearance: none;
+		-moz-appearance: none;
 		width: 100%;
 	}
 
