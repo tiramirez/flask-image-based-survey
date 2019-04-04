@@ -20,13 +20,15 @@
 	<div class="contact-info">
 		<span class="afiliacion">
 			{% if request.cookies.get('languaje') == 'en' %}
-				Pontificia Universidad Católica de Chile</br>
+				<strong>Assistant Professor</strong></br>
 				Department of Transport Engineering and Logistics, School of Engineering</br>
 				Facultad de Arquitectura, Diseño y Estudios Urbanos</br>
-			{% else %}
 				Pontificia Universidad Católica de Chile</br>
+			{% else %}
+				<strong>Profesor Asistente</strong></br>
 				Departamento de Ingeniería de Transporte y Logística, Facultad de Ingeniería</br>
 				Facultad de Arquitectura, Diseño y Estudios Urbanos</br>
+				Pontificia Universidad Católica de Chile</br>
 			{% endif %}
 		</span>
 		<a class="page" href="http://www.hurtubia.cl/" target="_blank">hurtubia.cl/</a>
@@ -47,13 +49,15 @@
 		
 		<span class="afiliacion">
 			{% if request.cookies.get('languaje') == 'en' %}
-				Pontificia Universidad Católica de Chile</br>
+				<strong>Assistant Professor</strong></br>
 				Department of Transport Engineering and Logistics, School of Engineering</br>
 				Department of Computer Science, School of Engineering</br>
-			{% else %}
 				Pontificia Universidad Católica de Chile</br>
+			{% else %}
+				<strong>Profesor Asistente</strong></br>
 				Departamento de Ingeniería de Transporte y Logística, Facultad de Ingeniería</br>
 				Departamento de Ciencias de la Computacipón, Facultad de Ingeniería</br>
+				Pontificia Universidad Católica de Chile</br>
 			{% endif %}
 		</span>
 		<a class="page" href="" target="_blank"></a>
@@ -74,11 +78,13 @@
 	<div class="contact-info">
 		<span class="afiliacion">
 			{% if request.cookies.get('languaje') == 'en' %}
-				Pontificia Universidad Católica de Chile</br>
+				<strong>Student,</strong> MSc. in Engineering</br>
 				Department of Transport Engineering and Logistics, School of Engineering</br>
-			{% else %}
 				Pontificia Universidad Católica de Chile</br>
+			{% else %}
+				<strong>Estidante,</strong> Magíster en Ciencias de la Ingeniería</br>
 				Departamento de Ingeniería de Transporte y Logística, Facultad de Ingeniería</br>
+				Pontificia Universidad Católica de Chile</br>
 			{% endif %}
 		</span>
 		<span class="page"></span>
@@ -98,11 +104,13 @@
 		
 		<span class="afiliacion">
 			{% if request.cookies.get('languaje') == 'en' %}
-				Pontificia Universidad Católica de Chile</br>
+				<strong>Research Assistant</strong></br>
 				Center of Sustainable Urban Development</br>
-			{% else %}
 				Pontificia Universidad Católica de Chile</br>
+			{% else %}
+				<strong>Aydante de Investigación</strong></br>
 				Centro de Desarrollo Urbano Sustentable</br>
+				Pontificia Universidad Católica de Chile</br>
 			{% endif %}
 		</span>
 		<span class="page"></span>

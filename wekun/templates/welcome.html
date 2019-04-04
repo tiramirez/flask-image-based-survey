@@ -10,8 +10,8 @@
                       <p>Thank you for helping us!</p>
                       <a class="btn" id="next-responsive-0" href="#">Continue</a>
             {% else %}
-                      <h2>Bienvenido!</h2>
-                      <p>Con esta encuesta queremos entender qué te hace sentir a gusto en los espacios públicos.</p>
+                      <h2>¡Bienvenido!</h2>
+                      <p>Con esta encuesta queremos entender qué lo hace sentir a gusto en los espacios públicos.</p>
                       <p>¡Muchas gracias por participar!</p>
                       <a class="btn" id="next-responsive-0" href="#">Continuar</a>
             {% endif %}
@@ -44,7 +44,7 @@
                         </div>
                    </div>
             </div>
-            <a class="btn" id="back-responsive-1" href="#">Volver</a>
+            <a class="btn" id="back-responsive-1" href="#" style="background:grey">Volver</a>
             <a class="btn" id="next-responsive-1" href="#">Siguiente</a>
           </div>
 
@@ -65,7 +65,7 @@
                       <input type="submit" id="next-responsive-2b" class="round-btn" name="submit" value="=" style="background: #FF6F70;">
                     </div>
             </div>
-            <a class="btn" id="back-responsive-2" href="#">Volver</a>
+            <a class="btn" id="back-responsive-2" href="#" style="background:grey">Volver</a>
             <a class="btn" id="next-responsive-2" href="#">Siguiente</a>
           </div>
 
@@ -82,7 +82,7 @@
                       <input type="submit" id="next-responsive-2b" class="round-btn" name="submit" value="X" style="background: #FF6F70;">
                     </div>
             </div>
-            <a class="btn" id="back-responsive-3" href="#">Volver</a>
+            <a class="btn" id="back-responsive-3" href="#" style="background:grey">Volver</a>
             <a class="btn" id="next-responsive-3" href="#">Siguiente</a>
           </div>
 
@@ -102,7 +102,7 @@
                         <select class="sel" name="category" id="sel2" style="background: #FF6F70;">
                                 <option value="1">like a better place to walk?</option>
                                 <option value="2" href="#">like a better place to live?</option>
-                                <option value="3">more boring?</option>
+                                <option value="3">safer?</option>
                                 <option value="4">more beautiful?</option>
                                 <option value="5">wealthier?</option>
                         </select>
@@ -111,14 +111,14 @@
                         <select class="sel" name="category" id="sel2" style="background: #FF6F70;">
                                 <option value="1">un mejor lugar para caminar?</option>
                                 <option value="2">un mejor lugar para vivir?</option>
-                                <option value="3">un lugar más aburrido?</option>
+                                <option value="3">un lugar más seguro?</option>
                                 <option value="4">un lugar más bonito/agradable a la vista?</option>
                                 <option value="5">un lugar de mayor nivel de ingresos?</option>
                         </select>
                           {% endif %}
                     </div>
             </div>
-            <a class="btn" id="back-responsive-4" href="#">Volver</a>
+            <a class="btn" id="back-responsive-4" href="#" style="background:grey">Volver</a>
             <a class="btn" id="next-responsive-4" href="#">Siguiente</a>
           </div>
 
@@ -137,7 +137,7 @@
                       <p>Al continuar es asume que esta de acuerdo con estos términos</p>
                       <p>Para mayor infromación revisa la sección de preguntas frecuentes</p>
             {% endif %}
-            <a class="btn" id="back-responsive-5" href="#">Volver</a>
+            <a class="btn" id="back-responsive-5" href="#" style="background:grey">Volver</a>
             <a class="btn" id="next-responsive-5" href="{{ url_for('auth.register') }}">Continuar</a>
           </div>
 
@@ -153,8 +153,8 @@
                         <p>Thank you for helping us!</p>
                         <a class="btn" id="next0" href="#">Continue</a>
               {% else %}
-                        <h2>Bienvenido!</h2>
-                        <p>Con esta encuesta queremos entender qué te hace sentir a gusto en los espacios públicos.</p>
+                        <h2>¡Bienvenido!</h2>
+                        <p>Con esta encuesta queremos entender qué lo hace sentir a gusto en los espacios públicos.</p>
                         <p>¡Muchas gracias por participar!</p>
                         <a class="btn" id="next0" href="#">Continuar</a>
               {% endif %}
@@ -169,7 +169,7 @@
       </div>
       <div class="instructions" id="text1" style="display: none;">
             <div id="btn-space">
-              <a class="btn" id="back1" href="#">
+              <a class="btn" id="back1" href="#" style="background:grey">
               {% if request.cookies.get('languaje') == 'en' %}
                     Back
               {% else %}
@@ -224,7 +224,7 @@
 
       <div class="instructions" id="text2" style="display: none;">
             <div id="btn-space">
-              <a class="btn" id="back2" href="#">
+              <a class="btn" id="back2" href="#" style="background:grey">
               {% if request.cookies.get('languaje') == 'en' %}
                     Back
               {% else %}
@@ -279,7 +279,7 @@
 
       <div class="instructions" id="text3" style="display: none;">
             <div id="btn-space">
-              <a class="btn" id="back3" href="#">
+              <a class="btn" id="back3" href="#" style="background:grey">
               {% if request.cookies.get('languaje') == 'en' %}
                     Back
               {% else %}
@@ -335,7 +335,7 @@
 
       <div class="instructions" id="text4" style="display: none;">
             <div id="btn-space">
-              <a class="btn" id="back4" href="#">
+              <a class="btn" id="back4" href="#" style="background:grey">
               {% if request.cookies.get('languaje') == 'en' %}
                     Back
               {% else %}
@@ -350,8 +350,8 @@
                         <h2>Which place looks</h2>
                         <select class="sel" name="category" id="sel2" style="background: #FF6F70;">
                                 <option value="1">like a better place to walk?</option>
-                                <option value="2" href="#">like a better place to live?</option>
-                                <option value="3">more boring?</option>
+                                <option value="2" href="#">like a better neighborhood to live?</option>
+                                <option value="3">safer?</option>
                                 <option value="4">more beautiful?</option>
                                 <option value="5">wealthier?</option>
                         </select>
@@ -359,8 +359,8 @@
                         <h2>¿Cuál le parece</h2>
                         <select class="sel" name="category" id="sel2" style="background: #FF6F70;">
                                 <option value="1">un mejor lugar para caminar?</option>
-                                <option value="2">un mejor lugar para vivir?</option>
-                                <option value="3">un lugar más aburrido?</option>
+                                <option value="2">un mejor barrio para vivir?</option>
+                                <option value="3">un lugar más seguro?</option>
                                 <option value="4">un lugar más bonito/agradable a la vista?</option>
                                 <option value="5">un lugar de mayor nivel de ingresos?</option>
                         </select>
@@ -371,7 +371,7 @@
                               {% if request.cookies.get('languaje') == 'en' %}
                                         Also, you can change the question
                               {% else %}
-                                        Si quieres, puedes cambiar la pregunta
+                                        Si quiere, puedes cambiar la pregunta
                               {% endif %}
                             </span>
                           </div>
@@ -393,12 +393,55 @@
                   </div>
             </div>
             <div id="btn-space">
+              <a class="btn" id="next4" href="#">
+              {% if request.cookies.get('languaje') == 'en' %}
+                    Next
+              {% else %}
+                    Siguiente
+              {% endif %}
+              </a>
+            </div>           
+      </div>
+
+      <div class="instructions" id="text5" style="display: none;">
+            <div id="btn-space">
+              <a class="btn" id="back5" href="#" style="background:grey">
+              {% if request.cookies.get('languaje') == 'en' %}
+                    Back
+              {% else %}
+                    Volver
+              {% endif %}
+              </a>
+            </div>
+            <div class="diagram-instructions">
+                  <div id="top" >
+                  {% if request.cookies.get('languaje') == 'en' %}
+                            <h3>Use of Cookies</h3>
+                  {% else %}
+                            <h3>Uso de Cookies</h3>
+                  {% endif %}
+                  </div>
+                  <div id="grid">
+                  {% if request.cookies.get('languaje') == 'en' %}
+                            <p>This site uses cookies to register the answers in a proper way.
+                            Don't worry, all the information collected is 100% anonymous.</br>
+                            If you continue, we assume you agree with this usage.</br>
+                            More info in the FAQs section.</p>
+                  {% else %}
+                            <p>Este sitio utiliza Cookies para poder registrar la información de manera ordenada.
+                            Pero no te preocupes, toda la infromación es guardada de forma anónima.</br>
+                            Al continuar es asume que esta de acuerdo con estos términos</br>
+                            Para mayor infromación revisa la sección de preguntas frecuentes</p>
+                  {% endif %}
+                  </div>
+            </div>
+            <div id="btn-space">
               {% if request.cookies.get('languaje') == 'en' %}
                     <a class="btn" id="next5" href="{{ url_for('auth.register') }}">Start</a>
               {% else %}
-                    <a class="btn" id="next5" href="{{ url_for('auth.register') }}">Comenzar</a>
+                    <a class="btn" id="next5" href="{{ url_for('auth.register') }}">Continuar</a>
               {% endif %}
-            </div>           
+            </div>  
       </div>
 
 
@@ -467,6 +510,16 @@
     $("#back4").click(function(){
       $("div#text4").hide();
       $("div#text3").show();
+    });
+
+    $("#next4").click(function(){
+      $("div#text4").hide();
+      $("div#text5").show();
+    });
+
+    $("#back5").click(function(){
+      $("div#text5").hide();
+      $("div#text4").show();
     });
 
 
