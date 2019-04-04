@@ -72,8 +72,9 @@ def contact():
 
 @bp.route('/welcome', methods=('GET', 'POST'))
 def welcome():
+    browser = request.user_agent.browser
     session['page'] = "welcome"
-    return render_template('welcome.html')
+    return render_template('welcome.html', browser = browser)
 
 @bp.route('/es', methods=('GET','POST'))
 def spanish():
