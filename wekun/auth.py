@@ -115,6 +115,9 @@ def survey():
         if user_name != None:
             counter  = len(db.session.query(Answers).filter(Answers.user_id == user_name).all())
             psico_boolean =  db.session.query(Users.psico1).filter(Users.user_id == user_name).all()[0][0]
+        else:
+            counter = 0
+            psico_boolean = None 
 
 
     elif request.method == 'POST':
