@@ -1,7 +1,8 @@
 {% extends 'base.html' %}
 
 {% block content %}
-  {% if counter == 10 %}
+<form method="post" style="display: block;">
+  {% if counter == 10 and  psico_boolean == none %}
   <div class="text-layer">
     {% if request.cookies.get('languaje') == 'en' %} 
     <span>You have answered 10 questions, now you may help us with 10 more questions. You can return to the images after this.</span>
@@ -9,7 +10,7 @@
     <span>Ya ha contestado 10 preguntas,  ahora podría ayudarnos con 5 breves preguntas. Luego podrá continuar evauando imágenes.</span>
     {% endif %}
   </div>
-    <div class="button-layer">
+  <div class="button-layer">
     <a class="btn" id="continue" href="" style="background: grey;">
                 {% if request.cookies.get('languaje') == 'en' %} 
                 Continue rating images
@@ -26,7 +27,6 @@
     </a>
   </div>
   {% endif %}
-<form method="post" style="display: block;">
 
 	<div id="top">
 		    <input type="hidden" name="cookie_category" value="{{ category }}" />
@@ -67,7 +67,7 @@
     <input type="hidden" name="image_2" value="{{ photo2 }}" />
 </form>
 
-{% if counter > 10 %}
+{% if counter > 10  and  psico_boolean == None  %}
 <div class="ten-answers-buttons" style="" id="answer-later">
     <a class="btn" id="" href="{{ url_for('auth.psicometrico') }}" style="background: grey;">
                 {% if request.cookies.get('languaje') == 'en' %} 
@@ -98,8 +98,8 @@
   $(document).ready(function(){
 
     $("#continue").click(function(){
-      $("div.color-layer").hide();
-      $("div#answer-later").show();
+      $("div.text-layer").style.display='none';
+      $("div.button-layer").hide();
     });
   });
 

@@ -115,11 +115,18 @@ def survey():
 
         if user_name != None:
             counter  = len(db.session.query(Answers).filter(Answers.user_id == user_name).all())
-            psico_boolean =  db.session.query(Users.psico1).filter(Users.user_id == user_name).all()[0][0]
+            psico_boolean =  db.session.query(Users.psico1).filter(Users.user_id == user_name).all()
+            if len(psico_boolean) == 0:
+                psico_boolean = None
+            else:
+                psico_boolean = psico_boolean[0][0]
         else:
             counter = 0
-            psico_boolean = None 
+            psico_boolean = None
 
+        answer_psico_after = None
+        # print('//////////////')
+        # print(psico_boolean)
 
     elif request.method == 'POST':
         ## Extraer vairables
@@ -144,7 +151,7 @@ def survey():
                 db.session.commit()
                 # print("Respuesta guardada")
                 return redirect(url_for('auth.index'))
-    return render_template('survey.html', photo1 = url_1, photo2 = url_2, category=category, counter = counter)
+    return render_template('survey.html', photo1 = url_1, photo2 = url_2, category=category, counter = counter, psico_boolean = psico_boolean, answer_psico_after = answer_psico_after)
 
 
 @bp.route('/register', methods=('GET', 'POST'))

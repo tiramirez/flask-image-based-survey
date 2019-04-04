@@ -233,7 +233,6 @@ img.image{
 }
 
 .text-layer{
-	position: relative;
 	top:20%;
 	display: flex;
 	flex-wrap:wrap;
@@ -242,8 +241,8 @@ img.image{
 	font-size: 20pt;
 }
 
+
 .button-layer{
-	position: relative;
 	top:50%;
 	display: flex;
 	flex-wrap:wrap;
@@ -839,6 +838,11 @@ div#answer-later{
 	.diagram-instructions #top h2{
 		color: black;
 		padding: 0em;
+	}
+	.text-layer span{
+		color: white;
+		padding: 1em;
+
 	}
 }	
 
