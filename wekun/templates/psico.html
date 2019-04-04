@@ -5,7 +5,7 @@
 <form method="post">
     <h3>
     {% if request.cookies.get('languaje') == 'en' %} 
-    Please indicate your level of agreement with the following statements, being (-) strongly agree, (0) indifference, and (++) strongly agree
+    Please indicate your level of agreement with the following statements, being (--) strongly disagree, (0) indifference, and (++) strongly agree
     {% else %} 
     Muestre su nivel de acuerdo con las siguientes frases, siendo (--) muy en deacuerdo, (0) indiferencia, y (++) muy de acuerdo
     {% endif %}
@@ -14,7 +14,7 @@
     <div class="item-register-psicometrico" id="psico1">
             <label class="label-psicometrico" for="psico1" style="margin-top: 0em;">
               {% if request.cookies.get('languaje') == 'en' %} 
-              I prefer a larger patio in my house, rather than more public squares.
+              I prefer a larger patio on my house, rather than more public squares.
               {% else %} 
               Prefiero un patio más grande en mi casa, antes que más plazas públicas.
               {% endif %}
@@ -166,7 +166,7 @@
     <div class="item-register-psicometrico" id="psico6">
             <label class="label-psicometrico" for="psico6" style="margin-top: 0em;">
               {% if request.cookies.get('languaje') == 'en' %} 
-              Climate change has been caused by the action of the human being.
+              Climate change has been caused by the action of human beings.
               {% else %}
               El cambio climático ha sido causado por el actuar del ser humano.
               {% endif %}
@@ -257,9 +257,9 @@
     <div class="item-register-psicometrico" id="psico9">
             <label class="label-psicometrico" for="psico9" style="margin-top: 0em;">
               {% if request.cookies.get('languaje') == 'en' %} 
-              When I walk through the streets of the city, I am always very worried that they will not steal from me.
+              When walking on the street I always worry someone may assault me.
               {% else %}
-              Cuando camino por las calles de la ciudad, estoy siempre muy preocupado de que no me vayan a robar.
+              Cuando camino por las calles de la ciudad, estoy siempre muy preocupado de que me vayan a robar, o atacar.
               {% endif %}
             </label>
             <div class="checkboxgroup">
@@ -318,7 +318,7 @@
     <div class="item-register-psicometrico" id="income">
             <label class="label-psicometrico" for="income">
               {% if request.cookies.get('languaje') == 'en' %}
-              Aproximately monthly net income in local currency (optional)
+              Approximately monthly net income in local currency (optional)
               {% else %}
               Ingreso mensual aproximado en moneda local (opcional)
               {% endif %}
