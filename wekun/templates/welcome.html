@@ -8,7 +8,7 @@
                       <h2>Welcome!</h2>
                       <p>This survey aims to understand the factors that make you feel comfortable in public spaces.</p>
                       <p>Thank you for helping us!</p>
-                      {% if request.user_agent.browser == 'safari' %}
+                      {% if request.user_agent.browser != 'chrome' %}
                       <p style="font-size: 12pt;"><strong>*</strong> Our website has been optimized for Google Chrome. If you are using Safari, you may encounter problems with certain sections of the website.</p>
                       {% endif %}
                       <a class="btn" id="next-responsive-0" href="#">Continue</a>
@@ -16,7 +16,7 @@
                       <h2>¡Bienvenido!</h2>
                       <p>Con esta encuesta queremos entender qué lo hace sentir a gusto en los espacios públicos.</p>
                       <p>¡Muchas gracias por participar!</p>
-                      {% if request.user_agent.browser == 'safari' %}
+                      {% if request.user_agent.browser != 'chrome' %}
                       <p style="font-size: 12pt;"><strong>*</strong> Este sitio ha sido contruido para Google Chrome. En caso de usar Safari, usted podría tener problemas visializando algunas secciones del sitio.</p>
                       {% endif %}
                       <a class="btn" id="next-responsive-0" href="#">Continuar</a>
