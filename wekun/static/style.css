@@ -656,6 +656,7 @@ div#answer-later{
 	}
 
 	.btn {
+		-webkit-appearance: none;
 		margin-bottom: 0.5em;
 	}
 
@@ -704,6 +705,7 @@ div#answer-later{
 		flex-direction: row;
 	}
 	.round-btn{
+		-webkit-appearance: none;
 		width:50px;
 		height: 50px;
 		border-radius:100%;
@@ -778,6 +780,7 @@ div#answer-later{
 		margin-bottom: 0.2em;
 	}
 	.item-register input, .item-register select {
+		-webkit-appearance: none;
 		width: 100%;
 	}
 
@@ -807,6 +810,7 @@ div#answer-later{
 	  	margin-bottom: 0.5em;
 	}
 	#responsive-grid h2, #responsive-grid select{
+		-webkit-appearance: none;
 		color: black;
 		font-size: 18pt;
 		width: 100%;

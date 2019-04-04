@@ -31,7 +31,7 @@ class Users(db.Model):
     income = db.Column(db.String(50), nullable=True)
 
     def __repr__(self):
-        return f"User:('{self.id}','{self.user_id}','{self.device_id}','{self.gender}','{self.age}','{self.nationality}','{self.country}','{self.region}','{self.comuna}','{self.ip_address}','{self.education}','{self.transport}','{self.create_at}','{self.psico1}','{self.psico2}','{self.psico3}','{self.psico4}','{self.psico5}','{self.psico6}','{self.psico7}'),'{self.psico8}','{self.psico9}','{self.psico10}','{self.income}"
+        return f"User:('{self.id}','{self.user_id}','{self.device_id}','{self.gender}','{self.age}','{self.nationality}','{self.country}','{self.region}','{self.comuna}','{self.ip_address}','{self.education}','{self.transport}','{self.create_at}','{self.psico1}','{self.psico2}','{self.psico3}','{self.psico4}','{self.psico5}','{self.psico6}','{self.psico7}','{self.psico8}','{self.psico9}','{self.psico10}','{self.income}"
 
 
 class Answers(db.Model):
