@@ -360,11 +360,11 @@ img.image{
 	border-style: solid;
 	border-color: transparent transparent black transparent;
 }
-/*
+
 .content form { 
 	display: flex;
 	flex-direction: column;
-}*/
+}
 
 .main-label { 
 	font-weight: bold; 
