@@ -106,15 +106,15 @@ def survey():
         url_1 = "{}".format(url_1)
         url_2 = "{}".format(url_2)
         category = session.get('category')
-        # print(category)
         if category == None:
             ## randint(a,b) returns a random integer N such that a <= N <= b.
             category = str(random.randint(1,5))
 
         user_name = request.cookies.get('user_id')
-        # counter = 1 
-        counter  = len(db.session.query(Answers).filter(Answers.user_id == user_name).all())
-        psico_boolea =  db.session.query(Users.psico1).filter(Users.user_id == user_name).all()[0][0]
+
+        if user_name != None:
+            counter  = len(db.session.query(Answers).filter(Answers.user_id == user_name).all())
+            psico_boolean =  db.session.query(Users.psico1).filter(Users.user_id == user_name).all()[0][0]
 
 
     elif request.method == 'POST':
