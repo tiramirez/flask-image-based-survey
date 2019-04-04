@@ -779,7 +779,10 @@ div#answer-later{
 		padding-right: 0em;
 		margin-bottom: 0.2em;
 	}
-	.item-register input, .item-register select {
+	.item-register input {
+		width: 100%;
+	}
+	.item-register select {
 		-webkit-appearance: none;
 		width: 100%;
 	}
