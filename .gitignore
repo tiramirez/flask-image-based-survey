@@ -105,3 +105,6 @@ venv.bak/
 
 # images from data
 *.jpg
+
+# Project Data base
+site.db
