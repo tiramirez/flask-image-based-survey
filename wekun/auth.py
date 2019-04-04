@@ -107,6 +107,7 @@ def survey():
         url_1 = "{}".format(url_1)
         url_2 = "{}".format(url_2)
         category = session.get('category')
+        answer_psico_after = session.get('answer_psico')
         if category == None:
             ## randint(a,b) returns a random integer N such that a <= N <= b.
             category = str(random.randint(1,5))
@@ -124,7 +125,6 @@ def survey():
             counter = 0
             psico_boolean = None
 
-        answer_psico_after = None
         # print('//////////////')
         # print(psico_boolean)
 
@@ -132,10 +132,13 @@ def survey():
         ## Extraer vairables
         choice = request.form.get('answer')
         category = request.form.get('category')
-        print(choice)
+        # print(choice)
         if choice == None:
             session['category'] = category
             # print("Cambio de pregunta")
+            return redirect(url_for('auth.index'))
+        elif choice == 'Continue':
+            session['answer_psico'] = 'continue-after'
             return redirect(url_for('auth.index'))
         else:
             author = request.cookies.get('user_id')
@@ -183,6 +186,7 @@ def register():
 
         ## Crear el diccionario Cookie key:'userid', value:str(userid), con vigencia de 365 dias
         session['page'] = "survey"
+        session['answer_psico'] = ''
         resp = make_response(redirect('/'))
         resp.set_cookie('user_id', str(userid), max_age=60*60*24*365)
         resp.set_cookie('device_id', str(deviceid), max_age=60*60*24*365)

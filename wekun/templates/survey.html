@@ -2,22 +2,27 @@
 
 {% block content %}
 <form method="post" style="display: block;">
-  {% if counter == 10 and  psico_boolean == none %}
+  {% if counter == 10 and  psico_boolean == none and answer_psico_after != 'continue-after' %}
   <div class="text-layer">
     {% if request.cookies.get('languaje') == 'en' %} 
-    <span>You have answered 10 questions, now you may help us with 10 more questions. You can return to the images after this.</span>
+    <span>You have answered 10 questions, now you may help us with 10 more questions. You can return to the images after doing this.</span>
     {% else %} 
-    <span>Ya ha contestado 10 preguntas,  ahora podría ayudarnos con 5 breves preguntas. Luego podrá continuar evauando imágenes.</span>
+    <span>Ya ha contestado 10 preguntas, ahora podría ayudarnos con otra breve sección. Luego podrá continuar evauando imágenes.</span>
     {% endif %}
   </div>
   <div class="button-layer">
-    <a class="btn" id="continue" href="" style="background: grey;">
+    <a type="submit" class="btn" name="answer" id="answer" href="" style="background: grey; padding: 1em 1em 1em 1em;" value="Continue">
                 {% if request.cookies.get('languaje') == 'en' %} 
                 Continue rating images
                 {% else %} 
                 Seguir evaluando imágenes 
                 {% endif %}
     </a>
+<!--           {% if request.cookies.get('languaje') == 'en' %} 
+      <input type="submit" class="btn" name="submit-register" value="Continue rating images">
+          {% else %} 
+      <input type="submit" class="btn" name="submit-register" value="Seguir evaluando imágenes ">
+          {% endif %} -->
     <a class="btn" id="" href="{{ url_for('auth.psicometrico') }}" style="background: #FF6F70;">
                 {% if request.cookies.get('languaje') == 'en' %} 
                 Answers the new section
@@ -67,7 +72,7 @@
     <input type="hidden" name="image_2" value="{{ photo2 }}" />
 </form>
 
-{% if counter > 10  and  psico_boolean == None  %}
+{% if counter >= 10  and  psico_boolean == None and answer_psico_after == 'continue-after' %}
 <div class="ten-answers-buttons" style="" id="answer-later">
     <a class="btn" id="" href="{{ url_for('auth.psicometrico') }}" style="background: grey;">
                 {% if request.cookies.get('languaje') == 'en' %} 
