@@ -6,7 +6,7 @@
     {% if request.cookies.get('languaje') == 'en' %} 
     <span>You have answered 10 questions, now you may help us with 10 more questions. You can return to the images after this.</span>
     {% else %} 
-    <span>Ya has contestado 10 preguntas,  ahora podría ayudarnos con 5 breves preguntas. Luego podrá continuar evauando imágenes.</span>
+    <span>Ya ha contestado 10 preguntas,  ahora podría ayudarnos con 5 breves preguntas. Luego podrá continuar evauando imágenes.</span>
     {% endif %}
   </div>
     <div class="button-layer">
@@ -34,8 +34,8 @@
 		<h2>Which place looks</h2>
     <select class="sel" name="category" id="sel" onchange="this.form.submit()">
             <option value="1">like a better place to walk?</option>
-            <option value="2" href="#">like a better place to live?</option>
-            <option value="3">more boring?</option>
+            <option value="2" href="#">like a better neighborhood to live?</option>
+            <option value="3">safer?</option>
             <option value="4">more beautiful?</option>
             <option value="5">wealthier?</option>
     </select>
@@ -43,8 +43,8 @@
 		<h2>¿Cuál le parece</h2>
     <select class="sel" name="category" id="sel" onchange="this.form.submit()">
             <option value="1">un mejor lugar <b>para caminar</b>?</option>
-            <option value="2">un mejor lugar <b>para vivir?</b></option>
-            <option value="3">un lugar <b>más aburrido?</b></option>
+            <option value="2">un mejor barrio <b>para vivir?</b></option>
+            <option value="3">un lugar <b>más seguro?</b></option>
             <option value="4">un lugar <b>más bonito/agradable a la vista?</b></option>
             <option value="5">un lugar <b>de mayor nivel de ingresos?</b></option>
     </select>

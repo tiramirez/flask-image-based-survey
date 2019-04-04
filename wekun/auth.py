@@ -114,7 +114,7 @@ def survey():
         user_name = request.cookies.get('user_id')
         # counter = 1 
         counter  = len(db.session.query(Answers).filter(Answers.user_id == user_name).all())
-
+        psico_boolea =  db.session.query(Users.psico1).filter(Users.user_id == user_name).all()[0][0]
 
 
     elif request.method == 'POST':
@@ -217,10 +217,11 @@ def psicometrico():
             ## Instertar en la Base de Datos
             db.session.query(Users).filter(Users.user_id == author).update({'psico1': str(psico1),
                 'psico2': str(psico2), 'psico3': str(psico3), 'psico4': str(psico4), 'psico5': str(psico5),
-                'psico6': str(psico6), 'psico7': str(psico7), 'psico8': str(psico8), 'psico9': str(psico9), 'psico10': str(psico10)})
-            # db.session.query().filter(Users.user_id == author).update({"psico2": psico2})
+                'psico6': str(psico6), 'psico7': str(psico7), 'psico8': str(psico8), 'psico9': str(psico9),
+                'psico10': str(psico10), 'income': str(income)})
             db.session.commit()
             # print("Respuesta guardada")
+            session['page'] = "survey"
             return redirect(url_for('auth.index'))
     session['page'] = "psicometrico"
     return render_template('psico.html')

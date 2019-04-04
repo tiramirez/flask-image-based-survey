@@ -655,6 +655,10 @@ div#answer-later{
 		border-radius:0px 0px 0px 0px;
 	}
 
+	.btn {
+		margin-bottom: 0.5em;
+	}
+
 	#top{
 		flex-direction: column;
 		margin-bottom: 1em;
@@ -670,7 +674,12 @@ div#answer-later{
 	}
 
 	#top h2{
-		margin-top: 
+		color: white;
+		padding: 0.5em 1em 0em 1em;
+	}
+	#top user-select: {
+		width: 100%;
+		padding: 0em 1em 0em 1em;
 	}
 
 	#grid{
@@ -706,8 +715,24 @@ div#answer-later{
 
 	section h1{
 		font-size: 22pt;
-		padding: 1em 0em 1em 1rem;
+		padding: 1em 1em 0em 1rem;
 		margin: 0;
+		color: white;
+	}
+
+	.content h3, .contact-name h2,
+	.disclaimer span, .disclaimer p,  
+	section ul li{
+		color: white;
+	}
+	.contact-info span{
+		color: white;
+		font-size: 14pt;
+	}
+	section p{
+		color: white;
+		padding: 1em;
+		font-size: 14pt;
 	}
 
 	.contact-name{
@@ -733,6 +758,7 @@ div#answer-later{
 	.item-register-psicometrico .label-psicometrico{
 		width: 100%;
 		text-align:left;
+		padding: 0.75em;
 	}
 	.checkboxgroup{
 		width: 15%;
@@ -765,12 +791,14 @@ div#answer-later{
 	}
 
 	.text-above-instructions h2{
-		font-size: 18pt;
-		margin: 0.2em 0em 0em 0em;
+		font-size: 22pt;
+		margin: 1em 0em 0em 0em;
+		color: white;
 	}
 
 	.text-above-instructions p{
-		font-size: 14pt;
+		font-size: 18pt;
+		padding: 0em 1em 0.25em 1em;
 	}
 
 	#responsive-grid{
@@ -778,6 +806,13 @@ div#answer-later{
 	  	flex-direction: column;
 	  	margin-bottom: 0.5em;
 	}
+	#responsive-grid h2, #responsive-grid select{
+		color: black;
+		font-size: 18pt;
+		width: 100%;
+		margin: 0em;
+	}
+
 	#responsive-grid .img_choice{
 		padding: 0em;
 		height: 33%;
@@ -791,10 +826,12 @@ div#answer-later{
 
 	.diagram-instructions #top{
 		margin-bottom: 0.5em;
-		margin-top: 1em;
+		margin-top: 0em;
 	}
-
-
+	.diagram-instructions #top h2{
+		color: black;
+		padding: 0em;
+	}
 }	
 
 
