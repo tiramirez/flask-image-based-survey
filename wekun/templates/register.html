@@ -5,7 +5,7 @@
   {% if request.cookies.get('languaje') == 'en' %}
     About you
   {% else %}
-    Datos evaluador
+    Datos personales
   {% endif %}
 </h1>
 
@@ -89,31 +89,31 @@
             <select name="study" id="sel_study">
                     <option value="0" selected="true"></option>
                     <option value="en1">None</option>
-                    <option value="en2">Elementary or primary</option>
                     <option value="en2i">Elementary or primary (incomplete)</option>
-                    <option value="en3">Secondary</option>
+                    <option value="en2">Elementary or primary</option>
                     <option value="en3i">Secondary (incomplete)</option>
-                    <option value="en4">Technical School</option>
+                    <option value="en3">Secondary</option>
                     <option value="en4i">Technical School (incomplete)</option>
-                    <option value="en5">University</option>
+                    <option value="en4">Technical School</option>
                     <option value="en5i">University (incomplete)</option>
-                    <option value="en6">Postgraduate (master´s, PhD)</option>
+                    <option value="en5">University</option>
                     <option value="en6i">Postgraduate (incomplete)</option>
+                    <option value="en6">Postgraduate (master´s, PhD)</option>
             </select>
             {% else %} 
             <select name="study" id="sel_study">
                     <option value="0" selected="true"></option>
                     <option value="es1">Ninguna</option>
-                    <option value="es2">Básica o Primaria</option>
                     <option value="es2i">Básica o Primaria (incompleta)</option>
-                    <option value="es3">Media o Secundaria</option>
+                    <option value="es2">Básica o Primaria</option>
                     <option value="es3i">Media o Secundaria (incompleta)</option>
-                    <option value="es4">Técnica Superior (1 a 3 años)</option>
+                    <option value="es3">Media o Secundaria</option>
                     <option value="es4i">Técnica Superior (incompleta)</option>
-                    <option value="es5">Profesional Universitario (4 o más años)</option>
+                    <option value="es4">Técnica Superior (1 a 3 años)</option>
                     <option value="es5i">Profesional Universitario (incompleta)</option>
-                    <option value="es6">Postgrado</option>
+                    <option value="es5">Profesional Universitario (4 o más años)</option>
                     <option value="es6i">Postgrado (incompleto)</option>
+                    <option value="es6">Postgrado</option>
             </select>
             {% endif %}
 

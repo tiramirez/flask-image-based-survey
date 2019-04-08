@@ -6,7 +6,7 @@
           <div class="text-above-instructions" id="text-responsive-0">
             {% if request.cookies.get('languaje') == 'en' %}
                       <h2>Welcome!</h2>
-                      <p>This survey aims to understand the factors that make you feel comfortable in public spaces.</p>
+                      <p>This survey aims to understand what makes a quality public space.</p>
                       <p>Thank you for helping us!</p>
                       {% if request.user_agent.browser != 'chrome' %}
                       <p style="font-size: 12pt;"><strong>*</strong> Our website has been optimized for Google Chrome. If you are using Safari, you may encounter problems with certain sections of the website.</p>
@@ -14,7 +14,7 @@
                       <a class="btn" id="next-responsive-0" href="#">Continue</a>
             {% else %}
                       <h2>¡Bienvenido!</h2>
-                      <p>Con esta encuesta queremos entender qué lo hace sentir a gusto en los espacios públicos.</p>
+                      <p>Con esta encuesta queremos entender qué hace que un espacio público sea de calidad.</p>
                       <p>¡Muchas gracias por participar!</p>
                       {% if request.user_agent.browser != 'chrome' %}
                       <p style="font-size: 12pt;"><strong>*</strong> Este sitio ha sido contruido para Google Chrome. En caso de usar Safari, usted podría tener problemas visializando algunas secciones del sitio.</p>
@@ -120,7 +120,7 @@
                                 <option value="1">un mejor lugar para caminar?</option>
                                 <option value="2">un mejor lugar para vivir?</option>
                                 <option value="3">un lugar más seguro?</option>
-                                <option value="4">un lugar más bonito/agradable a la vista?</option>
+                                <option value="4">un lugar más bonito?</option>
                                 <option value="5">un lugar de mayor nivel de ingresos?</option>
                         </select>
                           {% endif %}
@@ -155,12 +155,12 @@
             <div class="text-above-instructions">
               {% if request.cookies.get('languaje') == 'en' %}
                         <h2>Welcome!</h2>
-                        <p>This survey aims to understand the factors that make you feel comfortable in public spaces.</p>
+                        <p>This survey aims to understand what makes a quality public space.</p>
                         <p>Thank you for helping us!</p>
                         <a class="btn" id="next0" href="#">Continue</a>
               {% else %}
                         <h2>¡Bienvenido!</h2>
-                        <p>Con esta encuesta queremos entender qué lo hace sentir a gusto en los espacios públicos.</p>
+                        <p>Con esta encuesta queremos entender qué hace que un espacio público sea de calidad.</p>
                         <p>¡Muchas gracias por participar!</p>
                         <a class="btn" id="next0" href="#">Continuar</a>
               {% endif %}
@@ -367,7 +367,7 @@
                                 <option value="1">un mejor lugar para caminar?</option>
                                 <option value="2">un mejor barrio para vivir?</option>
                                 <option value="3">un lugar más seguro?</option>
-                                <option value="4">un lugar más bonito/agradable a la vista?</option>
+                                <option value="4">un lugar más bonito?</option>
                                 <option value="5">un lugar de mayor nivel de ingresos?</option>
                         </select>
                           {% endif %}
