@@ -176,11 +176,14 @@ def register():
         transport = request.form['transportation']
         # userid = db.session.query(func.count(Users.id)).all()[0][0] + 1 ## Falta generar un id secreto
         ip_address = request.headers.get('X-Forwarded-For', request.remote_addr)
+        browser = request.user_agent.browser
+        platform = request.user_agent.platform
+
 
         ## Insrtar la columna en la Base de Datos
         user = Users(user_id = userid, device_id = deviceid, gender=gender, age=age, 
                     nationality=nationality, country=country, region=region, comuna=comuna,
-                    ip_address=ip_address, education=education, transport=transport)
+                    ip_address=ip_address, education=education, transport=transport, browser=browser, platform=platform)
         db.session.add(user)
         db.session.commit()
 
