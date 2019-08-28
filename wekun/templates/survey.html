@@ -73,7 +73,7 @@
 </form>
 
 {% if counter >= 10  and  psico_boolean == None and answer_psico_after == 'continue-after' %}
-<div class="ten-answers-buttons" style="" id="answer-later">
+<div class="ten-answers-buttons" id="answer-later">
     <a class="btn" id="" href="{{ url_for('auth.psicometrico') }}" style="background: grey;">
                 {% if request.cookies.get('languaje') == 'en' %} 
                 Answers the new section

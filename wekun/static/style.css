@@ -542,7 +542,6 @@ background-color: #f4f4f4;
 nav .menu-icon {
   cursor: pointer;
   display: inline-block;
-  float: left;
   padding: 1em;
   position: relative;
   user-select: none;
@@ -677,7 +676,8 @@ div#answer-later{
 		color: white;
 		padding: 0.5em 1em 0em 1em;
 	}
-	#top user-select: {
+
+	#top user-select {
 		width: 100%;
 		padding: 0em 1em 0em 1em;
 	}
