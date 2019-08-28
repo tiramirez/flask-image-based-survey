@@ -346,6 +346,16 @@
             <input type="text" name="income" id="income" style="width: 200px;">
     </div>
 
+    {% if request.cookies.get('languaje') != 'en' %}
+    <h3>Para participar del concurso por $30.000 debes registrar tu correo electrónico.</h3>
+    <div class="item-register-psicometrico" id="income">
+      <label class="label-psicometrico" for="email">
+        Correo electrónico (opcional)
+      </label>
+      <input type="text" name="email" id="email" style="width: 200px;">
+    </div>
+    {% endif %}
+
     <div id="botones-register">
           {% if request.cookies.get('languaje') == 'en' %} 
       <input type="submit" class="btn" name="submit-register" value="Send">

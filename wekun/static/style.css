@@ -249,9 +249,16 @@ img.image{
 	z-index: 3;
 	opacity: 1;
 }
-.button-layer a {
+.button-layer a{
 	margin: 1em; 
+	width:100%;
 }
+
+#btn-continue{
+	margin: 1em; 
+	width:100%;
+}
+
 
 #instructions-number{
 	padding: 0.5em 0.75em 0.5em 0.75em;

@@ -135,12 +135,12 @@ def survey():
         # print(choice)
         if choice == None:
             session['category'] = category
-            # print("Cambio de pregunta")
-            return redirect(url_for('auth.index'))
-        elif choice == 'Continue':
-            session['answer_psico'] = 'continue-after'
+            print("Cambio de pregunta")
             return redirect(url_for('auth.index'))
         else:
+            if choice not in ['image_1','image_2','X','=']:
+                session['answer_psico'] = 'continue-after'
+                choice = 'X'
             author = request.cookies.get('user_id')
             id_1 = request.form.get('image_1')
             id_2 = request.form.get('image_2')
@@ -229,6 +229,7 @@ def psicometrico():
         psico9 = request.form['psico9']
         psico10 = request.form['psico10']
         income = request.form['income']
+        email = request.form['email']
         if author == None:
             return redirect(url_for('auth.index'))
         else:
