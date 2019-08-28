@@ -611,7 +611,6 @@ nav .menu-btn:checked ~ .menu-icon:not(.steps) .navicon:after {
 }
 
 
-
 /* ---------------------------------- */
 
 div#answer-later{
@@ -845,8 +844,23 @@ div#answer-later{
 		padding: 1em;
 
 	}
+
 }	
 
+@media (orientation: portrait){
+	.error-display{
+		display: inline;
+		justify-content: center;
+		align-items: center;
+		text-align: center;
+	}
+}
+
+@media (orientation: landscape){
+	.error-display{
+		display: none;
+	}
+}
 
 @media screen and (min-width: 501px){
 	footer{
@@ -886,6 +900,10 @@ div#answer-later{
 	}
 	.instructions{
 	    display:flex;
+	}
+
+	.error-display{
+		display: none;
 	}
 
 }

@@ -9,6 +9,20 @@
   {% endif %}
 </h1>
 
+<!-- {% if request.user_agent.browser != 'chrome' %} -->
+<div class="error-display">
+                {% if request.cookies.get('languaje') == 'en' %}
+
+                <p>If you have problems visualizing the content, rotate your phone screen.</p>
+                <img src='/static/rotatedevice.gif' style='width:40%;'>
+        
+                {% else %}
+                <p>Si presenta algún problema al visualizanr el contenido, pruebe rotar su teléfono</p>
+                <img src='/static/rotatedevice.gif' style='width:40%;'>
+                {% endif %}
+</div>  
+<!-- {% endif %} -->
+
 <form method="post">
 	<script type= "text/javascript" src = "/static/countries.js"></script>
     <div class="item-register" id="gender">
