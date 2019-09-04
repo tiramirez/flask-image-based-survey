@@ -99,18 +99,11 @@
   </div>
 
 <script>
-  var pregunta;
-  pregunta = jQuery("input[name=cookie_category").val();
-  jQuery("select > option[value="+ pregunta +"]").attr('selected','selected');
-
-
 
   $(document).ready(function(){
-
-    $("#continue").click(function(){
-      $("div.text-layer").style.display='none';
-      $("div.button-layer").hide();
-    });
+    var pregunta;
+    pregunta = $("input[name=cookie_category]").val();
+    $("select > option[value="+ pregunta +"]").attr('selected','selected');
   });
 
 </script>
