@@ -11,4 +11,4 @@ pyparsing==2.3.0
 SQLAlchemy==1.2.14
 svgwrite==1.2.1
 Tree==0.2.4
-Werkzeug==0.14.1
+Werkzeug==0.15.3
