@@ -2,3 +2,5 @@
 ign*
 
 site.db
+
+__pycache__
