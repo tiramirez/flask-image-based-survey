@@ -1,6 +1,10 @@
+.
+
 # Non publishable files
 ign*
 
 site.db
 
 __pycache__
+
+env
