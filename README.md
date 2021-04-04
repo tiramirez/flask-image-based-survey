@@ -10,3 +10,33 @@ The result of this template is here > https://image-based-ex.herokuapp.com/welco
 * Database server: PostgreSQL
 
 My core training is in Transportartion Engineering, so I learnt from scratch to develope the app for my thesis. I hope this basic strutcture is usefull to someone else who need an image-based survey a little bit more customizable than online platformas as Google Forms, Qualtrics or Survey Monkey.
+
+## Install dependencies
+```
+cd env/Scripts/activate
+python -m pip install -r requirements.txt
+```
+
+
+# Run survey Locally
+## Set database URI
+```
+# app.config['SQLALCHEMY_DATABASE_URI'] = os.environ['DATABASE_URL']
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///site.db'
+```
+
+## Initialize database
+```
+python
+>>> from survey import db
+>>> db.create_all()
+>>> db.session.commit()
+>>> quit()
+```
+This will create a new file `survey/site.db`
+
+## Run app in Localserver
+```
+set FLASK_APP=survey
+python -m flask run
+```

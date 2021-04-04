@@ -1,3 +1,5 @@
+// Original from https://codepen.io/sergiohidalgo/pen/yNjdqg
+
 var RegionesYcomunas = {
 
 	"regiones": [{
