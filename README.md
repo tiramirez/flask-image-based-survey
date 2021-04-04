@@ -13,7 +13,8 @@ My core training is in Transportartion Engineering, so I learnt from scratch to 
 
 ## Install dependencies
 ```
-cd env/Scripts/activate
+python -m venv env
+env\Scripts\activate 
 python -m pip install -r requirements.txt
 ```
 
