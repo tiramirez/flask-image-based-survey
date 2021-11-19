@@ -1,0 +1,370 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>
+  {% if request.cookies.get('languaje') == 'en' %}
+    A little more about you
+  {% else %}
+    Indicadores psciométricos
+  {% endif %}
+</h1>
+
+<!-- {% if request.user_agent.browser != 'chrome' %} -->
+<div class="error-display">
+                {% if request.cookies.get('languaje') == 'en' %}
+                <p>If you have problems visualizing the content, rotate your phone screen.</p>
+                  <img src='/static/rotatedevice.gif' style='width:40%;'>
+        
+                {% else %}
+                <p>Si presenta algún problema al visualizanr el contenido, pruebe rotar su teléfono</p>
+                <img src='/static/rotatedevice.gif' style='width:40%;'>
+                {% endif %}
+</div>  
+<!-- {% endif %} -->
+
+<form method="post">
+    <h3>
+    {% if request.cookies.get('languaje') == 'en' %} 
+    Please indicate your level of agreement with the following statements, being (--) strongly disagree, (0) indifference, and (++) strongly agree
+    {% else %} 
+    Muestre su nivel de acuerdo con las siguientes frases, siendo (--) muy en desacuerdo, (0) indiferencia, y (++) muy de acuerdo
+    {% endif %}
+    </h3>
+
+    <div class="item-register-psicometrico" id="psico1">
+            <label class="label-psicometrico" for="psico1" style="margin-top: 0em;">
+              {% if request.cookies.get('languaje') == 'en' %} 
+              I prefer a larger patio on my house, rather than more public squares.
+              {% else %} 
+              Prefiero un patio más grande en mi casa, antes que más plazas públicas.
+              {% endif %}
+            </label>
+            <div class="checkboxgroup">
+              <input class="input-psicometrico" type="radio" name="psico1" value="--" required>
+              <label class="round-label-psicometrico" for="psico1">--</label>
+            </div>
+            <div class="checkboxgroup">
+              <input class="input-psicometrico" type="radio" name="psico1" value="-" required>
+              <label class="round-label-psicometrico" for="psico1">-</label>
+              </div>
+            <div class="checkboxgroup">
+              <input class="input-psicometrico" type="radio" name="psico1" value="0" required>
+              <label class="round-label-psicometrico" for="psico1">0</label>
+              </div>
+            <div class="checkboxgroup">
+              <input class="input-psicometrico" type="radio" name="psico1" value="+" required>
+              <label class="round-label-psicometrico" for="psico1">+</label>
+              </div>
+            <div class="checkboxgroup">
+              <input class="input-psicometrico" type="radio" name="psico1" value="++" required>
+              <label class="round-label-psicometrico" for="psico1">++</label>
+              </div>
+    </div>
+
+
+    <div class="item-register-psicometrico" id="psico2">
+            <label class="label-psicometrico" for="psico2" style="margin-top: 0em;">
+              {% if request.cookies.get('languaje') == 'en' %} 
+              I am willing to pay more taxes to finance more and better public spaces.
+              {% else %}
+              Estoy dispuesto a pagar más impuestos para financiar más y mejores espacios públicos.
+              {% endif %}
+            </label>
+            <div class="checkboxgroup">
+              <input class="input-psicometrico" type="radio" name="psico2" value="--" required>
+              <label class="round-label-psicometrico" for="psico2">--</label>
+            </div>
+            <div class="checkboxgroup">
+              <input class="input-psicometrico" type="radio" name="psico2" value="-" required>
+              <label class="round-label-psicometrico" for="psico2">-</label>
+              </div>
+            <div class="checkboxgroup">
+              <input class="input-psicometrico" type="radio" name="psico2" value="0" required>
+              <label class="round-label-psicometrico" for="psico2">0</label>
+              </div>
+            <div class="checkboxgroup">
+              <input class="input-psicometrico" type="radio" name="psico2" value="+" required>
+              <label class="round-label-psicometrico" for="psico2">+</label>
+              </div>
+            <div class="checkboxgroup">
+              <input class="input-psicometrico" type="radio" name="psico2" value="++" required>
+              <label class="round-label-psicometrico" for="psico2">++</label>
+              </div>
+    </div>
+
+    <div class="item-register-psicometrico" id="psico3">
+            <label class="label-psicometrico" for="psico3" style="margin-top: 0em;">
+              {% if request.cookies.get('languaje') == 'en' %} 
+              I prefer to spend my leisure time at my house rather than in more public places.
+              {% else %}
+              Prefiero pasar mis ratos libres en mi casa antes que en lugares más públicos.
+              {% endif %}
+            </label>
+            <div class="checkboxgroup">
+              <input class="input-psicometrico" type="radio" name="psico3" value="--" required>
+              <label class="round-label-psicometrico" for="psico3">--</label>
+            </div>
+            <div class="checkboxgroup">
+              <input class="input-psicometrico" type="radio" name="psico3" value="-" required>
+              <label class="round-label-psicometrico" for="psico3">-</label>
+              </div>
+            <div class="checkboxgroup">
+              <input class="input-psicometrico" type="radio" name="psico3" value="0" required>
+              <label class="round-label-psicometrico" for="psico3">0</label>
+              </div>
+            <div class="checkboxgroup">
+              <input class="input-psicometrico" type="radio" name="psico3" value="+" required>
+              <label class="round-label-psicometrico" for="psico3">+</label>
+              </div>
+            <div class="checkboxgroup">
+              <input class="input-psicometrico" type="radio" name="psico3" value="++" required>
+              <label class="round-label-psicometrico" for="psico3">++</label>
+              </div>
+    </div>
+
+    <div class="item-register-psicometrico" id="psico4">
+            <label class="label-psicometrico" for="psico4" style="margin-top: 0em;">
+              {% if request.cookies.get('languaje') == 'en' %} 
+              I prefer to live closer to my work, even when it means having a smaller house.
+              {% else %}
+              Prefiero vivir más cerca de mi trabajo, aún cuando eso implique tener una vivienda más pequeña.
+              {% endif %}
+            </label>
+            <div class="checkboxgroup">
+              <input class="input-psicometrico" type="radio" name="psico4" value="--" required>
+              <label class="round-label-psicometrico" for="psico4">--</label>
+            </div>
+            <div class="checkboxgroup">
+              <input class="input-psicometrico" type="radio" name="psico4" value="-" required>
+              <label class="round-label-psicometrico" for="psico4">-</label>
+              </div>
+            <div class="checkboxgroup">
+              <input class="input-psicometrico" type="radio" name="psico4" value="0" required>
+              <label class="round-label-psicometrico" for="psico4">0</label>
+              </div>
+            <div class="checkboxgroup">
+              <input class="input-psicometrico" type="radio" name="psico4" value="+" required>
+              <label class="round-label-psicometrico" for="psico4">+</label>
+              </div>
+            <div class="checkboxgroup">
+              <input class="input-psicometrico" type="radio" name="psico4" value="++" required>
+              <label class="round-label-psicometrico" for="psico4">++</label>
+              </div>
+    </div>
+
+
+    <div class="item-register-psicometrico" id="psico5">
+            <label class="label-psicometrico" for="psico5" style="margin-top: 0em;">
+              {% if request.cookies.get('languaje') == 'en' %} 
+              Climate change is a real problem.
+              {% else %}
+              El cambio climático es un problema real.
+              {% endif %}
+            </label>
+            <div class="checkboxgroup">
+              <input class="input-psicometrico" type="radio" name="psico5" value="--" required>
+              <label class="round-label-psicometrico" for="psico5">--</label>
+            </div>
+            <div class="checkboxgroup">
+              <input class="input-psicometrico" type="radio" name="psico5" value="-" required>
+              <label class="round-label-psicometrico" for="psico5">-</label>
+              </div>
+            <div class="checkboxgroup">
+              <input class="input-psicometrico" type="radio" name="psico5" value="0" required>
+              <label class="round-label-psicometrico" for="psico5">0</label>
+              </div>
+            <div class="checkboxgroup">
+              <input class="input-psicometrico" type="radio" name="psico5" value="+" required>
+              <label class="round-label-psicometrico" for="psico5">+</label>
+              </div>
+            <div class="checkboxgroup">
+              <input class="input-psicometrico" type="radio" name="psico5" value="++" required>
+              <label class="round-label-psicometrico" for="psico5">++</label>
+              </div>
+    </div>
+
+    <div class="item-register-psicometrico" id="psico6">
+            <label class="label-psicometrico" for="psico6" style="margin-top: 0em;">
+              {% if request.cookies.get('languaje') == 'en' %} 
+              Climate change has been caused by the action of human beings.
+              {% else %}
+              El cambio climático ha sido causado por el actuar del ser humano.
+              {% endif %}
+            </label>
+            <div class="checkboxgroup">
+              <input class="input-psicometrico" type="radio" name="psico6" value="--" required>
+              <label class="round-label-psicometrico" for="psico6">--</label>
+            </div>
+            <div class="checkboxgroup">
+              <input class="input-psicometrico" type="radio" name="psico6" value="-" required>
+              <label class="round-label-psicometrico" for="psico6">-</label>
+              </div>
+            <div class="checkboxgroup">
+              <input class="input-psicometrico" type="radio" name="psico6" value="0" required>
+              <label class="round-label-psicometrico" for="psico6">0</label>
+              </div>
+            <div class="checkboxgroup">
+              <input class="input-psicometrico" type="radio" name="psico6" value="+" required>
+              <label class="round-label-psicometrico" for="psico6">+</label>
+              </div>
+            <div class="checkboxgroup">
+              <input class="input-psicometrico" type="radio" name="psico6" value="++" required>
+              <label class="round-label-psicometrico" for="psico6">++</label>
+              </div>
+    </div>
+
+    <div class="item-register-psicometrico" id="psico7">
+            <label class="label-psicometrico" for="psico7" style="margin-top: 0em;">
+              {% if request.cookies.get('languaje') == 'en' %} 
+              We must take action to stop climate change, although this may increase unemployment.
+              {% else %}
+              Debemos tomar acción para detener el cambio climático, aunque esto pueda aumentar el desempleo.
+              {% endif %}
+            </label>
+            <div class="checkboxgroup">
+              <input class="input-psicometrico" type="radio" name="psico7" value="--" required>
+              <label class="round-label-psicometrico" for="psico7">--</label>
+            </div>
+            <div class="checkboxgroup">
+              <input class="input-psicometrico" type="radio" name="psico7" value="-" required>
+              <label class="round-label-psicometrico" for="psico7">-</label>
+              </div>
+            <div class="checkboxgroup">
+              <input class="input-psicometrico" type="radio" name="psico7" value="0" required>
+              <label class="round-label-psicometrico" for="psico7">0</label>
+              </div>
+            <div class="checkboxgroup">
+              <input class="input-psicometrico" type="radio" name="psico7" value="+" required>
+              <label class="round-label-psicometrico" for="psico7">+</label>
+              </div>
+            <div class="checkboxgroup">
+              <input class="input-psicometrico" type="radio" name="psico7" value="++" required>
+              <label class="round-label-psicometrico" for="psico7">++</label>
+              </div>
+    </div>
+
+
+    <div class="item-register-psicometrico" id="psico8">
+            <label class="label-psicometrico" for="psico8" style="margin-top: 0em;">
+              {% if request.cookies.get('languaje') == 'en' %} 
+              Priority should be given to public transport on city streets, even if this means taking space away from the automobile.
+              {% else %}
+              Se debería dar prioridad al transporte público en las calles de la ciudad, aunque esto signifique quitar espacio al automóvil.
+              {% endif %}
+            </label>
+            <div class="checkboxgroup">
+              <input class="input-psicometrico" type="radio" name="psico8" value="--" required>
+              <label class="round-label-psicometrico" for="psico8">--</label>
+            </div>
+            <div class="checkboxgroup">
+              <input class="input-psicometrico" type="radio" name="psico8" value="-" required>
+              <label class="round-label-psicometrico" for="psico8">-</label>
+              </div>
+            <div class="checkboxgroup">
+              <input class="input-psicometrico" type="radio" name="psico8" value="0" required>
+              <label class="round-label-psicometrico" for="psico8">0</label>
+              </div>
+            <div class="checkboxgroup">
+              <input class="input-psicometrico" type="radio" name="psico8" value="+" required>
+              <label class="round-label-psicometrico" for="psico8">+</label>
+              </div>
+            <div class="checkboxgroup">
+              <input class="input-psicometrico" type="radio" name="psico8" value="++" required>
+              <label class="round-label-psicometrico" for="psico8">++</label>
+              </div>
+    </div>
+
+    <div class="item-register-psicometrico" id="psico9">
+            <label class="label-psicometrico" for="psico9" style="margin-top: 0em;">
+              {% if request.cookies.get('languaje') == 'en' %} 
+              When walking on the street I always worry someone may assault me.
+              {% else %}
+              Cuando camino por las calles de la ciudad, estoy siempre muy preocupado de que me vayan a robar, o atacar.
+              {% endif %}
+            </label>
+            <div class="checkboxgroup">
+              <input class="input-psicometrico" type="radio" name="psico9" value="--" required>
+              <label class="round-label-psicometrico" for="psico9">--</label>
+            </div>
+            <div class="checkboxgroup">
+              <input class="input-psicometrico" type="radio" name="psico9" value="-" required>
+              <label class="round-label-psicometrico" for="psico9">-</label>
+              </div>
+            <div class="checkboxgroup">
+              <input class="input-psicometrico" type="radio" name="psico9" value="0" required>
+              <label class="round-label-psicometrico" for="psico9">0</label>
+              </div>
+            <div class="checkboxgroup">
+              <input class="input-psicometrico" type="radio" name="psico9" value="+" required>
+              <label class="round-label-psicometrico" for="psico9">+</label>
+              </div>
+            <div class="checkboxgroup">
+              <input class="input-psicometrico" type="radio" name="psico9" value="++" required>
+              <label class="round-label-psicometrico" for="psico9">++</label>
+              </div>
+    </div>
+
+    <div class="item-register-psicometrico" id="psico10">
+            <label class="label-psicometrico" for="psico10" style="margin-top: 0em;">
+              {% if request.cookies.get('languaje') == 'en' %} 
+              Crime is one of the main problems in our society.
+              {% else %}
+              La delincuencia es uno de los principales problemas de nuestra sociedad.
+              {% endif %}
+            </label>
+            <div class="checkboxgroup">
+              <input class="input-psicometrico" type="radio" name="psico10" value="--" required>
+              <label class="round-label-psicometrico" for="psico10">--</label>
+            </div>
+            <div class="checkboxgroup">
+              <input class="input-psicometrico" type="radio" name="psico10" value="-" required>
+              <label class="round-label-psicometrico" for="psico10">-</label>
+              </div>
+            <div class="checkboxgroup">
+              <input class="input-psicometrico" type="radio" name="psico10" value="0" required>
+              <label class="round-label-psicometrico" for="psico10">0</label>
+              </div>
+            <div class="checkboxgroup">
+              <input class="input-psicometrico" type="radio" name="psico10" value="+" required>
+              <label class="round-label-psicometrico" for="psico10">+</label>
+              </div>
+            <div class="checkboxgroup">
+              <input class="input-psicometrico" type="radio" name="psico10" value="++" required>
+              <label class="round-label-psicometrico" for="psico10">++</label>
+              </div>
+    </div>
+
+
+    <div class="item-register-psicometrico" id="income">
+            <label class="label-psicometrico" for="income">
+              {% if request.cookies.get('languaje') == 'en' %}
+              Approximately monthly net income in local currency (optional)
+              {% else %}
+              Ingreso liquido mensual aproximado en su moneda local (opcional)
+              {% endif %}
+            </label>
+            <input type="text" name="income" id="income" style="width: 200px;">
+    </div>
+
+    {% if request.cookies.get('languaje') != 'en' %}
+    <h3>Para participar del concurso por $30.000 debes registrar tu correo electrónico.</h3>
+    <div class="item-register-psicometrico" id="income">
+      <label class="label-psicometrico" for="email">
+        Correo electrónico (opcional)
+      </label>
+      <input type="text" name="email" id="email" style="width: 200px;">
+    </div>
+    {% else %}
+    <input type="text" name="email" id="email" style="display: none;">
+    {% endif %}
+
+    <div id="botones-register">
+          {% if request.cookies.get('languaje') == 'en' %} 
+      <input type="submit" class="btn" name="submit-register" value="Send">
+          {% else %} 
+      <input type="submit" class="btn" name="submit-register" value="Enviar">
+          {% endif %}
+    </div>
+</form>
+
+{% endblock %}

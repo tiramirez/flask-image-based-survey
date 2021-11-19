@@ -1,4 +1,3 @@
-
 from survey import app 
 # Initialize Flask Migrate
 # migrate = Migrate(app, db)
@@ -6,4 +5,5 @@ from survey import app
 
 
 if __name__ == "__main__":
-	app.run()
+	# app.run()
+	app.run(host='0.0.0.0')

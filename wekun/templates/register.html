@@ -1,0 +1,386 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>
+  {% if request.cookies.get('languaje') == 'en' %}
+    About you
+  {% else %}
+    Datos personales
+  {% endif %}
+</h1>
+
+<!-- {% if request.user_agent.browser != 'chrome' %} -->
+<div class="error-display">
+                {% if request.cookies.get('languaje') == 'en' %}
+
+                <p>If you have problems visualizing the content, rotate your phone screen.</p>
+                <img src='/static/rotatedevice.gif' style='width:40%;'>
+        
+                {% else %}
+                <p>Si presenta algún problema al visualizanr el contenido, pruebe rotar su teléfono</p>
+                <img src='/static/rotatedevice.gif' style='width:40%;'>
+                {% endif %}
+</div>  
+<!-- {% endif %} -->
+
+<form method="post">
+	<script type= "text/javascript" src = "/static/countries.js"></script>
+    <div class="item-register" id="gender">
+            <label class="main-label" for="gender" style="margin-top: 0em;">
+              {% if request.cookies.get('languaje') == 'en' %} Sex {% else %} Sexo {% endif %}
+            </label>
+              <input class="round" type="radio" name="gender" id="male" value="M" required>
+              <label class="round-label" for="male">M</label>
+              <input class="round" type="radio" name="gender" id="female" value="F" required>
+              <label class="round-label" for="male">F</label>
+              <input class="round" type="radio" name="gender" id="female" value="O" required>
+              <label class="round-label" for="male">{% if request.cookies.get('languaje') == 'en' %} Other {% else %} Otro {% endif %}</label>
+    </div>
+    <div class="item-register" id="age">
+            <label class="main-label" for="age">
+              {% if request.cookies.get('languaje') == 'en' %} Age {% else %} Edad {% endif %}
+            </label>
+            <input type="number" name="age" id="age" style="width: 200px;" required>
+    </div>
+
+    <div class="item-register" id="nacionality-div">
+            
+            <label class="main-label" for="country2">
+            {% if request.cookies.get('languaje') == 'en' %} Nationality {% else %} Nacionalidad {% endif %}
+            </label>
+
+            <select id="country2" name="country2"></select>
+
+    </div>
+    <label class="error" for="nacionality-div" id="sel_country2_error" style="color:#FC2727">
+    Seleccione país, por favor.
+    </label>
+
+    <div class="item-register" id="country-div">
+            
+            <label class="main-label" for="country">
+            {% if request.cookies.get('languaje') == 'en' %} Country of residence {% else %} País de Residencia
+            {% endif %}
+            </label>
+
+            <select id="country" name="country"></select>
+    </div>
+    <label class="error" for="country-div" id="sel_country_error" style="color:#FC2727">
+    Seleccione país, por favor.
+    </label>
+    
+    <div class="item-register" id="state-div">
+            <label class="main-label" for="region">
+            {% if request.cookies.get('languaje') == 'en' %} State of residence {% else %} Región de Residencia
+            {% endif %}
+            </label>
+            <select name ="state" id ="state"></select>
+    </div>
+    <label class="error" for="region" id="sel_state_error" style="color:#FC2727">
+    Seleccione región, por favor.
+    </label>
+    
+    <div class="item-register" id="div-comuna" style="display: none;">
+            <label class="main-label" for="comuna">
+            {% if request.cookies.get('languaje') == 'en' %} Comuna  {% else %} Comuna de Residencia
+          {% endif %}</label>
+            <select id="comunas" name="comuna" id="sel_comuna"></select>
+    </div>
+    <label class="error" for="comuna" id="sel_comuna_error" style="color:#FC2727">
+    Seleccione comuna, por favor.
+    </label>
+    
+    <div class="item-register" id="study-level" name="study-level">
+            <label class="main-label" for="study">
+                {% if request.cookies.get('languaje') == 'en' %} 
+                Highest educational level pursued
+                {% else %} 
+                Mayor nivel Educacional</br>que ha cursado
+                {% endif %}
+            </label>
+
+            {% if request.cookies.get('languaje') == 'en' %} 
+            <select name="study" id="sel_study">
+                    <option value="0" selected="true"></option>
+                    <option value="en1">None</option>
+                    <option value="en2i">Elementary or primary (incomplete)</option>
+                    <option value="en2">Elementary or primary</option>
+                    <option value="en3i">Secondary (incomplete)</option>
+                    <option value="en3">Secondary</option>
+                    <option value="en4i">Technical School (incomplete)</option>
+                    <option value="en4">Technical School</option>
+                    <option value="en5i">University (incomplete)</option>
+                    <option value="en5">University</option>
+                    <option value="en6i">Postgraduate (incomplete)</option>
+                    <option value="en6">Postgraduate (master´s, PhD)</option>
+            </select>
+            {% else %} 
+            <select name="study" id="sel_study">
+                    <option value="0" selected="true"></option>
+                    <option value="es1">Ninguna</option>
+                    <option value="es2i">Básica o Primaria (incompleta)</option>
+                    <option value="es2">Básica o Primaria</option>
+                    <option value="es3i">Media o Secundaria (incompleta)</option>
+                    <option value="es3">Media o Secundaria</option>
+                    <option value="es4i">Técnica Superior (incompleta)</option>
+                    <option value="es4">Técnica Superior (1 a 3 años)</option>
+                    <option value="es5i">Profesional Universitario (incompleta)</option>
+                    <option value="es5">Profesional Universitario (4 o más años)</option>
+                    <option value="es6i">Postgrado (incompleto)</option>
+                    <option value="es6">Postgrado</option>
+            </select>
+            {% endif %}
+
+    </div>
+    <label class="error" for="study-level" id="sel_study_error" style="color:#FC2727"><b> Seleccione un nivel educacional, por favor.</b></label>
+    
+    <div class="item-register" id="transport-habits">
+            <label class="main-label" for="transportation">
+                {% if request.cookies.get('languaje') == 'en' %} 
+                Main transport mode 
+                {% else %} 
+                Principal medio de </br>transporte que utiliza 
+                {% endif %}
+            </label>
+                {% if request.cookies.get('languaje') == 'en' %} 
+            <select name="transportation" id="sel_transport">
+                    <option value="0" selected="true"></option>
+                    <option value="1">Walking</option>
+                    <option value="2">Bicycle</option>
+                    <option value="3">Public Transport (metro o bus)</option>
+                    <option value="4">Car</option>
+                    <option value="5">Other</option>
+            </select>
+                {% else %} 
+            <select name="transportation" id="sel_transport">
+                    <option value="0" selected="true"></option>
+                    <option value="1">Caminata</option>
+                    <option value="2">Bicicleta</option>
+                    <option value="3">Transporte Público (metro o bus)</option>
+                    <option value="4">Automóvil</option>
+                    <option value="5">Otro</option>
+            </select>
+                {% endif %}
+    </div>
+    <label class="error" for="trasportation" id="sel_transport_error" style="color:#FC2727">
+    Seleccione un modo de transporte, por favor.
+    </label>
+    <div id="botones-register">
+      <a class="btn" id="next5" href="{{ url_for('auth.welcome') }}" style="background: grey;">
+                {% if request.cookies.get('languaje') == 'en' %} 
+                Tutorial
+                {% else %} 
+                Instrucciones
+                {% endif %}
+      </a>
+          {% if request.cookies.get('languaje') == 'en' %} 
+      <input type="submit" class="btn" name="submit-register" value="Start">
+          {% else %} 
+      <input type="submit" class="btn" name="submit-register" value="Comenzar">
+          {% endif %}
+    </div>
+</form>
+
+  
+
+<script type="text/javascript">
+
+    populateCountries("country", "state");
+    populateCountries("country2");
+
+    jQuery(function() { 
+
+    $("select#country").change(function(){
+        var selectedCountry = $(this).children("option:selected").val();
+        if(selectedCountry == "Chile") {
+            $("#div-comuna").show();
+        } else {
+            $("#div-comuna").hide();
+        };
+    });
+
+    var RegionesYcomunas = {
+
+    "regiones": [{
+      "NombreRegion": "Región de Arica y Parinacota",
+      "comunas": ["Arica", "Camarones", "Putre", "General Lagos"] },
+
+    {
+      "NombreRegion": "Región de Tarapacá",
+      "comunas": ["Iquique", "Alto Hospicio", "Pozo Almonte", "Camiña", "Colchane", "Huara", "Pica"] },
+
+    {
+      "NombreRegion": "Región de Antofagasta",
+      "comunas": ["Antofagasta", "Mejillones", "Sierra Gorda", "Taltal", "Calama", "Ollagüe", "San Pedro de Atacama", "Tocopilla", "María Elena"] },
+
+    {
+      "NombreRegion": "Región de Atacama",
+      "comunas": ["Copiapó", "Caldera", "Tierra Amarilla", "Chañaral", "Diego de Almagro", "Vallenar", "Alto del Carmen", "Freirina", "Huasco"] },
+
+    {
+      "NombreRegion": "Región de Coquimbo",
+      "comunas": ["La Serena", "Coquimbo", "Andacollo", "La Higuera", "Paiguano", "Vicuña", "Illapel", "Canela", "Los Vilos", "Salamanca", "Ovalle", "Combarbalá", "Monte Patria", "Punitaqui", "Río Hurtado"] },
+
+    {
+      "NombreRegion": "Región de Valparaíso",
+      "comunas": ["Valparaíso", "Casablanca", "Concón", "Juan Fernández", "Puchuncaví", "Quintero", "Viña del Mar", "Isla de Pascua", "Los Andes", "Calle Larga", "Rinconada", "San Esteban", "La Ligua", "Cabildo", "Papudo", "Petorca", "Zapallar", "Quillota", "Calera", "Hijuelas", "La Cruz", "Nogales", "San Antonio", "Algarrobo", "Cartagena", "El Quisco", "El Tabo", "Santo Domingo", "San Felipe", "Catemu", "Llaillay", "Panquehue", "Putaendo", "Santa María", "Quilpué", "Limache", "Olmué", "Villa Alemana"] },
+
+    {
+      "NombreRegion": "Región Metropolitana de Santiago",
+      "comunas": ["Cerrillos", "Cerro Navia", "Conchalí", "El Bosque", "Estación Central", "Huechuraba", "Independencia", "La Cisterna", "La Florida", "La Granja", "La Pintana", "La Reina", "Las Condes", "Lo Barnechea", "Lo Espejo", "Lo Prado", "Macul", "Maipú", "Ñuñoa", "Pedro Aguirre Cerda", "Peñalolén", "Providencia", "Pudahuel", "Quilicura", "Quinta Normal", "Recoleta", "Renca", "San Joaquín", "San Miguel", "San Ramón", "Santiago", "Vitacura", "Puente Alto", "Pirque", "San José de Maipo", "Colina", "Lampa", "Tiltil", "San Bernardo", "Buin", "Calera de Tango", "Paine", "Melipilla", "Alhué", "Curacaví", "María Pinto", "San Pedro", "Talagante", "El Monte", "Isla de Maipo", "Padre Hurtado", "Peñaflor"] },
+
+    {
+      "NombreRegion": "Región del Libertador General Bernardo O’Higgins",
+      "comunas": ["Rancagua", "Codegua", "Coinco", "Coltauco", "Doñihue", "Graneros", "Las Cabras", "Machalí", "Malloa", "Mostazal", "Olivar", "Peumo", "Pichidegua", "Quinta de Tilcoco", "Rengo", "Requínoa", "San Vicente", "Pichilemu", "La Estrella", "Litueche", "Marchihue", "Navidad", "Paredones", "San Fernando", "Chépica", "Chimbarongo", "Lolol", "Nancagua", "Palmilla", "Peralillo", "Placilla", "Pumanque", "Santa Cruz"] },
+
+    {
+      "NombreRegion": "Región del Maule",
+      "comunas": ["Talca", "Constitución", "Curepto", "Empedrado", "Maule", "Pelarco", "Pencahue", "Río Claro", "San Clemente", "San Rafael", "Cauquenes", "Chanco", "Pelluhue", "Curicó", "Hualañé", "Licantén", "Molina", "Rauco", "Romeral", "Sagrada Familia", "Teno", "Vichuquén", "Linares", "Colbún", "Longaví", "Parral", "ReVro", "San Javier", "Villa Alegre", "Yerbas Buenas"] },
+    {
+      "NombreRegion": "Región del Ñuble",
+      "comunas": ["Cobquecura", "Coelemu", "Ninhue", "Portezuelo", "Quirihue", "Ránquil", "Treguaco", "Bulnes", "Chillán Viejo", "Chillán", "El Carmen", "Pemuco", "Pinto", "Quillón", "San Ignacio", "Yungay", "Coihueco", "Ñiquén", "San Carlos", "San Fabián", "San Nicolás"] },
+
+    {
+      "NombreRegion": "Región del Biobío",
+      "comunas": ["Concepción", "Coronel", "Chiguayante", "Florida", "Hualqui", "Lota", "Penco", "San Pedro de la Paz", "Santa Juana", "Talcahuano", "Tomé", "Hualpén", "Lebu", "Arauco", "Cañete",   "Contulmo", "Curanilahue", "Los Álamos", "Tirúa", "Los Ángeles", "Antuco", "Cabrero", "Laja", "Mulchén", "Nacimiento", "Negrete", "Quilaco", "Quilleco", "San Rosendo", "Santa Bárbara", "Tucapel", "Yumbel", "Alto Biobío"] },
+
+    {
+      "NombreRegion": "Región de La Araucanía",
+      "comunas": ["Temuco", "Carahue", "Cunco", "Curarrehue", "Freire", "Galvarino", "Gorbea", "Lautaro", "Loncoche", "Melipeuco", "Nueva Imperial", "Padre las Casas", "Perquenco", "Pitrufquén", "Pucón", "Saavedra", "Teodoro Schmidt", "Toltén", "Vilcún", "Villarrica", "Cholchol", "Angol", "Collipulli", "Curacautín", "Ercilla", "Lonquimay", "Los Sauces", "Lumaco", "Purén", "Renaico", "Traiguén", "Victoria"] },
+
+    {
+      "NombreRegion": "Región de Los Ríos",
+      "comunas": ["Valdivia", "Corral", "Lanco", "Los Lagos", "Máfil", "Mariquina", "Paillaco", "Panguipulli", "La Unión", "Futrono", "Lago Ranco", "Río Bueno"] },
+
+    {
+      "NombreRegion": "Región de Los Lagos",
+      "comunas": ["Puerto Montt", "Calbuco", "Cochamó", "Fresia", "FruVllar", "Los Muermos", "Llanquihue", "Maullín", "Puerto Varas", "Castro", "Ancud", "Chonchi", "Curaco de Vélez", "Dalcahue", "Puqueldón", "Queilén", "Quellón", "Quemchi", "Quinchao", "Osorno", "Puerto Octay", "Purranque", "Puyehue", "Río Negro", "San Juan de la Costa", "San Pablo", "Chaitén", "Futaleufú", "Hualaihué", "Palena"] },
+
+    {
+      "NombreRegion": "Región de Aysén del General Carlos Ibáñez del Campo",
+      "comunas": ["Coihaique", "Lago Verde", "Aisén", "Cisnes", "Guaitecas", "Cochrane", "O’Higgins", "Tortel", "Chile Chico", "Río Ibáñez"] },
+
+    {
+      "NombreRegion": "Región de Magallanes y de la Antártica Chilena",
+      "comunas": ["Punta Arenas", "Laguna Blanca", "Río Verde", "San Gregorio", "Cabo de Hornos (Ex Navarino)", "AntárVca", "Porvenir", "Primavera", "Timaukel", "Natales", "Torres del Paine"] }] };
+
+
+    var htmlComunas = '<option value="0"></option>';
+
+    jQuery('#comunas').html(htmlComunas);
+
+    jQuery('#state').change(function () {
+      var iRegiones = 0;
+      var valorRegion = jQuery(this).val();
+      var htmlComuna = '<option value="0"></option>';
+      jQuery.each(RegionesYcomunas.regiones, function () {
+        if (RegionesYcomunas.regiones[iRegiones].NombreRegion == valorRegion) {
+          var iComunas = 0;
+          jQuery.each(RegionesYcomunas.regiones[iRegiones].comunas, function () {
+            htmlComuna = htmlComuna + '<option value="' + RegionesYcomunas.regiones[iRegiones].comunas[iComunas] + '">' + RegionesYcomunas.regiones[iRegiones].comunas[iComunas] + '</option>';
+            iComunas++;
+          });
+        }
+        iRegiones++;
+      });
+      jQuery('#comunas').html(htmlComuna);
+    });
+  });
+    //# sourceURL=pen.js
+    jQuery(function() {  
+
+    jQuery('.error').hide(); // Hide Warning Label. 
+
+    jQuery("input[name=submit-register]").on("click", function() {
+
+     var returnvalue;
+     returnvalue=true;
+
+       if(jQuery("select[name=study]").val() == 0) {
+
+            jQuery("label#sel_study_error").show(); // show Warning 
+            jQuery("select#sel_study").focus();  // Focus the select box      
+            returnvalue&=false;   
+
+        } else if (jQuery("select[name=study]").val() != 0) {
+
+            jQuery("label#sel_study_error").hide(); // show Warning    
+            returnvalue&=true; 
+
+        };
+
+       if(jQuery("select[name=transportation]").val() == 0) {
+
+            jQuery("label#sel_transport_error").show(); // show Warning 
+            jQuery("select#sel_transport").focus();  // Focus the select box      
+            returnvalue&=false;   
+
+        } else if (jQuery("select[name=transportation]").val() != 0) {
+
+            jQuery("label#sel_transport_error").hide(); // show Warning    
+            returnvalue&=true; 
+
+        };
+
+       if(jQuery("select[name=country2]").val() == -1) {
+            jQuery("label#sel_country2_error").show(); // show Warning 
+            jQuery("select#country2").focus();  // Focus the select box      
+            returnvalue&=false;   
+
+        } else if (jQuery("select[name=country2]").val() != 0) {
+
+            jQuery("label#sel_country2_error").hide(); // show Warning     
+            returnvalue&=true;   
+
+        };
+
+       if(jQuery("select[name=country]").val() == -1) {
+            jQuery("label#sel_country_error").show(); // show Warning 
+            jQuery("select#country").focus();  // Focus the select box      
+            returnvalue&=false;   
+
+        } else if (jQuery("select[name=country]").val() != 0) {
+
+            jQuery("label#sel_country_error").hide(); // show Warning     
+            returnvalue&=true;   
+
+        };
+
+       if(jQuery("select[name=state]").val() == null || jQuery("select[name=state]").val() == "" ) {
+            jQuery("label#sel_state_error").show(); // show Warning 
+            jQuery("select#state").focus();  // Focus the select box      
+            returnvalue&=false;   
+
+        } else if (jQuery("select[name=state]" || jQuery("select[name=state]").val() == "").val() != 0) {
+
+            jQuery("label#sel_region_error").hide(); // show Warning     
+            returnvalue&=true;   
+
+        };
+        var selectedCountry = $("select#country").children("option:selected").val();
+       if(selectedCountry == "Chile" && jQuery("select[name=comuna]").val() == 0) {
+
+            jQuery("label#sel_comuna_error").show(); // show Warning 
+            jQuery("select#sel_comuna").focus();  // Focus the select box      
+            returnvalue&=false;   
+
+        } else if (selectedCountry == "Chile" && jQuery("select[name=comuna]").val() != 0) {
+
+            jQuery("label#sel_comuna_error").hide(); // show Warning 
+            jQuery("select#sel_comuna").focus();  // Focus the select box      
+            returnvalue&=true;   
+
+        }
+        if(returnvalue == 1){
+          returnvalue=true;
+        } else {
+          returnvalue=false;
+        }
+        return returnvalue;
+
+    });
+    
+    });  // you can change jQuery with $
+</script>
+
+{% endblock %}

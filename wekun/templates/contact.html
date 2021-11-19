@@ -1,0 +1,123 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>
+	{% if request.cookies.get('languaje') == 'en' %}
+		Our Team
+	{% else %}
+		Nuestro Equipo
+	{% endif %}
+</h1>
+
+
+<div class="contact-name">
+	<h2>Ricardo <strong>Hurtubia</strong></h2>
+</div>
+<div class="contact-div">
+	<div class="contact-picture">
+		<img src="/static/rhg.jpg">
+	</div>
+	<div class="contact-info">
+		<span class="afiliacion">
+			{% if request.cookies.get('languaje') == 'en' %}
+				<strong>Assistant Professor</strong></br>
+				Department of Transport Engineering and Logistics</br>
+				School of Architecture, Design and Urban Studies</br>
+				Pontificia Universidad Católica de Chile</br>
+			{% else %}
+				<strong>Profesor Asistente</strong></br>
+				Departamento de Ingeniería de Transporte y Logística</br>
+				Facultad de Arquitectura, Diseño y Estudios Urbanos</br>
+				Pontificia Universidad Católica de Chile</br>
+			{% endif %}
+		</span>
+		<a class="page" href="http://www.hurtubia.cl/" target="_blank">hurtubia.cl/</a>
+		<span class="link"></span>
+	</div>
+
+</div>
+
+
+<div class="contact-name">
+	<h2>Hans <strong>Lobel</strong></h2>
+</div>
+<div class="contact-div">
+	<div class="contact-picture">
+		<img src="/static/hans.png">
+	</div>
+	<div class="contact-info">
+		
+		<span class="afiliacion">
+			{% if request.cookies.get('languaje') == 'en' %}
+				<strong>Assistant Professor</strong></br>
+				Department of Transport Engineering and Logistics</br>
+				Department of Computer Science</br>
+				Pontificia Universidad Católica de Chile</br>
+			{% else %}
+				<strong>Profesor Asistente</strong></br>
+				Departamento de Ingeniería de Transporte y Logística</br>
+				Departamento de Ciencias de la Computacipón</br>
+				Pontificia Universidad Católica de Chile</br>
+			{% endif %}
+		</span>
+		<a class="page" href="" target="_blank"></a>
+		<span class="link"></span>
+	</div>
+
+</div>
+
+
+<div class="contact-name">
+	<h2>Tomás <strong>Ramírez</strong></h2>
+</div>
+
+<div class="contact-div">
+	<div class="contact-picture">
+		<img src="/static/trs.jpg">
+	</div>
+	<div class="contact-info">
+		<span class="afiliacion">
+			{% if request.cookies.get('languaje') == 'en' %}
+				<strong>Student,</strong> MSc. in Engineering</br>
+				Department of Transport Engineering and Logistics</br>
+				Pontificia Universidad Católica de Chile</br>
+			{% else %}
+				<strong>Estudiante,</strong> Magíster en Ciencias de la Ingeniería</br>
+				Departamento de Ingeniería de Transporte y Logística</br>
+				Pontificia Universidad Católica de Chile</br>
+			{% endif %}
+		</span>
+		<span class="page"></span>
+		<span class="link"></span>
+	</div>
+
+</div>
+
+<div class="contact-name">
+	<h2>Tomás <strong>Rossetti</strong></h2>
+</div>
+<div class="contact-div">
+	<div class="contact-picture">
+		<img src="/static/rossetti.jpg">
+	</div>
+	<div class="contact-info">
+		
+		<span class="afiliacion">
+			{% if request.cookies.get('languaje') == 'en' %}
+				<strong>Research Assistant</strong></br>
+				Center of Sustainable Urban Development</br>
+				Pontificia Universidad Católica de Chile</br>
+			{% else %}
+				<strong>Ayudante de Investigación</strong></br>
+				Centro de Desarrollo Urbano Sustentable</br>
+				Pontificia Universidad Católica de Chile</br>
+			{% endif %}
+		</span>
+		<span class="page"></span>
+		<span class="link"></span>
+	</div>
+
+</div>
+
+
+{% endblock %}
