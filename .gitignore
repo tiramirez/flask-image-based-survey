@@ -104,7 +104,7 @@ venv.bak/
 .mypy_cache/
 
 # images from data
-*.jpg
+# /stati/c/*.jpg
 
 # Project Data base
 site.db

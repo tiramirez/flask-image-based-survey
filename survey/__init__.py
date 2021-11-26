@@ -15,6 +15,6 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///site.db'
 db = SQLAlchemy(app)
 
 # Import and register the blueprint
-from wekun import auth
+from survey import auth
 app.register_blueprint(auth.bp)
 app.add_url_rule('/', endpoint='index')

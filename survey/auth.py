@@ -2,10 +2,10 @@ import functools
 from flask import (
     Blueprint, flash, g, redirect, render_template, request, session, url_for, make_response
 )
-from wekun import app, db
+from survey import app, db
 from sqlalchemy import func
-from wekun.models import Users, Answers
-from wekun.data import IMAGES
+from survey.models import Users, Answers
+from survey.data import IMAGES
 import random
 import uuid 
 # from mod_python import apache
