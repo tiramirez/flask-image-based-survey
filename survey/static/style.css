@@ -1,151 +1,916 @@
 html { 
 	font-family: sans-serif; 
-	background: lightgray; 
+	background: #343536; 
 	padding: 1rem;
 }
 body { 
 	max-width: 1080px;
 	margin: 0 auto;
-	background: white;
 	border-radius:10px;
+	min-width: 800px;
 }
-h1 { 
-	font-family: sans-serif ;
-	color: #363534; 
-	margin: 0.3em 0.5em 0.1em 0.5em; 
+
+#container{
+	position: relative;
 }
-a { color: white; }
+
 nav { 
-	background: #FF6F70; 
+	background: #FF6F70;
+	min-height: 30px;
 	display: flex;
+	flex-wrap: wrap;
 	align-items: center;
-	padding: 0.2em 0em 0.2em 1em;
 	border-radius:10px 10px 0px 0px;
 }
+
+.menu-foldable { 
+	display: flex;
+}
+
+section{
+	background: Gainsboro;
+	position: relative;
+  	padding: 2em;
+  	display: flex;
+  	flex-direction: column;
+}
+
+section h1{
+	font-size: 28pt;
+	margin: 0em 0em 1em 3rem;
+}
+
+
 nav h1 { 
 	color: white;
 	flex: auto; 
-	margin: 0; }
+	margin: 0;
+	font-size: 20px;
+	padding-left: 1em;
+}
+
 nav h1 a { 
 	text-decoration: none; 
 	padding: 0.25rem 0.5rem;
 }
-nav ul  { 
+
+nav #languaje-menu { 
 	display: flex; 
 	list-style: none; 
-	margin: 0em 1em 0em 1em; 
-	padding: 0; }
-
-nav ul li a, nav ul li span, header .action { display: block; padding: 0rem 0rem 0rem 0.5rem; }
-.content { 
-	padding: 0.1em 0.5em 0.1em 0.5em;
+	margin: 1em 1em 1em 1em; 
+	padding: 0; 
+	text-decoration: none; 
 }
 
-.flash { margin: 1em 0; padding: 1em; background: #cae6f6; border: 1px solid #377ba8; }
-
-.content form { 
-	margin: 0.5em ; 
-	display: flex; 
-	flex-direction: column;
-
-}
-.content label { 
-	font-weight: bold; 
-	color: #363534;
-	margin-bottom: 0.5em;
-	margin-top: 0.5em;
+nav #languaje-menu li a { 
+	padding: 0rem 0.25rem 0rem 0.25rem;
 }
 
-.content input, .content textarea { 
-	margin-bottom: 0.5em; }
 
-input.danger { color: #cc2f2e; }
+.btn{
+	text-decoration: none;
+	border: 2px solid white;
+	border-radius:10px 10px 10px 10px;
+	padding: 1em;
+	max-width: 400px;
+	z-index: 3;
+	color: white;
+	background: #FF6F70;
+	font-weight: bold;
+	width: 80%;
+	text-align: center;
+	text-transform: uppercase;
+}
 
+a { color: white; }
 
-select { border: 23px; 
-		border-color: white;
-		font-family: sans-serif; 
-		font-size: 1em; 
-		text-align: center;
-		background: lightgray;
-		margin-bottom: 0.5em;
-	}
+#top{
+	display: flex;
+	justify-content: center;
+	margin-bottom: 2em;
+	margin-top: 1em;
+}
 
-select:hover{
-	background: #FFCDD2;
+#top select{
+	font-weight: bold;
+	font-size: 16pt;
+	margin-left: 0.3em;
+	padding-left: 0.2em;
+	background: white;
+	border: none;
+	border-radius: 10px;
+}
+
+#top select * {
+	font-weight: normal;
+}
+
+#top h2 {
+	margin-bottom: 10px;
+	margin-top: 10px;
 }
 
 #grid{
-	width: 100%;
-	margin-top: 1em;
+	display: flex;
+  	flex-direction: row;
+  	margin-bottom: 2em;
 }
+
 .img_choice{
-	float: left;
-	width: 47%;
+	width: 45%;
+	height: fit-content;
+	border: 3px solid white;
+	border-bottom-width: 0px;
+	background: white;
+	padding: 0;
+	border-radius: 6px;
 }
-.image{
-	border: 2px; 
-	border-color: white;
+
+img.image{
+	width: 100%;
+	border-radius: 5px;
+}
+
+.img_choice:hover{
+	box-shadow: 0px 3px 10px 1px grey;
 }
 
 .buttons{
-    color: #000000;
-	width: 6%;
+	width: 10%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.round-btn{
+	width:2em;
+	height: 2em;
+	border-radius:100%;
+	font-size: 175%;
+	margin: 10%;
+	min-width: 40px;
+	min-height: 40px;
+	border: none;
+	background: Gainsboro;
+	box-shadow: 1px 6px 20px 1px grey;
+}
+.round-btn:hover{
+	box-shadow: 0px 3px 10px 1px grey;
+	background: grey;
+	background: #FF6F70;
+}
+
+.welcome-content{
+	padding: 0.1em 2em 0.1em 2em;
+	border-radius:0px 0px 10px 10px;
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	min-height: 600px;
+}
+.instructions{
+	display: flex;
+	flex-direction: row;
+	margin-top: 2em;
+}
+
+#btn-space{
+	height: 100%;
+	position: relative;
+	display: flex;
+	align-items: center;
+}
+
+#btn-space a {
+	display: inline-flex;
+}
+
+.text-above-instructions{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	z-index: 3;
+	width: 100%;
+	align-items: center;
+}
+
+.text-above-instructions h2{
+	font-size: 28pt;
+	text-align: center;
+	margin: 1em 0em 0em 0em;
+}
+
+.text-above-instructions p{
+	font-size: 24pt;
+	justify-content: center;
+	text-align: center;
+	padding: 0% 20% 0% 20%;
+}
+
+.diagram-instructions{
+	padding: 1em 3em 1em 3em;
+	background: white;
+	border-radius: 10px;
+	margin: 0em 0.5em 2em 0.5em;
+}
+
+.diagram-instructions #top{
+	margin-bottom: 5em;
+	margin-top: 2em;
+}
+
+
+.color-layer{
+	height: 100%;
+	width: 100%;
+	position: absolute;
+	top:0;
+	left:0;
+	background: #FFFFFF;
+	opacity: 0.5;
+	z-index: 1;
+}
+
+.text-layer{
+	top:20%;
+	display: flex;
+	flex-wrap:wrap;
+	z-index: 3;
+	opacity: 1;
+	font-size: 20pt;
+}
+
+
+.button-layer{
+	top:50%;
+	display: flex;
+	flex-wrap:wrap;
+	z-index: 3;
+	opacity: 1;
+}
+.button-layer a{
+	margin: 1em; 
+	width:100%;
+}
+
+#btn-continue{
+	margin: 1em; 
+	width:100%;
+}
+
+
+#instructions-number{
+	padding: 0.5em 0.75em 0.5em 0.75em;
+	margin-left: 0.5em;
+	background: black;
+	color: white;
+	border-radius: 50%;
+	font-size: 24pt;
+	font-weight: bolder;
+	display: block;
+}
+
+#instructions-text{
+	margin-left: 1.5em;
+	display: inline-block;
+	vertical-align: middle;
+}
+
+#tooltip {
+	position: relative;
+	display: flex;
+	z-index: 3;
+}
+
+#tooltip1 {
+	position: relative;
+	display: flex;
+	justify-content: center;
+	z-index: 3;
+}
+
+/* Tooltip text */
+#tooltip #tooltiptext, #tooltip1 #tooltiptext {
+	visibility: visible;
+	width: 500px;
+	background-color: black;
+	color: #fff;
+	text-align: center;
+	padding: 5px 0;
+	border-radius: 6px;
+
+	/* Position the tooltip text - see examples below! */
+	position: absolute;
+	z-index: 1;
+	bottom: 103%;
+	left: 50%; 
+	margin-left: -270px; /* Use half of the width (120/2 = 60), to center the tooltip */
+	font-size: 18pt;
+	display: table;
+}
+
+#tooltip #tooltiptext span, #tooltip1 #tooltiptext span{
+	display: table-cell;
+	vertical-align: middle;
+	justify-content: center;
+	padding-right: 1em;
+}
+
+#tooltip #tooltiptext::after, #tooltip1 #tooltiptext::after {
+	content: " ";
+	position: absolute;
+	top: 100%; /* At the bottom of the tooltip */
+	left: 50%;
+	margin-left: -5px;
+	border-width: 5px;
+	border-style: solid;
+	border-color: black transparent transparent transparent;
+}
+
+
+/* Tooltip text */
+#tooltip #tooltiptext-down, #tooltip1 #tooltiptext-down{
+	visibility: visible;
+	width: 400px;
+	background-color: black;
+	color: #fff;
+	text-align: center;
+	padding: 5px 0;
+	border-radius: 6px;
+ 
+	/* Position the tooltip text - see examples below! */
+	position: absolute;
+	z-index: 1;
+	top: 103%;
+	left: 50%; 
+	margin-left: -200px; /* Use half of the width (120/2 = 60), to center the tooltip */
+	font-size: 18pt;
+	display: table;
+}
+#tooltip #tooltiptext-down span, #tooltip1 #tooltiptext-down span{
+	display: table-cell;
+	vertical-align: middle;
+	justify-content: center;
+	padding-right: 1em;
+}
+
+
+#tooltip #tooltiptext-down::after, #tooltip1 #tooltiptext-down::after {
+	content: " ";
+	position: absolute;
+	bottom: 100%;  /* At the top of the tooltip */
+	left: 50%;
+	margin-left: -5px;
+	border-width: 5px;
+	border-style: solid;
+	border-color: transparent transparent black transparent;
+}
+
+.content form { 
 	display: flex;
 	flex-direction: column;
 }
 
-
-.round{
-	width:80%;
-	height: 80%;
-	margin-left: 10%;
-	border-radius:100%;
-}
-.round:hover{
-	background: #000000;
+.main-label { 
+	font-weight: bold; 
+	width: 100%; 	
+	font-size: 20px;
+	color: #363534;
+	background: none;
 }
 
-@media screen and (max-width: 640px){
+.content h3{
+	font-weight: bold;
+	font-size: 14pt;
+	padding: 0.5em;
+}
+
+.item-register, .item-register-psicometrico {
+	display: inline-flex;
+	flex-direction: row;
+	background: WhiteSmoke;
+	border: 2px solid none;
+	border-radius: 10px;
+	padding: 1em;
+	margin: 0.5em;
+}
+
+.item-register .main-label{
+	width: 40%;
+	text-align:right;
+	font-weight: bold;
+	font-size: 20px;
+	padding-right: 2em;
+
+}
+.item-register-psicometrico .label-psicometrico{
+	width: 50%;
+	text-align:right;
+	font-size: 20px;
+	padding-right: 2em;
+
+}
+
+.item-register .round, .item-register .round-label{
+	height: 1em;
+	width: 1em;
+	text-align:right;
+	font-weight: bold;
+	font-size: 20px;
+	display: inline-block;
+}
+
+.item-register .round-label{
+	margin-right: 1.5em;
+}
+
+.item-register input, .item-register select{
+	width: 50%;
+	height: 1.5em;
+	text-align:right;
+	font-weight: bold;
+	font-size: 20px;
+	background: lightgrey;
+	border-radius: 10px;
+
+}
+
+
+.checkboxgroup{
+	display: inline-block;
+	text-align: center;
+	width: 7%;
+	margin-left: 0.5em; 
+	font-weight: bold;
+	font-size: 20px;
+	background: lightgrey;
+	border-radius: 10px;
+}
+
+.checkboxgroup input{
+	height: 1em;
+	width: 2em;
+
+}
+
+.checkboxgroup label {
+  display: block;
+}
+
+.disclaimer{
+	font-size: 12pt;
+	font-weight: bold;
+	display: flex;
+}
+.disclaimer p{
+	margin: 0.5em;
+}
+
+.disclaimer #star{
+	font-size: 32pt;
+}
+
+
+#botones-register{
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+}
+#botones-register a, #botones-register input{
+	margin: 1em;
+	font-size: 14pt;
+}
+
+
+.contact-div{
+	display: inline-flex;
+	padding:1em 3em 2em 3em;
+}
+.contact-name{
+	padding-left: 3em;
+}
+.contact-name h2{
+	margin: 0;
+	font-weight: normal;
+}
+
+
+.contact-picture img{
+	width: 200px;
+	height: auto;
+	float: left;
+	padding: 0em 1em 0em 0em;
+}
+.contact-info{
+	float: left;
+}
+
+/* ------------------------------------------------ */
+
+
+footer {
+	background: #747576; 
+	padding: 0.2em 0em 0.2em 1em;
+	border-radius:0px 0px 10px 10px;
+	display: none;
+}
+
+.menu-foldable ul {
+	margin: 0; 
+	padding: 0;
+	list-style: none;
+	overflow: hidden;
+}
+
+.menu-foldable li a {
+	display: block;
+	padding: 0.5rem 0rem 0.5rem 0.5rem;
+	background: grey;
+	border-right: 1px solid #f4f4f4;
+	text-decoration: none;
+	color: white; 
+}
+
+.menu-foldable li a:hover,
+nav .menu-btn:hover {
+background-color: #f4f4f4;
+}
+
+/* menu */
+
+.menu-foldable .menu {
+  clear: both;
+  max-height: 0;
+  transition: max-height .2s ease-out;
+  width: 100vw;
+}
+
+nav .menu-icon {
+  cursor: pointer;
+  display: inline-block;
+  padding: 1em;
+  position: relative;
+  user-select: none;
+}
+
+nav .menu-icon .navicon {
+  background: #333;
+  display: block;
+  height: 2px;
+  position: relative;
+  transition: background .2s ease-out;
+  width: 18px;
+}
+
+nav .menu-icon .navicon:before,
+nav .menu-icon .navicon:after {
+  background: #333;
+  content: '';
+  display: block;
+  height: 100%;
+  position: absolute;
+  transition: all .2s ease-out;
+  width: 100%;
+}
+
+nav .menu-icon .navicon:before {
+  top: 5px;
+}
+
+nav .menu-icon .navicon:after {
+  top: -5px;
+}
+
+/* menu btn */
+
+nav .menu-btn {
+  display: none;
+}
+
+nav .menu-btn:checked ~ .menu-foldable .menu {
+  max-height: 240px;
+}
+
+nav .menu-btn:checked ~ .menu-icon .navicon {
+  background: transparent;
+}
+
+nav .menu-btn:checked ~ .menu-icon .navicon:before {
+  transform: rotate(-45deg);
+}
+
+nav .menu-btn:checked ~ .menu-icon .navicon:after {
+  transform: rotate(45deg);
+}
+
+nav .menu-btn:checked ~ .menu-icon:not(.steps) .navicon:before,
+nav .menu-btn:checked ~ .menu-icon:not(.steps) .navicon:after {
+  top: 0;
+}
+
+.instructions-responsive{
+	display: none;
+}
+.instructions{
+	display: none;
+}
+
+
+/* ---------------------------------- */
+
+div#answer-later{
+	display: flex;
+	padding-bottom: 1em;
+}
+
+@media screen and (max-width: 940px){
+	#tooltip1{
+		flex-direction: column;
+	}
+
+}
+
+@media screen and (max-width: 500px){
+	html { 
+		padding: 0rem;
+	}
+
+	body { 
+		border-radius:0px;
+		min-width: 200px;
+		width: 100vw;
+		max-height: 100vh;
+	}
+	nav {
+		border-radius:0px 0px 0px 0px;
+	}
+	#container{
+		max-height: 100%;
+	}
+
+	section{
+	  	padding: 0em 0em 0em 0em;
+	  	max-height: 100%;
+	  	height: 100vh;
+	  	background: none;
+	}
+
+	footer {
+		border-radius:0px 0px 0px 0px;
+	}
+
+	.btn {
+		-webkit-appearance: none;
+		margin-bottom: 0.5em;
+	}
+
+	#top{
+		flex-direction: column;
+		margin-bottom: 1em;
+		margin-top: 0em;
+	}
+
+	#top select{
+		font-weight: bold;
+		font-size: 16pt;
+		margin-left: 0em;
+		padding-left: 0.2em;
+		background: Gainsboro;
+	}
+
+	#top h2{
+		color: white;
+		padding: 0.5em 1em 0em 1em;
+	}
+
+	#top user-select {
+		width: 100%;
+		padding: 0em 1em 0em 1em;
+	}
 
 	#grid{
-	width: 100%;
-	height: 100%;
+	  	flex-direction: column;
+	  	margin-bottom: 0em;
 	}
+
 	.img_choice{
+		height: 80%;
 		width: 100%;
-		height: 40%;
-		float:left;
+		padding-left: 2em;	
+		padding-right: 2em;
 	}
 	#image{
 		height: 100%;
 	}
+
 	.buttons{
-	height: 30px;
-	width: 100%;
-	flex-direction: row;
-	margin-top: 5px;
-	margin-bottom: 5px;
+		width: 100%;
+		height: 70px;
+		display: flex;
+		flex-direction: row;
 	}
-	.round{
-		margin-left: 0;
-		width:25px;
-		height: 25px;
+	.round-btn{
+		-webkit-appearance: none;
+		width:50px;
+		height: 50px;
 		border-radius:100%;
-		margin-left: 15%;
-	}
-	h1,h2{
-		font-size: 20px;
-	}
-	select{
-		font-size: 20px;
-	}
-	#button_left{
-		transform: rotate(90deg);
+		font-size: 150%;
+		margin: 10%;
+		min-width: 20px;
+		min-height: 20px;
 	}
 
-	#button_right{
-		transform: rotate(90deg);
+	section h1{
+		font-size: 22pt;
+		padding: 1em 1em 0em 1rem;
+		margin: 0;
+		color: white;
+	}
+
+	.content h3, .contact-name h2,
+	.disclaimer span, .disclaimer p,  
+	section ul li{
+		color: white;
+	}
+	.contact-info span{
+		color: white;
+		font-size: 14pt;
+	}
+	section p{
+		color: white;
+		padding: 1em;
+		font-size: 14pt;
+	}
+
+	.contact-name{
+		padding-left: 1em;
+	}
+
+	.contact-div{
+		flex-direction: column;
+		padding:1em 1em 2em 1em;
+	}
+	.item-register{
+		display: inline-flex;
+		flex-direction: column;
+		padding: 0.5em;
+		margin: 0.5em;
+	}
+	.item-register-psicometrico {
+		display: inline-flex;
+		flex-wrap: wrap;
+		padding: 0.5em;
+		margin: 0.5em;
+	}
+	.item-register-psicometrico .label-psicometrico{
+		width: 100%;
+		text-align:left;
+		padding: 0.75em;
+	}
+	.checkboxgroup{
+		width: 15%;
+	}
+
+	.item-register#gender, .item-register#age{
+		display: inline-flex;
+		flex-direction: row;
+		padding: 0.5em;
+		margin: 0.5em;
+	}
+
+	.item-register .main-label{
+		width: 100%;
+		text-align:left;
+		padding-right: 0em;
+		margin-bottom: 0.2em;
+	}
+	.item-register input {
+		width: 100%;
+	}
+	.item-register select {
+		-webkit-appearance: none;
+		-moz-appearance: none;
+		width: 100%;
+	}
+
+	.text-above-instructions p{
+		padding: 0% 0% 0% 0%;
+	}
+
+
+	.instructions-responsive{
+		display: inline;
+	}
+
+	.text-above-instructions h2{
+		font-size: 22pt;
+		margin: 1em 0em 0em 0em;
+		color: white;
+	}
+
+	.text-above-instructions p{
+		font-size: 18pt;
+		padding: 0em 1em 0.25em 1em;
+	}
+
+	#responsive-grid{
+		display: flex;
+	  	flex-direction: column;
+	  	margin-bottom: 0.5em;
+	}
+	#responsive-grid h2, #responsive-grid select{
+		-webkit-appearance: none;
+		color: black;
+		font-size: 18pt;
+		width: 100%;
+		margin: 0em;
+	}
+
+	#responsive-grid .img_choice{
+		padding: 0em;
+		height: 33%;
+	}
+	.diagram-instructions{
+		padding: 1em 0.5em 1em 0.5em;
+		background: white;
+		border-radius: 10px;
+		margin: 0em 0.5em 2em 0.5em;
+	}
+
+	.diagram-instructions #top{
+		margin-bottom: 0.5em;
+		margin-top: 0em;
+	}
+	.diagram-instructions #top h2{
+		color: black;
+		padding: 0em;
+	}
+	.text-layer span{
+		color: white;
+		padding: 1em;
+
+	}
+
+}	
+
+@media (orientation: portrait){
+	.error-display{
+		display: inline;
+		justify-content: center;
+		align-items: center;
+		text-align: center;
+	}
+}
+
+@media (orientation: landscape){
+	.error-display{
+		display: none;
+	}
+}
+
+@media screen and (min-width: 501px){
+	footer{
+		display: flex;
+		align-items: center;
+	}
+
+	footer ul {
+		margin: 0;
+		padding: 0;
+		display: flex;
+		flex-direction: row;
+		justify-content: center;
+		list-style: none; 
+	}
+
+	footer li a {
+	  display: block;
+	  padding: 20px 20px;
+	  border-right: 1px solid #f4f4f4;
+	  text-decoration: none;
+	}
+
+	footer li a:hover,
+	footer .menu-btn:hover {
+	  background-color: #f4f4f4;
+	}
+
+	nav .menu-foldable{
+	    clear: none;
+	    float: right;
+	    max-height: 0px;
+	}
+
+	nav .menu-icon {
+	    display: none;
+	}
+	.instructions{
+	    display:flex;
+	}
+
+	.error-display{
+		display: none;
 	}
 
 }

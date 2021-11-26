@@ -1,0 +1,111 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<form method="post" style="display: block;">
+  {% if counter == 10 and  psico_boolean == none and answer_psico_after != 'continue-after' %}
+  <div class="text-layer">
+    {% if request.cookies.get('languaje') == 'en' %} 
+    <span>You have answered 10 questions, now you may help us with 10 more questions. You can return to the images after doing this.</span>
+    {% else %} 
+    <!-- <span>Ya ha contestado 10 preguntas, ahora podría ayudarnos con otra breve sección. Luego podrá continuar evauando imágenes.</span> -->
+    <span>Ya ha contestado 10 preguntas, para concursar por el sorteo de $30.000 debe continuar en la siguiente sección. Luego podrá continuar evauando imágenes.</span>
+    {% endif %}
+  </div>
+  <div class="button-layer">
+    <!-- <a type="submit" class="btn" name="answer" id="answer" style="background: grey; padding: 1em 1em 1em 1em;" value="Continue"> -->
+                {% if request.cookies.get('languaje') == 'en' %}
+                <input type="submit" class='btn' id='btn-continue' style="background: grey; padding: 1em 1em 1em 1em;" name="answer" value="Continue rating images">
+                <!-- Continue rating images -->
+                {% else %} 
+                <input type="submit" class='btn' id='btn-continue' style="background: grey; padding: 1em 1em 01em 1em;" name="answer" value="Seguir evaluando imágenes">
+                <!-- Seguir evaluando imágenes  -->
+                {% endif %}
+    <!-- </a> -->
+<!--           {% if request.cookies.get('languaje') == 'en' %} 
+      <input type="submit" class="btn" name="submit-register" value="Continue rating images">
+          {% else %} 
+      <input type="submit" class="btn" name="submit-register" value="Seguir evaluando imágenes ">
+          {% endif %} -->
+    <a class="btn" id="" href="{{ url_for('auth.psicometrico') }}" style="background: #FF6F70;">
+                {% if request.cookies.get('languaje') == 'en' %} 
+                Answers the new section
+                {% else %} 
+                Concursar
+                <!-- Contestar nueva sección -->
+                {% endif %}
+    </a>
+  </div>
+  {% endif %}
+
+	<div id="top">
+		    <input type="hidden" name="cookie_category" value="{{ category }}" />
+		{% if request.cookies.get('languaje') == 'en' %}
+		<h2>Which place looks</h2>
+    <select class="sel" name="category" id="sel" onchange="this.form.submit()">
+            <option value="1">like a better place to walk?</option>
+            <option value="2" href="#">like a better neighborhood to live?</option>
+            <option value="3">safer?</option>
+            <option value="4">more beautiful?</option>
+            <option value="5">wealthier?</option>
+    </select>
+    	{% else %}
+		<h2>¿Cuál le parece</h2>
+    <select class="sel" name="category" id="sel" onchange="this.form.submit()">
+            <option value="1">un mejor lugar <b>para caminar</b>?</option>
+            <option value="2">un mejor barrio <b>para vivir?</b></option>
+            <option value="3">un lugar <b>más seguro?</b></option>
+            <option value="4">un lugar <b>más bonito?</b></option>
+            <option value="5">un lugar <b>de mayor nivel de ingresos?</b></option>
+    </select>
+    	{% endif %}
+	</div>
+    <div id="grid">
+      <button class="img_choice" type="submit" name="answer" value="image_1"><img class="image" src="/static/img/{{ photo1 }}.jpg"></button>
+      <!-- <input type="submit" class="img_choice" style="background-image: url(/static/img/{{ photo1 }}.jpg); float: left;" name="answer" value="image_1"> -->
+        <!-- <input type="image" id = "image" src="/static/img/{{ photo1 }}.jpg" name="submit" value="image_1" width="100%" height="auto"> -->
+   <!--      <input type="submit" style="background-image: url(/static/img/{{ photo1 }}.jpg);" name="answer" value="image_1">
+      </div> -->
+      <div class="buttons" style="float: left">
+        <input type="submit" class="round-btn" id="button_E" name="answer" value="=">
+    	<input type="submit" class="round-btn" id="button_error" name="answer" value="X">
+      </div>
+      <button class="img_choice" type="submit" name="answer" value="image_2"><img class="image" src="/static/img/{{ photo2 }}.jpg"></button>
+    </div>
+
+    <input type="hidden" name="image_1" value="{{ photo1 }}" />
+    <input type="hidden" name="image_2" value="{{ photo2 }}" />
+</form>
+
+{% if counter >= 10  and  psico_boolean == None and answer_psico_after == 'continue-after' %}
+<div class="ten-answers-buttons" id="answer-later">
+    <a class="btn" id="" href="{{ url_for('auth.psicometrico') }}" style="background: #FF6F70;">
+                {% if request.cookies.get('languaje') == 'en' %} 
+                Answers the new section
+                {% else %} 
+                Concursar por $30.000
+                <!-- Contestar preguntas adicionales -->
+                {% endif %}
+    </a>
+</div>
+{% endif %}
+
+<div class="disclaimer">
+    {% if request.cookies.get('languaje') == 'en' %}
+              <span id="star">* </span><p>There are millions of images, so answer as many as you want and then just close the site. Thank you for helping us!</p>
+    {% else %}
+              <span id="star">* </span><p>La cantidad de imágenes es infinita, por lo que cuando no quiera evaluar más lugares solo debe cerrar la página.</br>¡Gracias por ayudarnos!</p>
+    {% endif %}
+    <!-- <h1> Has contestado {{ counter }} imágenes.</h1> -->
+  </div>
+
+<script>
+
+  $(document).ready(function(){
+    var pregunta;
+    pregunta = $("input[name=cookie_category]").val();
+    $("select > option[value="+ pregunta +"]").attr('selected','selected');
+  });
+
+</script>
+ 
+{% endblock %}
