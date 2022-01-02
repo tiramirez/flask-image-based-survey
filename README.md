@@ -2,7 +2,7 @@
 
 When working in my graduate thesis I needed to conduct an infinite survey of pair of images. Ok, it was not infinite, but I wanted it to be flexible so I could save the responses regardless of the number of questions the surveyee answered.
 
-The result of this template is here > https://image-based-ex.herokuapp.com/welcome
+The result of this template is here > https://wekun.herokuapp.com/
 
 ## Libraries
 
