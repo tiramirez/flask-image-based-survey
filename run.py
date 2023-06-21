@@ -1,4 +1,4 @@
-from survey import app 
+from app import app 
 # Initialize Flask Migrate
 # migrate = Migrate(app, db)
 
