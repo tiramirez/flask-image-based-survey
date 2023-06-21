@@ -1,4 +1,4 @@
-# Image-based survey example
+# Image-based app example
 
 When working in my graduate thesis I needed to conduct an infinite survey of pair of images. Ok, it was not infinite, but I wanted it to be flexible so I could save the responses regardless of the number of questions the surveyee answered.
 
@@ -20,7 +20,7 @@ python -m pip install -r requirements.txt
 
 
 # Run survey Locally
-## Set database URI
+## Set database URI in .\app\__init__.py
 ```
 # app.config['SQLALCHEMY_DATABASE_URI'] = os.environ['DATABASE_URL']
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///site.db'
@@ -29,15 +29,15 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///site.db'
 ## Initialize database
 ```
 python
->>> from survey import db
+>>> from app import db
 >>> db.create_all()
 >>> db.session.commit()
 >>> quit()
 ```
-This will create a new file `survey/site.db`
+This will create a new file `app/site.db`
 
 ## Run app in Localserver
 ```
-set FLASK_APP=survey
+set FLASK_APP=app
 python -m flask run
 ```

@@ -1,5 +1,5 @@
 from datetime import datetime
-from survey import db
+from app import db
 
 class Users(db.Model):
 
@@ -8,7 +8,7 @@ class Users(db.Model):
     id = db.Column(db.Integer, autoincrement=True)
     user_id = db.Column(db.String(50), primary_key=True, nullable=False) ## image id
     device_id = db.Column(db.String(50), nullable=True) ## image id
-    gender = db.Column(db.String(1), nupuyyllable=False)
+    gender = db.Column(db.String(1), nullable=False)
     age = db.Column(db.Text, nullable=False)
     create_at = db.Column(db.DateTime, nullable=False, default = datetime.utcnow)
     nationality = db.Column(db.String(50), nullable=False)
