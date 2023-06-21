@@ -4,7 +4,7 @@ When working in my graduate thesis I needed to conduct an infinite survey of pai
 
 
 Preview of the survey
-![Sample image of the survey](app\static\sample_image_survey.jpg)
+![Sample image of the survey](app/static/sample_image_survey.jpg)
 
 ## Libraries
 
