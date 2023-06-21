@@ -1,10 +1,19 @@
 # Image-based app example
 
-When working in my graduate thesis I needed to conduct an infinite survey of pair of images. Ok, it was not infinite, but I wanted it to be flexible so I could save the responses regardless of the number of questions the surveyee answered.
+When working in my graduate thesis I needed to conduct an infinite survey of pair of images. Ok, it was not infinite, but I wanted maximize the responses by only asking a single registration surveyee.
+
+The survey is split into three sections.
+* **Section 1 - Registration:**
+  Will ask seven questions to characterize the users. This info is saved in our database with a generated user_id. That same user ID is also stored in the cookies to be included in all further answers. This allows us to maximize the time each user would dedicate to our survey.
+* **Section 2 - Infinite loop of image comparisons:**
+  This section presents -randomly selected- pairs of images associated to a question addresing the users perception of the urban landscape. The users has three possible answers: Images 1 answers better than Image 2, they look the same, or Images 2 answers better than Image 1.
+* **Section 3 - Further characterization:**
+  After ten responses we showed a button on the top of the screen inviting the users to answer 10 more questions to understand their background. 
 
 
 Preview of the survey
-![Sample image of the survey](app/static/sample_image_survey.jpg)
+:----------------------|
+|![Sample image of the survey](app/static/sample_image_survey.jpg)|
 
 ## Libraries
 
