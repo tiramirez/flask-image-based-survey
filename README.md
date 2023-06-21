@@ -2,6 +2,7 @@
 
 When working in my graduate thesis I needed to conduct an infinite survey of pair of images. Ok, it was not infinite, but I wanted it to be flexible so I could save the responses regardless of the number of questions the surveyee answered.
 
+
 Preview of the survey
 ![Sample image of the survey](app\static\sample_image_survey.jpg)
 
