@@ -1,6 +1,8 @@
 # Image-based app example
 
-When working in my graduate thesis I needed to conduct an infinite survey of pair of images. Ok, it was not infinite, but I wanted maximize the responses by only asking a single registration surveyee.
+When working in my graduate thesis I needed to conduct an infinite survey of pair of images. Ok, it was not infinite, but I needed to maximize the responses by only asking a single registration surveyee. Unfortunately, all mainstream survey platforms require the survey to have a defined amount of answers per respondent. That presented two problems:
+1) It limits the randomization process of the images
+2) It forces me to set the number of answers per user
 
 The survey is split into three sections.
 * **Section 1 - Registration:**
